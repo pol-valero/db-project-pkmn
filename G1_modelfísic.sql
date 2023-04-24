@@ -487,3 +487,12 @@ CREATE TABLE State (
     PRIMARY KEY (ID_state),
     FOREIGN KEY (ID_state) REFERENCES Movement (ID_movement)
 );
+
+DROP TABLE IF EXISTS Pokemon_Movement CASCADE; 
+CREATE TABLE Pokemon_Movement (
+    ID_pokemon INTEGER,
+    ID_movement INTEGER,
+    PRIMARY KEY (ID_pokemon, ID_movement),
+    FOREIGN KEY (ID_pokemon) REFERENCES Pokemon (ID_pokemon),
+    FOREIGN KEY (ID_movement) REFERENCES Movement (ID_movement)
+);
