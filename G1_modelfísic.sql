@@ -149,3 +149,171 @@ CREATE TABLE IF NOT EXISTS Trainer_Gym (
     FOREIGN KEY (ID_trainer) REFERENCES Trainer (ID_trainer),
     FOREIGN KEY (ID_gym) REFERENCES Gym (ID_gym)
 );
+
+DROP TABLE IF EXISTS Object CASCADE;
+CREATE TABLE Object (
+    ID_object SERIAL PRIMARY KEY,
+    name VARCHAR(255),
+    cost INTEGER,
+    effect TEXT,
+    available BOOLEAN,
+    on_sale BOOLEAN
+);
+
+DROP TABLE IF EXISTS Berry CASCADE;
+CREATE TABLE Berry (
+    ID_berry SERIAL PRIMARY KEY,
+    name VARCHAR(255),
+    growth_time INTEGER,
+    max_num_harvest INTEGER,
+    natural_gift_powder INTEGER,
+    berry_avg_size INTEGER,
+    smoothness INTEGER,
+    soil_dryness INTEGER,
+    firmness VARCHAR(255),
+    FOREIGN KEY (ID_berry)
+        REFERENCES Object (ID_object)
+);
+
+DROP TABLE IF EXISTS Berry_Flavour CASCADE;
+CREATE TABLE Berry_Flavour (
+    ID_flavour SERIAL PRIMARY KEY,
+    name VARCHAR(255),
+    potency INTEGER
+);
+
+DROP TABLE IF EXISTS Berry_BerryFlavour CASCADE;
+CREATE TABLE Berry_BerryFlavour (
+    ID_berry INTEGER NOT NULL,
+    ID_flavour INTEGER NOT NULL,
+    PRIMARY KEY (ID_berry, ID_flavour),
+    FOREIGN KEY (ID_berry)
+        REFERENCES Object (ID_object),
+    FOREIGN KEY (ID_flavour)
+        REFERENCES Object (ID_object)
+);
+
+DROP TABLE IF EXISTS Collector CASCADE;
+CREATE TABLE IF NOT EXISTS Collector (
+    ID_collector SERIAL PRIMARY KEY,
+    preu_boti INTEGER
+);
+
+DROP TABLE IF EXISTS Loot CASCADE;
+CREATE TABLE Loot (
+    ID_loot SERIAL PRIMARY KEY,
+    quick_sell_price INTEGER,
+    ID_collector INTEGER,
+    FOREIGN KEY (ID_loot)
+        REFERENCES Object (ID_object),
+    FOREIGN KEY (ID_collector)
+        REFERENCES Collector (ID_collector)
+);
+
+DROP TABLE IF EXISTS Healing_Item CASCADE;
+CREATE TABLE Healing_Item (
+    ID_healing_item SERIAL PRIMARY KEY,
+    description TEXT,
+    healing INTEGER,
+    revive BOOLEAN,
+    healing_revive INTEGER,
+    FOREIGN KEY (ID_healing_item)
+        REFERENCES Object (ID_object)
+);
+
+DROP TABLE IF EXISTS Pokeball CASCADE;
+CREATE TABLE Pokeball (
+    ID_pokeball SERIAL PRIMARY KEY,
+    top_capture_rate INTEGER,
+    min_capture_rate INTEGER,
+    condition TEXT,
+    FOREIGN KEY (ID_pokeball)
+        REFERENCES Object (ID_object)
+);
+
+DROP TABLE IF EXISTS Boosting CASCADE;
+CREATE TABLE Boosting (
+    ID_boosting SERIAL PRIMARY KEY,
+    stat_increase_time INTEGER,
+    statistic INTEGER,
+    FOREIGN KEY (ID_boosting)
+        REFERENCES Object (ID_object)
+);
+
+DROP TABLE IF EXISTS Technical_Machine CASCADE;
+CREATE TABLE Technical_Machine (
+    ID_machine SERIAL PRIMARY KEY,
+    ID_move INTEGER,
+    FOREIGN KEY (ID_machine)
+        REFERENCES Object (ID_object),
+    FOREIGN KEY (ID_move)
+        REFERENCES Move (ID_move)
+);
+
+
+DROP TABLE IF EXISTS Store CASCADE;
+CREATE TABLE Store (
+    ID_store SERIAL PRIMARY KEY,
+    name VARCHAR(255),
+    floors INTEGER,
+    ID_city INTEGER,
+    FOREIGN KEY(ID_city)
+        REFERENCES City (ID_city)
+);
+
+DROP TABLE IF EXISTS Store_Object CASCADE;
+CREATE TABLE Store_Object (
+    ID_store INTEGER NOT NULL,
+    ID_object INTEGER NOT NULL,
+    discount INTEGER,
+    stock INTEGER,  
+    PRIMARY KEY (ID_store, ID_object),
+    FOREIGN KEY(ID_store)
+        REFERENCES Store (ID_store),
+    FOREIGN KEY(ID_object)
+        REFERENCES Object (ID_object)
+);
+
+DROP TABLE IF EXISTS Sale CASCADE;
+CREATE TABLE Sale (
+    ID_sale SERIAL PRIMARY KEY,
+    cost INTEGER,
+    ID_trainer INTEGER,
+    ID_object INTEGER,
+    ID_store INTEGER,
+    FOREIGN KEY (ID_trainer)
+        REFERENCES Trainer (ID_trainer),
+    FOREIGN KEY (ID_object)
+        REFERENCES Object (ID_object),
+    FOREIGN KEY (ID_store)
+        REFERENCES Store (ID_store)
+);
+
+DROP TABLE IF EXISTS Purchase CASCADE;
+CREATE TABLE Purchase (
+    ID_purchase SERIAL PRIMARY KEY,
+    cost INTEGER,
+    ID_trainer INTEGER,
+    ID_object INTEGER,
+    ID_store INTEGER,
+    discount INTEGER,
+    date_time DATE, 
+    amount INTEGER,
+    FOREIGN KEY (ID_trainer)
+        REFERENCES Trainer (ID_trainer),
+    FOREIGN KEY (ID_object)
+        REFERENCES Object (ID_object),
+    FOREIGN KEY (ID_store)
+        REFERENCES Store (ID_store)
+);
+
+DROP TABLE IF EXISTS Pokemon_Object CASCADE;
+CREATE TABLE Pokemon_Object(
+    ID_pokemon INTEGER NOT NULL,
+    ID_object INTEGER NOT NULL,
+    PRIMARY KEY (ID_pokemon, ID_object),
+    FOREIGN KEY(ID_pokemon)
+        REFERENCES Pokemon (ID_pokemon),
+    FOREIGN KEY(ID_object)
+        REFERENCES Object (ID_object)
+);
