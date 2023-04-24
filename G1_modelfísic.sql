@@ -317,3 +317,173 @@ CREATE TABLE Pokemon_Object(
     FOREIGN KEY(ID_object)
         REFERENCES Object (ID_object)
 );
+
+DROP TABLE IF EXISTS Battle_Result CASCADE;
+CREATE TABLE Battle_Result (
+    ID_battle INTEGER,
+    ID_pokemon INTEGER,
+    remaining_life INTEGER,
+    damage_inflicted INTEGER,  
+    damage_received INTEGER,  
+    PRIMARY KEY (ID_battle, ID_pokemon),
+    FOREIGN KEY (ID_battle) REFERENCES Battle (ID_battle),
+    FOREIGN KEY (ID_pokemon) REFERENCES Pokemon (ID_pokemon)
+);
+
+DROP TABLE IF EXISTS Battle CASCADE;
+CREATE TABLE Battle (
+    ID_battle SERIAL,
+    winner INTEGER,
+    loser INTEGER,
+    ID_gym INTEGER,
+    start_datetime TIMESTAMP,
+    duration INTEGER,
+    exp_reward, INTEGER
+    gold_reward, INTEGER
+    PRIMARY KEY (ID_battle),
+    FOREIGN KEY (winner) REFERENCES Trainer (ID_trainer),
+    FOREIGN KEY (loser) REFERENCES Trainer (ID_trainer),
+    FOREIGN KEY (ID_gym) REFERENCES Gym (ID_gym)
+);
+
+DROP TABLE IF EXISTS Nature CASCADE;
+CREATE TABLE Nature (
+    ID_nature SERIAL,
+    likes_flavour INTEGER,
+    dislikes_flavour INTEGER,
+    incremented_stat INTEGER,
+    decremented_stat INTEGER,
+    name VARCHAR(255),
+    PRIMARY KEY (ID_natura),
+    FOREIGN KEY (likes_flavour) REFERENCES Berry_Flavour (ID_flavour),
+    FOREIGN KEY (dislikes_flavour) REFERENCES Berry_Flavour (ID_flavour),
+    FOREIGN KEY (incremented_stat) REFERENCES Stat (ID_stat),
+    FOREIGN KEY (decremented_stat) REFERENCES Stat (ID_stat)
+);
+
+DROP TABLE IF EXISTS Team CASCADE;
+CREATE TABLE Team (
+    ID_team SERIAL,
+    ID_trainer INTEGER,
+    PRIMARY KEY (ID_team),
+    FOREIGN KEY (ID_trainer) REFERENCES Trainer (ID_trainer)
+);
+
+DROP TABLE IF EXISTS Trainer CASCADE;
+CREATE TABLE Trainer (
+    ID_trainer SERIAL,
+    name VARCHAR(255),
+    exp_points INTEGER,
+    gold INTEGER, 
+    class VARCHAR(255),
+    gift_item INTEGER,
+    PRIMARY KEY (ID_trainer),
+    FOREIGN KEY (gift_item) REFERENCES Object (ID_object),
+);
+
+DROP TABLE IF EXISTS Villain CASCADE;
+CREATE TABLE Villain (
+    ID_villain INT,
+    steal_money INT,
+    iconic_sentence VARCHAR(255),
+    buddy INT,
+    ID_org INT,
+    PRIMARY KEY (ID_villain),
+    FOREIGN KEY (buddy) REFERENCES Villain (ID_villain),
+    FOREIGN KEY (ID_org) REFERENCES Criminal_Org (ID_org),
+    FOREIGN KEY (ID_villain) REFERENCES Trainer (ID_trainer),
+);
+
+DROP TABLE IF EXISTS Gym_Leader CASCADE;
+CREATE TABLE Gym_Leader (
+    ID_gym_leader INT,
+    PRIMARY KEY (ID_gym_leader),
+    FOREIGN KEY (ID_gym_leader) REFERENCES Trainer (ID_trainer)
+);
+
+DROP TABLE IF EXISTS Criminal_Org CASCADE;
+CREATE TABLE Criminal_Org (
+    ID_org INTEGER,
+    name VARCHAR(255),
+    ID_leader INTEGER,
+    ID_region INTEGER,
+    headquarters INTEGER,
+    PRIMARY KEY (ID_org),
+    FOREIGN KEY (ID_leader) REFERENCES Villain (ID_Villain),
+    FOREIGN KEY (ID_region) REFERENCES Region (ID_region),
+    FOREIGN KEY (headquarters) REFERENCES Area (ID_area)
+);
+
+DROP TABLE IF EXISTS Trainer_Object CASCADE;
+CREATE TABLE Trainer_Object (
+    ID_trainer INTEGER,
+    ID_object INTEGER,
+    obtention_method VARCHAR(255),
+    datetime TIMESTAMP,  
+    PRIMARY KEY (ID_trainer, ID_object),
+    FOREIGN KEY (ID_trainer) REFERENCES Trainer (ID_trainer),
+    FOREIGN KEY (ID_object) REFERENCES Object (ID_object)
+);
+
+DROP TABLE IF EXISTS Trainer_Defeats_Gym CASCADE;
+CREATE TABLE Trainer_Defeats_Gym (
+    ID_trainer INTEGER,
+    ID_gym INTEGER,
+    PRIMARY KEY (ID_trainer, ID_gym),
+    FOREIGN KEY (ID_trainer) REFERENCES Trainer (ID_trainer),
+    FOREIGN KEY (ID_gym) REFERENCES Gym (ID_gym)
+);
+
+DROP TABLE IF EXISTS Trainer_Badge CASCADE; 
+CREATE TABLE Trainer_Badge (
+    ID_trainer INTEGER,
+    ID_badge INTEGER,
+    PRIMARY KEY (ID_trainer, ID_badge),
+    FOREIGN KEY (ID_trainer) REFERENCES Trainer (ID_trainer),
+    FOREIGN KEY (ID_badge) REFERENCES Badge (ID_badge)
+);
+
+DROP TABLE IF EXISTS Movement CASCADE;
+CREATE TABLE Movement (
+    ID_movement SERIAL,
+    name VARCHAR(255),
+    precision INT, 
+    power INT, 
+    damage_class VARCHAR(255),
+    priority_place INT,
+    objective_type VARCHAR(255),
+    special_effect VARCHAR(255),
+    ID_type INT,
+    min_hits INT,
+    max_hits INT,
+    stat_change_rate INT,
+    change_amount INT, 
+    ID_stat INT,
+    PRIMARY KEY (ID_movement),
+    FOREIGN KEY (ID_type) REFERENCES Type (ID_type),
+    FOREIGN KEY (ID_stat) REFERENCES Stat (ID_stat)
+);
+
+DROP TABLE IF EXISTS Damage CASCADE;
+CREATE TABLE Damage (
+    ID_damage INT,
+    força INT, 
+    PRIMARY KEY (ID_damage),
+    FOREIGN KEY (ID_damage) REFERENCES Movement (ID_movement)
+);
+
+DROP TABLE IF EXISTS Curation CASCADE;
+CREATE TABLE Curation (
+    ID_curation INT,
+    life_points INT, 
+    PRIMARY KEY (ID_curation),
+    FOREIGN KEY (ID_curation) REFERENCES Movement (ID_movement)
+);
+
+DROP TABLE IF EXISTS State CASCADE;
+CREATE TABLE State (
+    ID_state INT,
+    status INT,
+    PRIMARY KEY (ID_state),
+    FOREIGN KEY (ID_state) REFERENCES Movement (ID_movement)
+);
