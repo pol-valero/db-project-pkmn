@@ -338,8 +338,8 @@ CREATE TABLE Battle (
     ID_gym INTEGER,
     start_datetime TIMESTAMP,
     duration INTEGER,
-    exp_reward, INTEGER
-    gold_reward, INTEGER
+    exp_reward INTEGER,
+    gold_reward INTEGER,
     PRIMARY KEY (ID_battle),
     FOREIGN KEY (winner) REFERENCES Trainer (ID_trainer),
     FOREIGN KEY (loser) REFERENCES Trainer (ID_trainer),
@@ -378,7 +378,7 @@ CREATE TABLE Trainer (
     class VARCHAR(255),
     gift_item INTEGER,
     PRIMARY KEY (ID_trainer),
-    FOREIGN KEY (gift_item) REFERENCES Object (ID_object),
+    FOREIGN KEY (gift_item) REFERENCES Object (ID_object)
 );
 
 DROP TABLE IF EXISTS Villain CASCADE;
@@ -391,7 +391,7 @@ CREATE TABLE Villain (
     PRIMARY KEY (ID_villain),
     FOREIGN KEY (buddy) REFERENCES Villain (ID_villain),
     FOREIGN KEY (ID_org) REFERENCES Criminal_Org (ID_org),
-    FOREIGN KEY (ID_villain) REFERENCES Trainer (ID_trainer),
+    FOREIGN KEY (ID_villain) REFERENCES Trainer (ID_trainer)
 );
 
 DROP TABLE IF EXISTS Gym_Leader CASCADE;
