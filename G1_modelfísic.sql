@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS Trainer_Badge (
     ID_trainer INTEGER,
     ID_badge INTEGER,
 	PRIMARY KEY (ID_trainer, ID_badge),
-    FOREIGN KEY (ID_trainer) REFERENCES Entrenador (ID_trainer),
+    FOREIGN KEY (ID_trainer) REFERENCES Trainer (ID_trainer),
     FOREIGN KEY (ID_badge) REFERENCES Badge (ID_badge)
 );
 
