@@ -1,3 +1,50 @@
+--Ability 
+
+DROP TABLE IF EXISTS Ability CASCADE;
+CREATE TABLE IF NOT EXISTS Ability (
+    ID_ability SERIAL PRIMARY KEY,
+    name VARCHAR(10000),
+    effect VARCHAR(10000),
+    short_effect TEXT 
+);
+
+--Types
+
+DROP TABLE IF EXISTS Types CASCADE;
+CREATE TABLE IF NOT EXISTS Types (
+    ID_type SERIAL PRIMARY KEY, 
+    name VARCHAR(255) 
+);
+
+-- Relation
+DROP TABLE IF EXISTS Relation CASCADE;
+CREATE TABLE IF NOT EXISTS Relation (
+ID_type1 INTEGER,
+ID_type2 INTEGER,
+multiplier VARCHAR(255),
+PRIMARY KEY (ID_type1, ID_type2),
+FOREIGN KEY (ID_type1) REFERENCES Types (ID_type),
+FOREIGN KEY (ID_type2) REFERENCES Types (ID_type)
+);
+
+-- Growth_rates
+DROP TABLE IF EXISTS Growth_rates CASCADE;
+CREATE TABLE IF NOT EXISTS Growth_rates (
+    ID_growth_rate SERIAL PRIMARY KEY,
+    name VARCHAR (255),
+    formula TEXT, 
+    level INT, 
+    experience BIGINT 
+);
+
+-- Stat
+
+DROP TABLE IF EXISTS Stat CASCADE; 
+CREATE TABLE IF NOT EXISTS Stat (
+    ID_stat SERIAL PRIMARY KEY,
+    stat_name  VARCHAR(255) 
+);
+
 -- Region
 DROP TABLE IF EXISTS Region CASCADE;
 CREATE TABLE Region (
@@ -64,6 +111,31 @@ CREATE TABLE Leader (
 
 -- Specie
 
+DROP TABLE IF EXISTS Spiece CASCADE; 
+CREATE TABLE IF NOT EXISTS Spiece (
+    ID_spiece SERIAL PRIMARY KEY,
+    name VARCHAR(255), 
+    base_experience INT, 
+    height INTEGER, 
+    weight INTEGER,
+    dex_order INT,
+    growth_rate_id INTEGER, 
+    FOREIGN KEY (growth_rate_id) REFERENCES Growth_rates (ID_growth_rate)
+);
+
+-- Spiece_ability
+
+DROP TABLE IF EXISTS Spiece_ability CASCADE;
+CREATE TABLE IF NOT EXISTS Spiece_ability (
+    ID_spiece INTEGER,
+    ID_ability INTEGER, 
+    PRIMARY KEY (ID_ability, ID_spiece),
+    FOREIGN KEY (ID_ability) REFERENCES Ability (ID_ability),
+    FOREIGN KEY (ID_spiece) REFERENCES Spiece (ID_spiece),
+    slot INTEGER,
+    is_hidden BOOLEAN
+);
+
 -- Gym
 DROP TABLE IF EXISTS Gym CASCADE;
 CREATE TABLE Gym (
@@ -90,6 +162,7 @@ CREATE TABLE City (
 );
 
 -- Trainer + Badge
+
 DROP TABLE IF EXISTS Trainer_Badge CASCADE;
 CREATE TABLE Trainer_Badge (
     ID_trainer INTEGER,
@@ -124,7 +197,6 @@ CREATE TABLE Condition_Type (
     condition_value VARCHAR(255)
 );
 
--- Specie
 
 -- Condition Type + Specie + Subarea + Method
 DROP TABLE IF EXISTS Specie_Subarea_Condition_Method CASCADE;
@@ -497,3 +569,85 @@ CREATE TABLE Pokemon_Movement (
     FOREIGN KEY (ID_pokemon) REFERENCES Pokemon (ID_pokemon),
     FOREIGN KEY (ID_movement) REFERENCES Movement (ID_movement)
 );
+
+DROP TABLE IF EXISTS Pokemon CASCADE;
+CREATE TABLE IF NOT EXISTS Pokemon (
+    ID_pokemon SERIAL PRIMARY KEY, 
+    nickname VARCHAR (255), 
+    ownerid INTEGER,  
+    level INT, 
+    experience INT,
+    gender VARCHAR (255),
+    --nature VARCHAR (255),
+   --item VARCHAR (255),
+    --datetime TIMESTAMP,
+    --position VARCHAR (255) NOT NULL, 
+    --salut_restant INT NOT NULL, 
+    --inflingit_status BOOLEAN NOT NULL, 
+
+    
+    ID_growth_rate INTEGER,
+    --ID_pokeball INTEGER,
+    ID_spiece INTEGER,
+    --ID_trainer INTEGER,
+    --ID_nature INTEGER,
+    --ID_team INTEGER,
+    --ID_area INTEGER, 
+    --ID_stat INTEGER,
+
+    FOREIGN KEY (ID_growth_rate) REFERENCES Growth_rates (ID_growth_rate),
+    --FOREIGN KEY (ID_pokeball) REFERENCES Pokeball (ID_pokeball),
+    -- esta FK es de especie y hay que convertirla 
+    FOREIGN KEY (ID_spiece) REFERENCES Spiece (ID_spiece),
+    --FOREIGN KEY (ID_trainer) REFERENCES Trainer (ID_trainer),
+    --FOREIGN KEY (ID_nature) REFERENCES Nature (ID_nature),
+    --FOREIGN KEY (ID_team) REFERENCES Team (ID_team),
+    --FOREIGN KEY (ID_area) REFERENCES Area (ID_area),
+    --FOREIGN KEY (ID_stat) REFERENCES Stat (ID_stat)
+);
+
+ DROP TABLE IF EXISTS Pokemon_Stat CASCADE;
+ CREATE TABLE IF NOT EXISTS Pokemon_Stat(
+    ID_pokemon INTEGER,
+    ID_stat INTEGER, 
+    PRIMARY KEY (ID_pokemon, ID_stat),
+    FOREIGN KEY (ID_pokemon) REFERENCES Pokemon (ID_pokemon),
+    FOREIGN KEY (ID_stat) REFERENCES Stat (ID_stat),
+    base_stat INTEGER,
+    effort INTEGER 
+ );
+
+
+DROP TABLE IF EXISTS Pokemon_Types CASCADE;
+CREATE TABLE IF NOT EXISTS Pokemon_Types (
+    ID_pokemon INTEGER, 
+    ID_type INTEGER,
+    PRIMARY KEY (ID_pokemon, ID_type),
+    FOREIGN KEY (ID_pokemon) REFERENCES Pokemon (ID_pokemon),
+    FOREIGN KEY (ID_type) REFERENCES Types (ID_type)
+    -- añadir el segundo tip aqui 
+);
+
+DROP TABLE IF EXISTS Evolve CASCADE;
+CREATE TABLE IF NOT EXISTS Evolve (
+    ID_base INTEGER,
+    ID_evolution INTEGER,
+    PRIMARY KEY (ID_base, ID_evolution),
+    time VARCHAR (255), 
+    gender VARCHAR(255),
+    location VARCHAR(255),
+    min_happiness VARCHAR (255),
+    min_level INTEGER,
+    item VARCHAR(255),
+    is_baby BOOLEAN,
+    trigger VARCHAR(255),
+    know_move VARCHAR(255),
+    ID_pokemon INTEGER,
+    --ID_object INTEGER,
+    --ID_area INTEGER,
+    FOREIGN KEY (ID_pokemon) REFERENCES Pokemon (ID_pokemon)
+    --FOREIGN KEY (ID_object) REFERENCES Object (ID_object) 
+    --FOREIGN KEY (ID_area) REFERENCES Area (ID_area)  
+
+);
+
