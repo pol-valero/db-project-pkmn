@@ -1,13 +1,13 @@
 -- Region
 DROP TABLE IF EXISTS Region CASCADE;
-CREATE TABLE IF NOT EXISTS Region (
+CREATE TABLE Region (
     ID_region SERIAL PRIMARY KEY,
     name VARCHAR(255)
 );
 
 -- Area
 DROP TABLE IF EXISTS Area CASCADE;
-CREATE TABLE IF NOT EXISTS Area (
+CREATE TABLE Area (
     ID_area SERIAL PRIMARY KEY,
     name VARCHAR(255),
     ID_region INTEGER,
@@ -16,14 +16,14 @@ CREATE TABLE IF NOT EXISTS Area (
 
 -- Pavement
 DROP TABLE IF EXISTS Pavement CASCADE;
-CREATE TABLE IF NOT EXISTS Pavement (
+CREATE TABLE Pavement (
     ID_pavement SERIAL PRIMARY KEY,
     type VARCHAR(255)
 );
 
 -- Route
 DROP TABLE IF EXISTS Route CASCADE;
-CREATE TABLE IF NOT EXISTS Route (
+CREATE TABLE Route (
     ID_route SERIAL PRIMARY KEY,
     km_length INTEGER,
     ID_pavement INTEGER,
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS Route (
 
 -- Route + Area
 DROP TABLE IF EXISTS Route_Area CASCADE;
-CREATE TABLE IF NOT EXISTS Route_Area (
+CREATE TABLE Route_Area (
     ID_area INTEGER,
     ID_route INTEGER,
     route_cardinal_point VARCHAR(255),
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS Route_Area (
 
 -- Badge
 DROP TABLE IF EXISTS Badge CASCADE;
-CREATE TABLE IF NOT EXISTS Badge (
+CREATE TABLE Badge (
     ID_badge SERIAL PRIMARY KEY,
     nom VARCHAR(255) NOT NULL
 );
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS Badge (
 
 -- Leader
 DROP TABLE IF EXISTS Leader CASCADE;
-CREATE TABLE IF NOT EXISTS Leader (
+CREATE TABLE Leader (
     ID_leader SERIAL PRIMARY KEY,
     FOREIGN KEY (ID_leader) REFERENCES Trainer (ID_trainer)
 );
@@ -65,7 +65,8 @@ CREATE TABLE IF NOT EXISTS Leader (
 -- Specie
 
 -- Gym
-CREATE TABLE IF NOT EXISTS Gym (
+DROP TABLE IF EXISTS Gym CASCADE;
+CREATE TABLE Gym (
     ID_gym SERIAL PRIMARY KEY,
     name VARCHAR(255),
     ID_badge INTEGER,
@@ -80,7 +81,7 @@ CREATE TABLE IF NOT EXISTS Gym (
 
 -- City
 DROP TABLE IF EXISTS City CASCADE;
-CREATE TABLE IF NOT EXISTS City (
+CREATE TABLE City (
     ID_city SERIAL PRIMARY KEY,
     ID_gym INTEGER,
     population INTEGER,
@@ -90,7 +91,7 @@ CREATE TABLE IF NOT EXISTS City (
 
 -- Trainer + Badge
 DROP TABLE IF EXISTS Trainer_Badge CASCADE;
-CREATE TABLE IF NOT EXISTS Trainer_Badge (
+CREATE TABLE Trainer_Badge (
     ID_trainer INTEGER,
     ID_badge INTEGER,
 	PRIMARY KEY (ID_trainer, ID_badge),
@@ -100,7 +101,7 @@ CREATE TABLE IF NOT EXISTS Trainer_Badge (
 
 -- Subarea
 DROP TABLE IF EXISTS Subarea CASCADE;
-CREATE TABLE IF NOT EXISTS Subarea (
+CREATE TABLE Subarea (
     ID_subarea SERIAL PRIMARY KEY,
     name VARCHAR(255),
     ID_area INTEGER,   -- Subarea cannot exist without Area
@@ -110,14 +111,14 @@ CREATE TABLE IF NOT EXISTS Subarea (
 
 -- Method
 DROP TABLE IF EXISTS Encounter_Method CASCADE;
-CREATE TABLE IF NOT EXISTS Encounter_Method (
+CREATE TABLE Encounter_Method (
     ID_method SERIAL PRIMARY KEY,
     method_type VARCHAR(255)
 );
 
 -- Condition Type
 DROP TABLE IF EXISTS Condition_Type CASCADE;
-CREATE TABLE IF NOT EXISTS Condition_Type (
+CREATE TABLE Condition_Type (
     ID_condition SERIAL PRIMARY KEY,
     condition_type VARCHAR(255),
     condition_value VARCHAR(255)
@@ -127,7 +128,7 @@ CREATE TABLE IF NOT EXISTS Condition_Type (
 
 -- Condition Type + Specie + Subarea + Method
 DROP TABLE IF EXISTS Specie_Subarea_Condition_Method CASCADE;
-CREATE TABLE IF NOT EXISTS Specie_Subarea_Condition_Method (
+CREATE TABLE Specie_Subarea_Condition_Method (
     ID_method INTEGER,
     ID_subarea INTEGER,
     ID_specie INTEGER,
@@ -142,7 +143,7 @@ CREATE TABLE IF NOT EXISTS Specie_Subarea_Condition_Method (
 
 -- Trainer + Gym
 DROP TABLE IF EXISTS Trainer_Gym CASCADE;
-CREATE TABLE IF NOT EXISTS Trainer_Gym (
+CREATE TABLE Trainer_Gym (
     ID_trainer SERIAL,
     ID_gym SERIAL,
 	PRIMARY KEY (ID_trainer, ID_gym),
@@ -193,8 +194,7 @@ CREATE TABLE Berry_BerryFlavour (
         REFERENCES Object (ID_object)
 );
 
-DROP TABLE IF EXISTS 
-CASCADE;
+DROP TABLE IF EXISTS Collector CASCADE;
 CREATE TABLE IF NOT EXISTS Collector (
     ID_collector SERIAL PRIMARY KEY,
     collector_price INTEGER
