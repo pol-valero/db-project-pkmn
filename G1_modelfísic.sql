@@ -248,7 +248,7 @@ CREATE TABLE Technical_Machine (
     FOREIGN KEY (ID_machine)
         REFERENCES Object (ID_object),
     FOREIGN KEY (ID_move)
-        REFERENCES Move (ID_move)
+        REFERENCES Movement (ID_move)
 );
 
 
