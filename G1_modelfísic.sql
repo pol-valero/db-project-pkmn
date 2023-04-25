@@ -193,10 +193,11 @@ CREATE TABLE Berry_BerryFlavour (
         REFERENCES Object (ID_object)
 );
 
-DROP TABLE IF EXISTS Collector CASCADE;
+DROP TABLE IF EXISTS 
+CASCADE;
 CREATE TABLE IF NOT EXISTS Collector (
     ID_collector SERIAL PRIMARY KEY,
-    preu_boti INTEGER
+    collector_price INTEGER
 );
 
 DROP TABLE IF EXISTS Loot CASCADE;
