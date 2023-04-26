@@ -530,7 +530,7 @@ CREATE TABLE Villain (
 
 DROP TABLE IF EXISTS Criminal_Org CASCADE;
 CREATE TABLE Criminal_Org (
-    ID_org INTEGER,
+    ID_org SERIAL,
     name VARCHAR(255),
     ID_leader INTEGER,
     ID_region INTEGER,
