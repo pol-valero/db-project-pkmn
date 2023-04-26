@@ -1,7 +1,7 @@
 --Ability 
 
 DROP TABLE IF EXISTS Ability CASCADE;
-CREATE TABLE IF NOT EXISTS Ability (
+CREATE TABLE Ability (
     ID_ability SERIAL PRIMARY KEY,
     name VARCHAR(10000),
     effect VARCHAR(10000),
@@ -11,14 +11,14 @@ CREATE TABLE IF NOT EXISTS Ability (
 --Types
 
 DROP TABLE IF EXISTS Types CASCADE;
-CREATE TABLE IF NOT EXISTS Types (
+CREATE TABLE Types (
     ID_type SERIAL PRIMARY KEY, 
     name VARCHAR(255) 
 );
 
 -- Relation
 DROP TABLE IF EXISTS Relation CASCADE;
-CREATE TABLE IF NOT EXISTS Relation (
+CREATE TABLE Relation (
 ID_type1 INTEGER,
 ID_type2 INTEGER,
 multiplier VARCHAR(255),
@@ -29,7 +29,7 @@ FOREIGN KEY (ID_type2) REFERENCES Types (ID_type)
 
 -- Growth_rates
 DROP TABLE IF EXISTS Growth_rates CASCADE;
-CREATE TABLE IF NOT EXISTS Growth_rates (
+CREATE TABLE Growth_rates (
     ID_growth_rate SERIAL PRIMARY KEY,
     name VARCHAR (255),
     formula TEXT, 
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS Growth_rates (
 -- Stat
 
 DROP TABLE IF EXISTS Stat CASCADE; 
-CREATE TABLE IF NOT EXISTS Stat (
+CREATE TABLE Stat (
     ID_stat SERIAL PRIMARY KEY,
     stat_name  VARCHAR(255) 
 );
@@ -111,9 +111,9 @@ CREATE TABLE Leader (
 
 -- Specie
 
-DROP TABLE IF EXISTS Spiece CASCADE; 
-CREATE TABLE IF NOT EXISTS Spiece (
-    ID_spiece SERIAL PRIMARY KEY,
+DROP TABLE IF EXISTS Specie CASCADE; 
+CREATE TABLE EXISTS Specie (
+    ID_specie SERIAL PRIMARY KEY,
     name VARCHAR(255), 
     base_experience INT, 
     height INTEGER, 
@@ -123,15 +123,15 @@ CREATE TABLE IF NOT EXISTS Spiece (
     FOREIGN KEY (growth_rate_id) REFERENCES Growth_rates (ID_growth_rate)
 );
 
--- Spiece_ability
+-- Specie_ability
 
-DROP TABLE IF EXISTS Spiece_ability CASCADE;
-CREATE TABLE IF NOT EXISTS Spiece_ability (
-    ID_spiece INTEGER,
+DROP TABLE IF EXISTS Specie_ability CASCADE;
+CREATE TABLE Specie_ability (
+    ID_specie INTEGER,
     ID_ability INTEGER, 
-    PRIMARY KEY (ID_ability, ID_spiece),
+    PRIMARY KEY (ID_ability, ID_specie),
     FOREIGN KEY (ID_ability) REFERENCES Ability (ID_ability),
-    FOREIGN KEY (ID_spiece) REFERENCES Spiece (ID_spiece),
+    FOREIGN KEY (ID_specie) REFERENCES Specie (ID_specie),
     slot INTEGER,
     is_hidden BOOLEAN
 );
@@ -267,7 +267,7 @@ CREATE TABLE Berry_BerryFlavour (
 );
 
 DROP TABLE IF EXISTS Collector CASCADE;
-CREATE TABLE IF NOT EXISTS Collector (
+CREATE TABLE Collector (
     ID_collector SERIAL PRIMARY KEY,
     collector_price INTEGER
 );
@@ -427,7 +427,7 @@ CREATE TABLE Nature (
     incremented_stat INTEGER,
     decremented_stat INTEGER,
     name VARCHAR(255),
-    PRIMARY KEY (ID_natura),
+    PRIMARY KEY (ID_nature),
     FOREIGN KEY (likes_flavour) REFERENCES Berry_Flavour (ID_flavour),
     FOREIGN KEY (dislikes_flavour) REFERENCES Berry_Flavour (ID_flavour),
     FOREIGN KEY (incremented_stat) REFERENCES Stat (ID_stat),
@@ -507,15 +507,6 @@ CREATE TABLE Trainer_Defeats_Gym (
     FOREIGN KEY (ID_gym) REFERENCES Gym (ID_gym)
 );
 
-DROP TABLE IF EXISTS Trainer_Badge CASCADE; 
-CREATE TABLE Trainer_Badge (
-    ID_trainer INTEGER,
-    ID_badge INTEGER,
-    PRIMARY KEY (ID_trainer, ID_badge),
-    FOREIGN KEY (ID_trainer) REFERENCES Trainer (ID_trainer),
-    FOREIGN KEY (ID_badge) REFERENCES Badge (ID_badge)
-);
-
 DROP TABLE IF EXISTS Movement CASCADE;
 CREATE TABLE Movement (
     ID_movement SERIAL,
@@ -571,7 +562,7 @@ CREATE TABLE Pokemon_Movement (
 );
 
 DROP TABLE IF EXISTS Pokemon CASCADE;
-CREATE TABLE IF NOT EXISTS Pokemon (
+CREATE TABLE Pokemon (
     ID_pokemon SERIAL PRIMARY KEY, 
     nickname VARCHAR (255), 
     ownerid INTEGER,  
@@ -588,7 +579,7 @@ CREATE TABLE IF NOT EXISTS Pokemon (
     
     ID_growth_rate INTEGER,
     --ID_pokeball INTEGER,
-    ID_spiece INTEGER,
+    ID_specie INTEGER,
     --ID_trainer INTEGER,
     --ID_nature INTEGER,
     --ID_team INTEGER,
@@ -598,7 +589,7 @@ CREATE TABLE IF NOT EXISTS Pokemon (
     FOREIGN KEY (ID_growth_rate) REFERENCES Growth_rates (ID_growth_rate),
     --FOREIGN KEY (ID_pokeball) REFERENCES Pokeball (ID_pokeball),
     -- esta FK es de especie y hay que convertirla 
-    FOREIGN KEY (ID_spiece) REFERENCES Spiece (ID_spiece),
+    FOREIGN KEY (ID_specie) REFERENCES Specie (ID_specie),
     --FOREIGN KEY (ID_trainer) REFERENCES Trainer (ID_trainer),
     --FOREIGN KEY (ID_nature) REFERENCES Nature (ID_nature),
     --FOREIGN KEY (ID_team) REFERENCES Team (ID_team),
@@ -607,7 +598,7 @@ CREATE TABLE IF NOT EXISTS Pokemon (
 );
 
  DROP TABLE IF EXISTS Pokemon_Stat CASCADE;
- CREATE TABLE IF NOT EXISTS Pokemon_Stat(
+ CREATE TABLE Pokemon_Stat(
     ID_pokemon INTEGER,
     ID_stat INTEGER, 
     PRIMARY KEY (ID_pokemon, ID_stat),
@@ -619,7 +610,7 @@ CREATE TABLE IF NOT EXISTS Pokemon (
 
 
 DROP TABLE IF EXISTS Pokemon_Types CASCADE;
-CREATE TABLE IF NOT EXISTS Pokemon_Types (
+CREATE TABLE Pokemon_Types (
     ID_pokemon INTEGER, 
     ID_type INTEGER,
     PRIMARY KEY (ID_pokemon, ID_type),
@@ -629,7 +620,7 @@ CREATE TABLE IF NOT EXISTS Pokemon_Types (
 );
 
 DROP TABLE IF EXISTS Evolve CASCADE;
-CREATE TABLE IF NOT EXISTS Evolve (
+CREATE TABLE Evolve (
     ID_base INTEGER,
     ID_evolution INTEGER,
     PRIMARY KEY (ID_base, ID_evolution),
