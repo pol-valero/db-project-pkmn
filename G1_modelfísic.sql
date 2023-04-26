@@ -99,8 +99,28 @@ CREATE TABLE Badge (
 );
 
 -- Object
+DROP TABLE IF EXISTS Object CASCADE;
+CREATE TABLE Object (
+    ID_object SERIAL PRIMARY KEY,
+    name VARCHAR(255),
+    cost INTEGER,
+    effect TEXT,
+    available BOOLEAN,
+    on_sale BOOLEAN
+);
 
 -- Trainer
+DROP TABLE IF EXISTS Trainer CASCADE;
+CREATE TABLE Trainer (
+    ID_trainer SERIAL,
+    name VARCHAR(255),
+    exp_points INTEGER,
+    gold INTEGER, 
+    class VARCHAR(255),
+    gift_item INTEGER,
+    PRIMARY KEY (ID_trainer),
+    FOREIGN KEY (gift_item) REFERENCES Object (ID_object)
+);
 
 -- Leader
 DROP TABLE IF EXISTS Leader CASCADE;
@@ -112,7 +132,7 @@ CREATE TABLE Leader (
 -- Specie
 
 DROP TABLE IF EXISTS Specie CASCADE; 
-CREATE TABLE EXISTS Specie (
+CREATE TABLE Specie (
     ID_specie SERIAL PRIMARY KEY,
     name VARCHAR(255), 
     base_experience INT, 
@@ -223,16 +243,6 @@ CREATE TABLE Trainer_Gym (
     FOREIGN KEY (ID_gym) REFERENCES Gym (ID_gym)
 );
 
-DROP TABLE IF EXISTS Object CASCADE;
-CREATE TABLE Object (
-    ID_object SERIAL PRIMARY KEY,
-    name VARCHAR(255),
-    cost INTEGER,
-    effect TEXT,
-    available BOOLEAN,
-    on_sale BOOLEAN
-);
-
 DROP TABLE IF EXISTS Berry CASCADE;
 CREATE TABLE Berry (
     ID_berry SERIAL PRIMARY KEY,
@@ -313,14 +323,35 @@ CREATE TABLE Boosting (
         REFERENCES Object (ID_object)
 );
 
+DROP TABLE IF EXISTS Movement CASCADE;
+CREATE TABLE Movement (
+    ID_movement SERIAL,
+    name VARCHAR(255),
+    precision INT, 
+    power INT, 
+    damage_class VARCHAR(255),
+    priority_place INT,
+    objective_type VARCHAR(255),
+    special_effect VARCHAR(255),
+    ID_type INT,
+    min_hits INT,
+    max_hits INT,
+    stat_change_rate INT,
+    change_amount INT, 
+    ID_stat INT,
+    PRIMARY KEY (ID_movement),
+    FOREIGN KEY (ID_type) REFERENCES Types (ID_type),
+    FOREIGN KEY (ID_stat) REFERENCES Stat (ID_stat)
+);
+
 DROP TABLE IF EXISTS Technical_Machine CASCADE;
 CREATE TABLE Technical_Machine (
     ID_machine SERIAL PRIMARY KEY,
-    ID_move INTEGER,
+    ID_movement INTEGER,
     FOREIGN KEY (ID_machine)
         REFERENCES Object (ID_object),
-    FOREIGN KEY (ID_move)
-        REFERENCES Movement (ID_move)
+    FOREIGN KEY (ID_movement)
+        REFERENCES Movement (ID_movement)
 );
 
 
@@ -442,18 +473,6 @@ CREATE TABLE Team (
     FOREIGN KEY (ID_trainer) REFERENCES Trainer (ID_trainer)
 );
 
-DROP TABLE IF EXISTS Trainer CASCADE;
-CREATE TABLE Trainer (
-    ID_trainer SERIAL,
-    name VARCHAR(255),
-    exp_points INTEGER,
-    gold INTEGER, 
-    class VARCHAR(255),
-    gift_item INTEGER,
-    PRIMARY KEY (ID_trainer),
-    FOREIGN KEY (gift_item) REFERENCES Object (ID_object)
-);
-
 DROP TABLE IF EXISTS Villain CASCADE;
 CREATE TABLE Villain (
     ID_villain INT,
@@ -505,27 +524,6 @@ CREATE TABLE Trainer_Defeats_Gym (
     PRIMARY KEY (ID_trainer, ID_gym),
     FOREIGN KEY (ID_trainer) REFERENCES Trainer (ID_trainer),
     FOREIGN KEY (ID_gym) REFERENCES Gym (ID_gym)
-);
-
-DROP TABLE IF EXISTS Movement CASCADE;
-CREATE TABLE Movement (
-    ID_movement SERIAL,
-    name VARCHAR(255),
-    precision INT, 
-    power INT, 
-    damage_class VARCHAR(255),
-    priority_place INT,
-    objective_type VARCHAR(255),
-    special_effect VARCHAR(255),
-    ID_type INT,
-    min_hits INT,
-    max_hits INT,
-    stat_change_rate INT,
-    change_amount INT, 
-    ID_stat INT,
-    PRIMARY KEY (ID_movement),
-    FOREIGN KEY (ID_type) REFERENCES Type (ID_type),
-    FOREIGN KEY (ID_stat) REFERENCES Stat (ID_stat)
 );
 
 DROP TABLE IF EXISTS Damage CASCADE;
@@ -589,7 +587,7 @@ CREATE TABLE Pokemon (
     FOREIGN KEY (ID_growth_rate) REFERENCES Growth_rates (ID_growth_rate),
     --FOREIGN KEY (ID_pokeball) REFERENCES Pokeball (ID_pokeball),
     -- esta FK es de especie y hay que convertirla 
-    FOREIGN KEY (ID_specie) REFERENCES Specie (ID_specie),
+    FOREIGN KEY (ID_specie) REFERENCES Specie (ID_specie)
     --FOREIGN KEY (ID_trainer) REFERENCES Trainer (ID_trainer),
     --FOREIGN KEY (ID_nature) REFERENCES Nature (ID_nature),
     --FOREIGN KEY (ID_team) REFERENCES Team (ID_team),
