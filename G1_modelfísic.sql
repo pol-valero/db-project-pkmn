@@ -411,6 +411,42 @@ CREATE TABLE Purchase (
         REFERENCES Store (ID_store)
 );
 
+DROP TABLE IF EXISTS Pokemon CASCADE;
+CREATE TABLE Pokemon (
+    ID_pokemon SERIAL PRIMARY KEY, 
+    nickname VARCHAR (255), 
+    ownerid INTEGER,  
+    level INT, 
+    experience INT,
+    gender VARCHAR (255),
+    --nature VARCHAR (255),
+   --item VARCHAR (255),
+    --datetime TIMESTAMP,
+    --position VARCHAR (255) NOT NULL, 
+    --salut_restant INT NOT NULL, 
+    --inflingit_status BOOLEAN NOT NULL, 
+
+    
+    ID_growth_rate INTEGER,
+    --ID_pokeball INTEGER,
+    ID_specie INTEGER,
+    --ID_trainer INTEGER,
+    --ID_nature INTEGER,
+    --ID_team INTEGER,
+    --ID_area INTEGER, 
+    --ID_stat INTEGER,
+
+    FOREIGN KEY (ID_growth_rate) REFERENCES Growth_rates (ID_growth_rate),
+    --FOREIGN KEY (ID_pokeball) REFERENCES Pokeball (ID_pokeball),
+    -- esta FK es de especie y hay que convertirla 
+    FOREIGN KEY (ID_specie) REFERENCES Specie (ID_specie)
+    --FOREIGN KEY (ID_trainer) REFERENCES Trainer (ID_trainer),
+    --FOREIGN KEY (ID_nature) REFERENCES Nature (ID_nature),
+    --FOREIGN KEY (ID_team) REFERENCES Team (ID_team),
+    --FOREIGN KEY (ID_area) REFERENCES Area (ID_area),
+    --FOREIGN KEY (ID_stat) REFERENCES Stat (ID_stat)
+);
+
 DROP TABLE IF EXISTS Pokemon_Object CASCADE;
 CREATE TABLE Pokemon_Object(
     ID_pokemon INTEGER NOT NULL,
@@ -420,18 +456,6 @@ CREATE TABLE Pokemon_Object(
         REFERENCES Pokemon (ID_pokemon),
     FOREIGN KEY(ID_object)
         REFERENCES Object (ID_object)
-);
-
-DROP TABLE IF EXISTS Battle_Result CASCADE;
-CREATE TABLE Battle_Result (
-    ID_battle INTEGER,
-    ID_pokemon INTEGER,
-    remaining_life INTEGER,
-    damage_inflicted INTEGER,  
-    damage_received INTEGER,  
-    PRIMARY KEY (ID_battle, ID_pokemon),
-    FOREIGN KEY (ID_battle) REFERENCES Battle (ID_battle),
-    FOREIGN KEY (ID_pokemon) REFERENCES Pokemon (ID_pokemon)
 );
 
 DROP TABLE IF EXISTS Battle CASCADE;
@@ -448,6 +472,18 @@ CREATE TABLE Battle (
     FOREIGN KEY (winner) REFERENCES Trainer (ID_trainer),
     FOREIGN KEY (loser) REFERENCES Trainer (ID_trainer),
     FOREIGN KEY (ID_gym) REFERENCES Gym (ID_gym)
+);
+
+DROP TABLE IF EXISTS Battle_Result CASCADE;
+CREATE TABLE Battle_Result (
+    ID_battle INTEGER,
+    ID_pokemon INTEGER,
+    remaining_life INTEGER,
+    damage_inflicted INTEGER,  
+    damage_received INTEGER,  
+    PRIMARY KEY (ID_battle, ID_pokemon),
+    FOREIGN KEY (ID_battle) REFERENCES Battle (ID_battle),
+    FOREIGN KEY (ID_pokemon) REFERENCES Pokemon (ID_pokemon)
 );
 
 DROP TABLE IF EXISTS Nature CASCADE;
@@ -473,6 +509,13 @@ CREATE TABLE Team (
     FOREIGN KEY (ID_trainer) REFERENCES Trainer (ID_trainer)
 );
 
+DROP TABLE IF EXISTS Gym_Leader CASCADE;
+CREATE TABLE Gym_Leader (
+    ID_gym_leader INT,
+    PRIMARY KEY (ID_gym_leader),
+    FOREIGN KEY (ID_gym_leader) REFERENCES Trainer (ID_trainer)
+);
+
 DROP TABLE IF EXISTS Villain CASCADE;
 CREATE TABLE Villain (
     ID_villain INT,
@@ -482,15 +525,7 @@ CREATE TABLE Villain (
     ID_org INT,
     PRIMARY KEY (ID_villain),
     FOREIGN KEY (buddy) REFERENCES Villain (ID_villain),
-    FOREIGN KEY (ID_org) REFERENCES Criminal_Org (ID_org),
     FOREIGN KEY (ID_villain) REFERENCES Trainer (ID_trainer)
-);
-
-DROP TABLE IF EXISTS Gym_Leader CASCADE;
-CREATE TABLE Gym_Leader (
-    ID_gym_leader INT,
-    PRIMARY KEY (ID_gym_leader),
-    FOREIGN KEY (ID_gym_leader) REFERENCES Trainer (ID_trainer)
 );
 
 DROP TABLE IF EXISTS Criminal_Org CASCADE;
@@ -505,6 +540,8 @@ CREATE TABLE Criminal_Org (
     FOREIGN KEY (ID_region) REFERENCES Region (ID_region),
     FOREIGN KEY (headquarters) REFERENCES Area (ID_area)
 );
+
+ALTER TABLE Villain ADD FOREIGN KEY (ID_org) REFERENCES Criminal_Org (ID_org);
 
 DROP TABLE IF EXISTS Trainer_Object CASCADE;
 CREATE TABLE Trainer_Object (
@@ -557,42 +594,6 @@ CREATE TABLE Pokemon_Movement (
     PRIMARY KEY (ID_pokemon, ID_movement),
     FOREIGN KEY (ID_pokemon) REFERENCES Pokemon (ID_pokemon),
     FOREIGN KEY (ID_movement) REFERENCES Movement (ID_movement)
-);
-
-DROP TABLE IF EXISTS Pokemon CASCADE;
-CREATE TABLE Pokemon (
-    ID_pokemon SERIAL PRIMARY KEY, 
-    nickname VARCHAR (255), 
-    ownerid INTEGER,  
-    level INT, 
-    experience INT,
-    gender VARCHAR (255),
-    --nature VARCHAR (255),
-   --item VARCHAR (255),
-    --datetime TIMESTAMP,
-    --position VARCHAR (255) NOT NULL, 
-    --salut_restant INT NOT NULL, 
-    --inflingit_status BOOLEAN NOT NULL, 
-
-    
-    ID_growth_rate INTEGER,
-    --ID_pokeball INTEGER,
-    ID_specie INTEGER,
-    --ID_trainer INTEGER,
-    --ID_nature INTEGER,
-    --ID_team INTEGER,
-    --ID_area INTEGER, 
-    --ID_stat INTEGER,
-
-    FOREIGN KEY (ID_growth_rate) REFERENCES Growth_rates (ID_growth_rate),
-    --FOREIGN KEY (ID_pokeball) REFERENCES Pokeball (ID_pokeball),
-    -- esta FK es de especie y hay que convertirla 
-    FOREIGN KEY (ID_specie) REFERENCES Specie (ID_specie)
-    --FOREIGN KEY (ID_trainer) REFERENCES Trainer (ID_trainer),
-    --FOREIGN KEY (ID_nature) REFERENCES Nature (ID_nature),
-    --FOREIGN KEY (ID_team) REFERENCES Team (ID_team),
-    --FOREIGN KEY (ID_area) REFERENCES Area (ID_area),
-    --FOREIGN KEY (ID_stat) REFERENCES Stat (ID_stat)
 );
 
  DROP TABLE IF EXISTS Pokemon_Stat CASCADE;
