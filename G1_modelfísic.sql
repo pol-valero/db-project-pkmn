@@ -328,11 +328,13 @@ CREATE TABLE Movement (
     ID_movement SERIAL,
     name VARCHAR(255),
     precision INT, 
+    power_points INT,
     power INT, 
     damage_class VARCHAR(255),
     priority_place INT,
     objective_type VARCHAR(255),
     special_effect VARCHAR(255),
+    probability_effect INT,
     ID_type INT,
     min_hits INT,
     max_hits INT,
@@ -532,6 +534,7 @@ DROP TABLE IF EXISTS Criminal_Org CASCADE;
 CREATE TABLE Criminal_Org (
     ID_org SERIAL,
     name VARCHAR(255),
+    building VARCHAR(255),
     ID_leader INTEGER,
     ID_region INTEGER,
     headquarters INTEGER,
@@ -566,7 +569,7 @@ CREATE TABLE Trainer_Defeats_Gym (
 DROP TABLE IF EXISTS Damage CASCADE;
 CREATE TABLE Damage (
     ID_damage INT,
-    força INT, 
+    strength INT, 
     PRIMARY KEY (ID_damage),
     FOREIGN KEY (ID_damage) REFERENCES Movement (ID_movement)
 );
@@ -583,6 +586,7 @@ DROP TABLE IF EXISTS State CASCADE;
 CREATE TABLE State (
     ID_state INT,
     status INT,
+    status_chance INT,
     PRIMARY KEY (ID_state),
     FOREIGN KEY (ID_state) REFERENCES Movement (ID_movement)
 );
