@@ -533,10 +533,13 @@ GROUP BY r.pavement;
 
 
 INSERT INTO Route(ID_route, km_length, ID_pavement)
-SELECT DISTINCT(a.ID_area), NULL, p.id_pavement FROM Area AS a
+SELECT a.ID_area, FLOOR(RANDOM() * 1000), p.id_pavement 
+FROM Area AS a
 JOIN aux_locations AS loc ON loc.area = a.name
 JOIN aux_routes AS r ON LOWER(r.route)= LOWER(a.name)
-JOIN pavement AS p ON p.type = r.pavement;
+JOIN pavement AS p ON p.type = r.pavement
+WHERE population IS NULL
+GROUP BY a.ID_area, p.id_pavement;
 
 
 --Here we should put the Route_Area INSERT
