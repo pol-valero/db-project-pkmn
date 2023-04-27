@@ -290,7 +290,7 @@ CREATE TABLE IF NOT EXISTS items_aux (
     name VARCHAR(255),
     cost INTEGER,
     effect TEXT,
-    healing INTEGER,
+    healing VARCHAR(255),
     can_revive BOOLEAN,
     statistic VARCHAR(255),
     stat_increase_time INTEGER,
@@ -427,4 +427,115 @@ FROM '/Users/Shared/BBDD-DATASETS/pokemon_instances.csv'
 DELIMITER ','
 CSV HEADER;
 
+DELETE FROM Berry;
+DELETE FROM Berry_Flavour;
+DELETE FROM Object;
+DELETE FROM Collector;
+DELETE FROM Store_Object;
+DELETE FROM Store;
+DELETE FROM Technical_Machine;
+DELETE FROM Purchase;
+DELETE FROM Boosting;
 
+-- OBJECTS
+
+-- Items
+DELETE FROM Object;
+INSERT INTO Object (id_object, name, cost, effect)
+SELECT 
+	items_aux.id,
+    items_aux.name, 
+    items_aux.cost, 
+    items_aux.effect
+FROM items_aux;
+
+-- Berry Flavour
+DELETE FROM Berry_Flavour;
+INSERT INTO Berry_Flavour(name, potency)
+SELECT  flavour, potency
+FROM berries_flavours_aux;
+
+-- Berry + Berry Flavour, TODO
+
+-- Berry
+DELETE FROM Berry;
+INSERT INTO Berry(ID_berry, name, growth_time, max_num_harvest, natural_gift_powder, berry_avg_size, smoothness, soil_dryness, firmness)
+SELECT  id, name, growth_time, max_num_harvest, natural_gift_powder, berry_avg_size, smoothness, soil_dryness, firmness
+FROM berries_aux;
+
+-- Collector
+DELETE FROM Collector;
+INSERT INTO Collector(collector_price)
+SELECT collector_price
+FROM items_aux
+WHERE collector_price IS NOT NULL;
+
+-- Loot
+DELETE FROM Loot;
+INSERT INTO Loot(quick_sell_price, ID_collector)
+SELECT quick_sell_price, Collector.ID_collector
+FROM items_aux as ia
+JOIN Collector on Collector.collector_price =  ia.collector_price
+WHERE quick_sell_price IS NOT NULL;
+
+/*
+-- Healing TODO
+DELETE FROM Healing_Item;
+INSERT INTO Healing_Item(ID_healing_item, healing, revive, healing_revive)
+SELECT id, healing, can_revive, healing
+FROM items_aux as ia
+WHERE healing IS NOT NULL;*/
+
+-- Pokeball
+DELETE FROM Pokeball;
+INSERT INTO Pokeball(ID_pokeball, top_capture_rate, min_capture_rate)
+SELECT  id, top_capture_rate, min_capture_rate
+FROM items_aux
+WHERE top_capture_rate IS NOT NULL AND min_capture_rate IS NOT NULL;
+
+-- Boosting
+DELETE FROM Boosting;
+INSERT INTO Boosting(ID_boosting, stat_increase_time, statistic)
+SELECT  id, stat_increase_time, statistic
+FROM items_aux
+WHERE stat_increase_time IS NOT NULL AND statistic IS NOT NULL;
+
+-- Technical Machine
+DELETE FROM Technical_Machine;
+INSERT INTO Technical_Machine(ID_movement)
+SELECT mov.ID_movement
+FROM items_aux as ia
+JOIN Movement as mov on ia.move = mov.name;
+
+-- Store
+ALTER TABLE Store DROP CONSTRAINT store_id_city_fkey CASCADE;
+DELETE FROM Store;
+INSERT INTO Store(ID_store, name, floors, ID_city)
+SELECT sa.storeID, sa.store_name, sa.floors, Area.ID_area
+FROM stores_aux as sa
+JOIN Area on Area.name = sa.city;
+
+-- Store Object
+ALTER TABLE Store_Object DROP CONSTRAINT store_object_id_store_fkey CASCADE;
+DELETE FROM Store_Object;
+INSERT INTO Store_Object(ID_store, ID_object, stock, discount)
+SELECT  sia.storeID, sia.itemID, sia.stock, sia.discount
+FROM store_items_aux as sia;
+
+-- Purchase
+ALTER TABLE Purchase DROP CONSTRAINT purchase_id_trainer_fkey CASCADE;
+ALTER TABLE Purchase DROP CONSTRAINT purchase_id_store_fkey CASCADE;
+DELETE FROM Purchase;
+INSERT INTO Purchase(ID_store, ID_trainer, ID_object, amount, cost, discount, date_time)
+SELECT  storeID, trainerID, itemID, amount, cost, discount, date_time
+FROM purchases_aux;
+
+-- Pokemon + Object TODO
+/* Em falta la taula Pokemon per poder fer aquesta taula
+DELETE FROM Pokemon_Object;
+INSERT INTO Pokemon_Object(ID_pokemon, ID_object)
+SELECT ID_pokemon, ID_object
+FROM Object 
+JOIN Pokemon on Pokemon.;*/
+
+SELECT * FROM Store_Object; -- Està bé que una pk es repeteixi? (id_store)
