@@ -123,10 +123,11 @@ CREATE TABLE Trainer (
 );
 
 -- Leader
-DROP TABLE IF EXISTS Leader CASCADE;
-CREATE TABLE Leader (
-    ID_leader SERIAL PRIMARY KEY,
-    FOREIGN KEY (ID_leader) REFERENCES Trainer (ID_trainer)
+DROP TABLE IF EXISTS Gym_Leader CASCADE;
+CREATE TABLE Gym_Leader (
+    ID_gym_leader INTEGER,
+    PRIMARY KEY (ID_gym_leader),
+    FOREIGN KEY (ID_gym_leader) REFERENCES Trainer (ID_trainer)
 );
 
 -- Specie
@@ -163,11 +164,11 @@ CREATE TABLE Gym (
     name VARCHAR(255),
     ID_badge INTEGER,
     ID_object INTEGER,
-    ID_leader INTEGER,
+    ID_gym_leader INTEGER,
     ID_specie INTEGER,
     FOREIGN KEY (ID_badge) REFERENCES Badge (ID_badge),
     FOREIGN KEY (ID_object) REFERENCES Object (ID_object),
-    FOREIGN KEY (ID_leader) REFERENCES Leader (ID_leader),
+    FOREIGN KEY (ID_gym_leader) REFERENCES Gym_Leader (ID_gym_leader),
     FOREIGN KEY (ID_specie) REFERENCES Specie (ID_specie)
 );
 
@@ -503,13 +504,6 @@ CREATE TABLE Team (
     ID_trainer INTEGER,
     PRIMARY KEY (ID_team),
     FOREIGN KEY (ID_trainer) REFERENCES Trainer (ID_trainer)
-);
-
-DROP TABLE IF EXISTS Gym_Leader CASCADE;
-CREATE TABLE Gym_Leader (
-    ID_gym_leader INT,
-    PRIMARY KEY (ID_gym_leader),
-    FOREIGN KEY (ID_gym_leader) REFERENCES Trainer (ID_trainer)
 );
 
 DROP TABLE IF EXISTS Villain CASCADE;
