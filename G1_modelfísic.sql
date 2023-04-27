@@ -318,7 +318,7 @@ DROP TABLE IF EXISTS Boosting CASCADE;
 CREATE TABLE Boosting (
     ID_boosting SERIAL PRIMARY KEY,
     stat_increase_time INTEGER,
-    statistic INTEGER,
+    statistic VARCHAR(255),
     FOREIGN KEY (ID_boosting)
         REFERENCES Object (ID_object)
 );
