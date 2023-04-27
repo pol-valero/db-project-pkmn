@@ -415,38 +415,32 @@ CREATE TABLE Purchase (
 
 DROP TABLE IF EXISTS Pokemon CASCADE;
 CREATE TABLE Pokemon (
-    ID_pokemon SERIAL PRIMARY KEY, 
+    ID_pokemon SERIAL, 
     nickname VARCHAR (255), 
-    ownerid INTEGER,  
     level INT, 
     experience INT,
     gender VARCHAR (255),
-    --nature VARCHAR (255),
-   --item VARCHAR (255),
-    --datetime TIMESTAMP,
-    --position VARCHAR (255) NOT NULL, 
-    --salut_restant INT NOT NULL, 
-    --inflingit_status BOOLEAN NOT NULL, 
-
-    
-    ID_growth_rate INTEGER,
-    --ID_pokeball INTEGER,
+    datetime TIMESTAMP,
+    obtention_method VARCHAR (255),
+    position INTEGER, 
+    remaining_health INTEGER, 
+    status_inflicted VARCHAR(255), 
+    ID_pokeball INTEGER,
     ID_specie INTEGER,
-    --ID_trainer INTEGER,
-    --ID_nature INTEGER,
-    --ID_team INTEGER,
-    --ID_area INTEGER, 
-    --ID_stat INTEGER,
+    ID_trainer INTEGER,
+    ID_nature INTEGER,
+    ID_item INTEGER,
+    ID_team INTEGER,
+    ID_subarea INTEGER, 
 
-    FOREIGN KEY (ID_growth_rate) REFERENCES Growth_rates (ID_growth_rate),
-    --FOREIGN KEY (ID_pokeball) REFERENCES Pokeball (ID_pokeball),
-    -- esta FK es de especie y hay que convertirla 
-    FOREIGN KEY (ID_specie) REFERENCES Specie (ID_specie)
-    --FOREIGN KEY (ID_trainer) REFERENCES Trainer (ID_trainer),
-    --FOREIGN KEY (ID_nature) REFERENCES Nature (ID_nature),
-    --FOREIGN KEY (ID_team) REFERENCES Team (ID_team),
-    --FOREIGN KEY (ID_area) REFERENCES Area (ID_area),
-    --FOREIGN KEY (ID_stat) REFERENCES Stat (ID_stat)
+    PRIMARY KEY (ID_pokemon),
+    FOREIGN KEY (ID_pokeball) REFERENCES Pokeball (ID_pokeball),
+    FOREIGN KEY (ID_specie) REFERENCES Specie (ID_specie),
+    FOREIGN KEY (ID_trainer) REFERENCES Trainer (ID_trainer),
+    FOREIGN KEY (ID_nature) REFERENCES Nature (ID_nature),
+    FOREIGN KEY (ID_item) REFERENCES Object (ID_object),
+    FOREIGN KEY (ID_team) REFERENCES Team (ID_team),
+    FOREIGN KEY (ID_subarea) REFERENCES Subarea (ID_subarea)
 );
 
 DROP TABLE IF EXISTS Pokemon_Object CASCADE;
