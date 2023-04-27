@@ -85,7 +85,7 @@ CREATE TABLE Route_Area (
     ID_area INTEGER,
     ID_route INTEGER,
     route_cardinal_point VARCHAR(255),
-	PRIMARY KEY (ID_area, ID_route),
+    PRIMARY KEY (ID_area, ID_route),
     FOREIGN KEY (ID_area) REFERENCES Area (ID_area),
     FOREIGN KEY (ID_route) REFERENCES Route (ID_route)
 );
@@ -95,7 +95,7 @@ CREATE TABLE Route_Area (
 DROP TABLE IF EXISTS Badge CASCADE;
 CREATE TABLE Badge (
     ID_badge SERIAL PRIMARY KEY,
-    nom VARCHAR(255) NOT NULL
+    name VARCHAR(255) NOT NULL
 );
 
 -- Object
@@ -188,7 +188,7 @@ DROP TABLE IF EXISTS Trainer_Badge CASCADE;
 CREATE TABLE Trainer_Badge (
     ID_trainer INTEGER,
     ID_badge INTEGER,
-	PRIMARY KEY (ID_trainer, ID_badge),
+    PRIMARY KEY (ID_trainer, ID_badge),
     FOREIGN KEY (ID_trainer) REFERENCES Trainer (ID_trainer),
     FOREIGN KEY (ID_badge) REFERENCES Badge (ID_badge)
 );
@@ -199,7 +199,6 @@ CREATE TABLE Subarea (
     ID_subarea SERIAL PRIMARY KEY,
     name VARCHAR(255),
     ID_area INTEGER,   -- Subarea cannot exist without Area
-    FOREIGN KEY (ID_subarea) REFERENCES Area (ID_area),
     FOREIGN KEY (ID_area) REFERENCES Area (ID_area)
 );
 
