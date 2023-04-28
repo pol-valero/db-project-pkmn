@@ -433,66 +433,6 @@ CSV HEADER;
 
 -------------------------------------INSERTS-------------------------------------
 
-
-
-DELETE FROM Ability;
-DELETE FROM Types;
-DELETE FROM Relation;
-DELETE FROM Growth_Rates;
-DELETE FROM Stat;
-DELETE FROM Region;
-DELETE FROM Area;
-DELETE FROM Pavement;
-DELETE FROM Route;
-DELETE FROM Route_Area;
-DELETE FROM Badge;
-DELETE FROM Object;
-DELETE FROM Trainer;
-DELETE FROM Gym_Leader;
-DELETE FROM Specie;
-DELETE FROM Specie_Ability;
-DELETE FROM Gym;
-DELETE FROM City;
-DELETE FROM Trainer_Badge;
-DELETE FROM Subarea;
-DELETE FROM Encounter_Method;
-DELETE FROM Condition_Type;
-DELETE FROM Specie_Subarea_Condition_Method;
-DELETE FROM Trainer_Gym;
-DELETE FROM Berry;
-DELETE FROM Berry_Flavour;
-DELETE FROM Berry_BerryFlavour;
-DELETE FROM Collector;
-DELETE FROM Loot;
-DELETE FROM Healing_Item;
-DELETE FROM Pokeball;
-DELETE FROM Boosting;
-DELETE FROM Movement;
-DELETE FROM Technical_Machine;
-DELETE FROM Store;
-DELETE FROM Store_Object;
-DELETE FROM Sale;
-DELETE FROM Purchase;
-DELETE FROM Pokemon;
-DELETE FROM Pokemon_Object;
-DELETE FROM Battle;
-DELETE FROM Battle_Result;
-DELETE FROM Nature;
-DELETE FROM Team;
-DELETE FROM Villain;
-DELETE FROM Criminal_Org;
-DELETE FROM Trainer_Object;
-DELETE FROM Trainer_Defeats_Gym;
-DELETE FROM Damage;
-DELETE FROM Curation;
-DELETE FROM State;
-DELETE FROM Pokemon_Movement;
-DELETE FROM Pokemon_Stat;
-DELETE FROM Pokemon_Types;
-DELETE FROM Evolve;
-
-
-
 INSERT INTO ability SELECT * FROM abilities_aux;
 
 
@@ -531,8 +471,10 @@ INSERT INTO Pavement(type)
 SELECT (r.pavement) FROM aux_routes AS r
 GROUP BY r.pavement;
 
+
 INSERT INTO Cardinal_Point(name)
 VALUES ('North'), ('East'), ('West'), ('South');
+
 
 INSERT INTO Route(ID_route, km_length, ID_pavement)
 SELECT a.ID_area, FLOOR(RANDOM() * 1000), p.id_pavement 
@@ -650,11 +592,15 @@ INSERT INTO Condition_Type(condition_type, condition_value)
 SELECT condition_type, condition_value FROM aux_encounters
 GROUP BY condition_type, condition_value;
 
+
 INSERT INTO Specie_Subarea_Condition_Method (ID_subarea, ID_method, ID_specie, chance, min_level_specie, max_level_specie, ID_condition)
-SELECT subareaid, m.ID_method, s.ID_specie, chance, min_level, max_level, c.ID_condition FROM aux_encounters as ae
+SELECT DISTINCT subareaid, m.ID_method, s.ID_specie, chance, min_level, max_level, c.ID_condition FROM aux_encounters as ae
 JOIN Encounter_Method AS m ON m.method_type = ae.method
 JOIN Condition_Type AS c ON c.condition_type = ae.condition_type AND c.condition_value = ae.condition_value
-JOIN Specie AS s ON s.name = ae.pokemon;
+JOIN Specie AS s ON s.name = ae.pokemon
+JOIN Subarea AS sub ON sub.ID_subarea = subareaid
+JOIN Area AS a ON a.ID_area = sub.ID_Area
+ORDER BY subareaID, id_method, id_specie;
 
 
 --Here we should put the Trainer_Gym INSERT
