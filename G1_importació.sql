@@ -864,26 +864,27 @@ FROM pokemon_instances_aux
 WHERE move4 IS NOT NULL;
 
 
-INSERT INTO pokemon_stat (ID_pokemon, ID_stat, base_stat, effort)
+INSERT INTO Pokemon_stat (ID_pokemon, ID_stat, base_stat, effort)
 SELECT p.index, s.id_stat, sa.base_stat, sa.effort
 FROM pokemon_aux p
 JOIN stats_aux sa ON p.pokemon = sa.pokemon
 JOIN stat s ON s.stat_name = sa.stat;
 
 
-INSERT INTO pokemon_types (ID_pokemon, ID_type, is_primary)
+INSERT INTO Pokemon_types (ID_pokemon, ID_type, is_primary)
 SELECT p.index, t.id_type, true
 FROM pokemon_aux p, types t
 WHERE p.type1 = t.name;
 
-INSERT INTO pokemon_types (ID_pokemon, ID_type, is_primary)
+INSERT INTO Pokemon_types (ID_pokemon, ID_type, is_primary)
 SELECT p.index, t.id_type, false
 FROM pokemon_aux p, types t
 WHERE p.type2 = t.name;
 
 
-INSERT INTO evolve (ID_base, ID_evolution,time, gender, location, min_happiness, min_level, item, is_baby, trigger, know_move)
-SELECT s1.id_specie, s2.id_specie,time_of_day, gender, location,min_happiness , min_level, item, is_baby, trigger, known_move 
+INSERT INTO Evolve (ID_base, ID_evolution, time, gender, location, min_happiness, min_level, item, is_baby, trigger, know_move)
+SELECT s1.id_specie, s2.id_specie, time_of_day, gender, location, min_happiness , min_level, item, is_baby, trigger, known_move 
 FROM evolutions_aux e
-JOIN specie s1 ON e.baseid = s1.name
-JOIN specie s2 ON e.evolutionid = s2.name;
+JOIN Specie s1 ON e.baseid = s1.name
+JOIN Specie s2 ON e.evolutionid = s2.name
+JOIN Area AS a ON a.ID_area = e.location;
