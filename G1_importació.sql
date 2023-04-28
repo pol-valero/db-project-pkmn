@@ -700,7 +700,7 @@ FROM purchases_aux;
 
 
 INSERT INTO Nature(ID_nature, likes_flavour, dislikes_flavour, incremented_stat, decremented_stat, name)
-SELECT n.id, CAST(bf1.ID_flavour AS varchar), CAST (bf2.ID_flavour AS varchar), CAST (s1.ID_stat AS varchar), CAST (s2.ID_stat AS varchar), n.name
+SELECT n.id, bf1.ID_flavour, bf2.ID_flavour, s1.ID_stat, s2.ID_stat, n.name
 FROM natures_aux AS n
 JOIN Berry_Flavour AS bf1 ON n.likes_flavor = bf1.name
 JOIN Berry_Flavour AS bf2 ON n.hates_flavor = bf2.name
