@@ -78,6 +78,12 @@ CREATE TABLE Route (
     FOREIGN KEY (ID_pavement) REFERENCES Pavement (ID_pavement)
 );
 
+-- Cardinal Point
+DROP TABLE IF EXISTS Cardinal_Point CASCADE;
+CREATE TABLE Cardinal_Point (
+    ID_cardinal_point SERIAL PRIMARY KEY,
+    name VARCHAR(255)
+);
 
 -- Route + Area
 DROP TABLE IF EXISTS Route_Area CASCADE;
