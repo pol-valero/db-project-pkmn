@@ -607,7 +607,7 @@ FROM pokemon_abilities_aux;
 
 
 -- Fill the Gyms table and insert a random Object ID contained in the Object table
-INSERT INTO Gym(name, ID_badge, ID.leader, ID_type, ID_Object)
+INSERT INTO Gym(name, ID_badge, ID_leader, ID_type, ID_Object)
 SELECT ag.name, b.ID_badge, l.ID_gym_leader, t.ID_type, 
   (SELECT ID_object FROM (
     SELECT ID_object, ROW_NUMBER() OVER () as ro
