@@ -232,6 +232,8 @@ CREATE TABLE Specie_Subarea_Condition_Method (
     ID_subarea INTEGER,
     ID_specie INTEGER,
     chance VARCHAR(255),
+	min_level_specie INTEGER,
+	max_level_specie INTEGER,
     ID_condition INTEGER,
 	PRIMARY KEY (ID_method, ID_subarea),
     FOREIGN KEY (ID_method) REFERENCES Encounter_Method (ID_method),
