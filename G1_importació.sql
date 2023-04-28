@@ -640,7 +640,7 @@ ORDER BY loc.subareaID ASC;
 
 
 INSERT INTO Encounter_Method(method_type)
-SELECT DISTINCT(method) FROM aux_encounters
+SELECT DISTINCT(method) FROM aux_encounters;
 
 
 INSERT INTO Condition_Type(condition_type, condition_value)
