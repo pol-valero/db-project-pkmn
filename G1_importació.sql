@@ -592,7 +592,7 @@ JOIN Object as o on o.name = ta.gift_item;
 
 INSERT INTO Gym_Leader(ID_gym_leader)
 SELECT t.id
-FROM gyms_aux AS g 
+FROM aux_gyms AS g 
 JOIN trainers_aux AS t ON g.leader = t.name;
 
 
