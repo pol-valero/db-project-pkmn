@@ -521,7 +521,7 @@ FROM aux_locations;
 
 
 INSERT INTO Area(name, ID_region)
-SELECT (loc.area, r.ID_region)
+SELECT loc.area, r.ID_region
 FROM aux_locations AS loc
 JOIN Region AS r ON r.name = loc.region
 GROUP BY loc.area, r.ID_region;
@@ -570,7 +570,7 @@ JOIN Area AS route ON LOWER(route.name) = LOWER(ar.route)
 JOIN Cardinal_Point AS cp ON cp.name = 'South';
 
 
-INSERT INTO Badge(nom)
+INSERT INTO Badge(name)
 SELECT DISTINCT(badge)
 FROM aux_gyms;
 
