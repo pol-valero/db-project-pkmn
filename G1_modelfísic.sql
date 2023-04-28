@@ -90,10 +90,11 @@ DROP TABLE IF EXISTS Route_Area CASCADE;
 CREATE TABLE Route_Area (
     ID_area INTEGER,
     ID_route INTEGER,
-    route_cardinal_point VARCHAR(255),
-    PRIMARY KEY (ID_area, ID_route),
+    ID_cardinal_point_route INTEGER,
+    PRIMARY KEY (ID_area, ID_route, ID_cardinal_point_route),
     FOREIGN KEY (ID_area) REFERENCES Area (ID_area),
-    FOREIGN KEY (ID_route) REFERENCES Route (ID_route)
+    FOREIGN KEY (ID_route) REFERENCES Route (ID_route),
+    FOREIGN KEY (ID_cardinal_point_route) REFERENCES Cardinal_Point (ID_cardinal_point)
 );
 
 
