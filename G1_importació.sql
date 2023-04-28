@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS type_aux (
 );
 
 COPY type_aux (id,name)
-FROM '/Users/Shared/BBDD-DATASETS/types.csv'
+FROM 'C:\Users\Public\CSV_BBDD\types.csv'
 DELIMITER ','
 CSV HEADER; 
 
@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS abilities_aux (
 );
 
 COPY abilities_aux (id,name, effect, short_effect)
-FROM '/Users/Shared/BBDD-DATASETS/abilities.csv'
+FROM 'C:\Users\Public\CSV_BBDD\abilities.csv'
 DELIMITER ','
 CSV HEADER; 
 
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS damage_relations_aux (
 );
 
 COPY damage_relations_aux (attacker,defender, multiplier)
-FROM '/Users/Shared/BBDD-DATASETS/damage_relations.csv'
+FROM 'C:\Users\Public\CSV_BBDD\damage_relations.csv'
 DELIMITER ','
 CSV HEADER; 
 
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS evolutions_aux (
 );
 
 COPY evolutions_aux (baseID,evolutionID, is_baby,trigger, gender, min_level, time_of_day, location, item, known_move, min_happiness)
-FROM '/Users/Shared/BBDD-DATASETS/evolutions.csv'
+FROM 'C:\Users\Public\CSV_BBDD\evolutions.csv'
 DELIMITER ','
 CSV HEADER; 
 
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS growth_rates_aux (
 );
 
 COPY growth_rates_aux (id,name, formula, level, experience)
-FROM '/Users/Shared/BBDD-DATASETS/growth_rates.csv'
+FROM 'C:\Users\Public\CSV_BBDD\growth_rates.csv'
 DELIMITER ','
 CSV HEADER; 
 
@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS pokemon_abilities_aux (
 );
 
 COPY pokemon_abilities_aux (spiecesID, abilityID, slot, is_hidden)
-FROM '/Users/Shared/BBDD-DATASETS/pokemon_abilities.csv'
+FROM 'C:\Users\Public\CSV_BBDD\pokemon_abilities.csv'
 DELIMITER ','
 CSV HEADER; 
 
@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS pokemon_aux (
 );
 
 COPY pokemon_aux (index,pokemon, baseExperience, height, weight, dex_order, growth_rate_ID, type1, type2)
-FROM '/Users/Shared/BBDD-DATASETS/pokemon.csv'
+FROM 'C:\Users\Public\CSV_BBDD\pokemon.csv'
 DELIMITER ','
 CSV HEADER;
 
@@ -113,7 +113,7 @@ CREATE TABLE IF NOT EXISTS aux_gyms (
 	name VARCHAR(255)
 );
 
-COPY aux_gyms FROM '/Users/Shared/BBDD-DATASETS/gyms.csv'
+COPY aux_gyms FROM 'C:\Users\Public\CSV_BBDD\gyms.csv'
 DELIMITER ','
 CSV HEADER;
 
@@ -131,7 +131,7 @@ CREATE TABLE IF NOT EXISTS aux_encounters (
 	max_level INTEGER
 );
 	
-COPY aux_encounters FROM '/Users/Shared/BBDD-DATASETS/encounters.csv'
+COPY aux_encounters FROM 'C:\Users\Public\CSV_BBDD\encounters.csv'
 DELIMITER ','
 CSV HEADER;
 
@@ -145,7 +145,7 @@ CREATE TABLE IF NOT EXISTS aux_locations (
 	population INTEGER
 );
 	
-COPY aux_locations FROM '/Users/Shared/BBDD-DATASETS/locations.csv'
+COPY aux_locations FROM 'C:\Users\Public\CSV_BBDD\locations.csv'
 DELIMITER ','
 CSV HEADER;
 
@@ -160,7 +160,7 @@ CREATE TABLE IF NOT EXISTS aux_routes (
 	Pavement VARCHAR(255)
 );
 	
-COPY aux_routes FROM '/Users/Shared/BBDD-DATASETS/routes.csv'
+COPY aux_routes FROM 'C:\Users\Public\CSV_BBDD\routes.csv'
 DELIMITER ','
 CSV HEADER;
 
@@ -173,7 +173,7 @@ CREATE TABLE IF NOT EXISTS battle_statistics_aux (
 	damage_dealt INTEGER
 );
 
-COPY battle_statistics_aux FROM '/Users/Shared/BBDD-DATASETS/battle_statistics.csv' 
+COPY battle_statistics_aux FROM 'C:\Users\Public\CSV_BBDD\battle_statistics.csv' 
 DELIMITER ','
 CSV HEADER;
 
@@ -188,7 +188,7 @@ CREATE TABLE IF NOT EXISTS battles_aux (
 	duration INTEGER
 );
 
-COPY battles_aux FROM '/Users/Shared/BBDD-DATASETS/battles.csv' 
+COPY battles_aux FROM 'C:\Users\Public\CSV_BBDD\battles.csv' 
 DELIMITER ','
 CSV HEADER;
 
@@ -197,13 +197,13 @@ DROP TABLE IF EXISTS natures_aux;
 CREATE TABLE IF NOT EXISTS natures_aux (
     name VARCHAR(255),
     id INTEGER,
-	decreased_stat VARCHAR(255), 
-	increased_stat VARCHAR(255), 
+	decreased_stat VARCHAR(255),
+	increased_stat VARCHAR(255),
 	likes_flavor VARCHAR(255),
 	hates_flavor VARCHAR(255)
 );
 
-COPY natures_aux FROM '/Users/Shared/BBDD-DATASETS/natures.csv' 
+COPY natures_aux FROM 'C:\Users\Public\CSV_BBDD\natures.csv' 
 DELIMITER ','
 CSV HEADER;
 
@@ -217,7 +217,7 @@ CREATE TABLE IF NOT EXISTS poketeams_aux (
 	status VARCHAR(255)
 );
 
-COPY poketeams_aux FROM '/Users/Shared/BBDD-DATASETS/poketeams.csv' 
+COPY poketeams_aux FROM 'C:\Users\Public\CSV_BBDD\poketeams.csv' 
 DELIMITER ','
 CSV HEADER;
 
@@ -236,7 +236,7 @@ CREATE TABLE IF NOT EXISTS trainers_aux (
 	money_stolen DECIMAL
 );
 
-COPY trainers_aux FROM '/Users/Shared/BBDD-DATASETS/trainers.csv' 
+COPY trainers_aux FROM 'C:\Users\Public\CSV_BBDD\trainers.csv' 
 DELIMITER ','
 CSV HEADER;
 
@@ -253,7 +253,7 @@ CREATE TABLE IF NOT EXISTS purchases_aux (
 );
 
 COPY purchases_aux(storeID, trainerID, itemID, amount, cost, discount, date_time)
-FROM '/Users/Shared/BBDD-DATASETS/purchases.csv'
+FROM 'C:\Users\Public\CSV_BBDD\purchases.csv'
 DELIMITER ','
 CSV HEADER;
 
@@ -266,7 +266,7 @@ CREATE TABLE IF NOT EXISTS stores_aux (
     city TEXT
 );
 COPY stores_aux(storeID, store_name, floors, city)
-FROM '/Users/Shared/BBDD-DATASETS/stores.csv'
+FROM 'C:\Users\Public\CSV_BBDD\stores.csv'
 DELIMITER ','
 CSV HEADER;
 
@@ -279,7 +279,7 @@ CREATE TABLE IF NOT EXISTS store_items_aux (
     discount INTEGER
 );
 COPY store_items_aux(storeID, itemID, stock, discount)
-FROM '/Users/Shared/BBDD-DATASETS/storeitems.csv'
+FROM 'C:\Users\Public\CSV_BBDD\storeitems.csv'
 DELIMITER ','
 CSV HEADER;
 
@@ -302,7 +302,7 @@ CREATE TABLE IF NOT EXISTS items_aux (
 );
 
 COPY items_aux(id, name, cost, effect, healing, can_revive, statistic, stat_increase_time, top_capture_rate, min_capture_rate, quick_sell_price, collector_price, move)
-FROM '/Users/Shared/BBDD-DATASETS/items.csv'
+FROM 'C:\Users\Public\CSV_BBDD\items.csv'
 DELIMITER ','
 CSV HEADER;
 
@@ -319,7 +319,7 @@ CREATE TABLE IF NOT EXISTS berries_aux (
     firmness VARCHAR(255)
 );
 COPY berries_aux(id, name, growth_time, max_num_harvest, natural_gift_powder, berry_avg_size, smoothness, soil_dryness, firmness)
-FROM '/Users/Shared/BBDD-DATASETS/berries.csv'
+FROM 'C:\Users\Public\CSV_BBDD\berries.csv'
 DELIMITER ','
 CSV HEADER;
 
@@ -331,7 +331,7 @@ CREATE TABLE IF NOT EXISTS berries_flavours_aux (
 );
 
 COPY berries_flavours_aux(berry, flavour, potency)
-FROM '/Users/Shared/BBDD-DATASETS/berries_flavours.csv'
+FROM 'C:\Users\Public\CSV_BBDD\berries_flavours.csv'
 DELIMITER ','
 CSV HEADER;
 
@@ -361,7 +361,7 @@ CREATE TABLE IF NOT EXISTS moves_aux (
 	change_amount INTEGER
 );
 
-COPY moves_aux FROM '/Users/Shared/BBDD-DATASETS/moves.csv' 
+COPY moves_aux FROM 'C:\Users\Public\CSV_BBDD\moves.csv' 
 DELIMITER ',' CSV HEADER;
 
 
@@ -373,7 +373,7 @@ CREATE TABLE IF NOT EXISTS trainer_items_aux (
 	date_time TIMESTAMP
 );
 
-COPY trainer_items_aux FROM '/Users/Shared/BBDD-DATASETS/traineritems.csv' 
+COPY trainer_items_aux FROM 'C:\Users\Public\CSV_BBDD\traineritems.csv' 
 DELIMITER ',' CSV HEADER;
 
 
@@ -386,7 +386,7 @@ CREATE TABLE IF NOT EXISTS villainous_organizations_aux (
 	region VARCHAR(255)
 );
 
-COPY villainous_organizations_aux FROM '/Users/Shared/BBDD-DATASETS/villainous_organizations.csv'
+COPY villainous_organizations_aux FROM 'C:\Users\Public\CSV_BBDD\villainous_organizations.csv'
 DELIMITER ',' CSV HEADER;
 
 DROP TABLE IF EXISTS stats_aux;
@@ -397,7 +397,7 @@ CREATE TABLE IF NOT EXISTS stats_aux (
 	effort INTEGER
 );
 
-COPY stats_aux FROM '/Users/Shared/BBDD-DATASETS/stats.csv' 
+COPY stats_aux FROM 'C:\Users\Public\CSV_BBDD\stats.csv' 
 DELIMITER ',' CSV HEADER;
 
 
@@ -415,7 +415,7 @@ CREATE TABLE IF NOT EXISTS pokemon_instances_aux (
 	datetime TIMESTAMP, 
 	location_subareaID INT,
 	obtention_method VARCHAR(255),
-	pokeballID VARCHAR (255),
+	pokeballID VARCHAR(255),
 	move1 INT,
 	move2 INT,
 	move3 INT,
@@ -423,15 +423,13 @@ CREATE TABLE IF NOT EXISTS pokemon_instances_aux (
 );
 
 COPY pokemon_instances_aux
-FROM '/Users/Shared/BBDD-DATASETS/pokemon_instances.csv'
+FROM 'C:\Users\Public\CSV_BBDD\pokemon_instances.csv'
 DELIMITER ','
 CSV HEADER;
 
 
-
-
-
 -------------------------------------INSERTS-------------------------------------
+
 
 INSERT INTO ability SELECT * FROM abilities_aux;
 
@@ -492,19 +490,25 @@ FROM aux_routes AS ar
 JOIN Area AS area_north ON LOWER(area_north.name) = LOWER(ar.north) 
 JOIN Area AS route ON LOWER(route.name) = LOWER(ar.route)
 JOIN Cardinal_Point AS cp ON cp.name = 'North'
+
 UNION ALL
+
 SELECT area_east.ID_area, route.ID_area, cp.ID_cardinal_point
 FROM aux_routes AS ar
 JOIN Area AS area_east ON LOWER(area_east.name) = LOWER(ar.east) 
 JOIN Area AS route ON LOWER(route.name) = LOWER(ar.route)
 JOIN Cardinal_Point AS cp ON cp.name = 'East'
+
 UNION ALL
+
 SELECT area_west.ID_area, route.ID_area, cp.ID_cardinal_point
 FROM aux_routes AS ar
 JOIN Area AS area_west ON LOWER(area_west.name) = LOWER(ar.west) 
 JOIN Area AS route ON LOWER(route.name) = LOWER(ar.route)
 JOIN Cardinal_Point AS cp ON cp.name = 'West'
+
 UNION ALL
+
 SELECT area_south.ID_area, route.ID_area, cp.ID_cardinal_point
 FROM aux_routes AS ar
 JOIN Area AS area_south ON LOWER(area_south.name) = LOWER(ar.south) 
@@ -557,7 +561,7 @@ SELECT ag.name, b.ID_badge, tr.ID_trainer, ty.ID_type,
   ) AS o
   WHERE ro = FLOOR((RANDOM() * (SELECT COUNT(*) FROM Object)) + 1)) AS random_object
 FROM aux_gyms AS ag
-JOIN Badge AS b ON b.name = ag.badge
+JOIN Badge AS b ON ag.badge = b.name
 JOIN Trainer AS tr ON tr.name = ag.leader
 JOIN Types AS ty ON ty.name = ag.type;
 
@@ -569,7 +573,6 @@ JOIN Area AS a ON a.name = loc.area
 JOIN aux_gyms AS aux_g ON aux_g.location = a.name
 JOIN Gym AS g ON g.name = aux_g.name
 WHERE loc.population IS NOT NULL;
-
 
 
 --Here we should put the Trainer_Badge INSERT
@@ -592,8 +595,8 @@ INSERT INTO Condition_Type(condition_type, condition_value)
 SELECT condition_type, condition_value FROM aux_encounters
 GROUP BY condition_type, condition_value;
 
-
 INSERT INTO Specie_Subarea_Condition_Method (ID_subarea, ID_method, ID_specie, chance, min_level_specie, max_level_specie, ID_condition)
+--SELECT DISTINCT subareaid, sub.name, a.ID_area, a.name, m.ID_method, m.method_type, s.ID_specie, s.name, chance, min_level, max_level, c.ID_condition FROM aux_encounters as ae
 SELECT DISTINCT subareaid, m.ID_method, s.ID_specie, chance, min_level, max_level, c.ID_condition FROM aux_encounters as ae
 JOIN Encounter_Method AS m ON m.method_type = ae.method
 JOIN Condition_Type AS c ON c.condition_type = ae.condition_type AND c.condition_value = ae.condition_value
@@ -602,21 +605,25 @@ JOIN Subarea AS sub ON sub.ID_subarea = subareaid
 JOIN Area AS a ON a.ID_area = sub.ID_Area
 ORDER BY subareaID, id_method, id_specie;
 
-
 --Here we should put the Trainer_Gym INSERT
 
 
 INSERT INTO Berry(ID_berry, name, growth_time, max_num_harvest, natural_gift_powder, berry_avg_size, smoothness, soil_dryness, firmness)
-SELECT  id, name, growth_time, max_num_harvest, natural_gift_powder, berry_avg_size, smoothness, soil_dryness, firmness
+SELECT id, name, growth_time, max_num_harvest, natural_gift_powder, berry_avg_size, smoothness, soil_dryness, firmness
 FROM berries_aux;
 
 
-INSERT INTO Berry_Flavour(name, potency)
-SELECT  flavour, potency
+INSERT INTO Berry_Flavour(name)
+SELECT DISTINCT flavour
 FROM berries_flavours_aux;
 
 
 --Here we should put the Berry_BerryFlavour INSERT
+INSERT INTO Berry_BerryFlavour(ID_berry, ID_flavour, potency)
+SELECT b.ID_berry, bf.id_flavour, bfa.potency FROM berries_flavours_aux AS bfa
+JOIN Berry AS b ON b.name = bfa.berry || ' berry'
+JOIN Berry_Flavour AS bf ON bf.name = bfa.flavour
+ORDER BY b.ID_berry, bf.id_flavour;
 
 
 INSERT INTO Collector(collector_price)
@@ -692,10 +699,33 @@ SELECT  storeID, trainerID, itemID, amount, cost, discount, date_time
 FROM purchases_aux;
 
 
+INSERT INTO Nature(ID_nature, likes_flavour, dislikes_flavour, incremented_stat, decremented_stat, name)
+SELECT n.id, CAST(bf1.ID_flavour AS varchar), CAST (bf2.ID_flavour AS varchar), CAST (s1.ID_stat AS varchar), CAST (s2.ID_stat AS varchar), n.name
+FROM natures_aux AS n
+JOIN Berry_Flavour AS bf1 ON n.likes_flavor = bf1.name
+JOIN Berry_Flavour AS bf2 ON n.hates_flavor = bf2.name
+JOIN Berry_BerryFlavour AS bbf1 ON bbf1.ID_flavour = bf1.ID_flavour
+JOIN Berry_BerryFlavour AS bbf2 ON bbf2.ID_flavour = bf2.ID_flavour
+JOIN Stat AS s1 ON n.increased_stat = s1.stat_name
+JOIN Stat AS s2 ON n.decreased_stat = s2.stat_name
+GROUP BY n.id, bf1.ID_flavour, bf2.ID_flavour, s1.ID_stat, s2.ID_stat, n.name;
+
+
+-- Insert natures which have all null fields - da error xq los integers no són null como tal.
+-- INSERT INTO Nature(name, ID_nature, decremented_stat, incremented_stat, likes_flavour, dislikes_flavour)
+-- SELECT name, id, -1, -1, -1, -1 FROM natures_aux
+-- WHERE COALESCE(decreased_stat, '') = '' OR COALESCE(increased_stat, '') = '' OR COALESCE(likes_flavor, '') = '' OR COALESCE(hates_flavor, '') = '';
+
+
+INSERT INTO Team(ID_trainer)
+SELECT DISTINCT trainer
+FROM poketeams_aux;
+
+
 INSERT INTO Pokemon(ID_pokemon, nickname, level, experience, gender, datetime, obtention_method, position, remaining_health, status_inflicted,
                     ID_pokeball, ID_specie, ID_trainer, ID_nature, ID_item, ID_team, ID_subarea)
 SELECT pi.id, pi.nickname, pi.level, pi.experience, pi.gender, pi.datetime, pi.obtention_method, pt.slot, pt.hp, pt.status, 
-       p.ID_pokeball, pi.pokemon_speciesID, pi.ownerID, n.ID_nature, o.ID_object, T.ID_team, pi.location_subareaID
+       p.ID_object, pi.pokemon_speciesID, pi.ownerID, n.ID_nature, o.ID_object, t.ID_team, pi.location_subareaID
 FROM pokemon_instances_aux AS pi 
 JOIN poketeams_aux AS pt ON pi.id = pt.pokemon
 JOIN Team AS t ON t.ID_trainer = pt.trainer
@@ -727,38 +757,24 @@ UPDATE Battle SET ID_gym = ( --We insert a random gym ID for each battle
 WHERE ID_gym IS NULL; 
 
 
-INSERT INTO Battle_Result(ID_battle, ID_pokemon, remaining_life, damage_inflicted, damage_received) 
-SELECT battleID, pokemon_instanceID, remaining_hp, damage_received, damage_dealt 
-FROM battle_statistics_aux;
-
-
-INSERT INTO Nature(ID_nature, likes_flavour, dislikes_flavour, incremented_stat, decremented_stat, name)
-SELECT n.id, bf1.ID_flavour, bf2.ID_flavour, s1.ID_stat, s2.ID_stat, n.name
-FROM natures_aux AS n 
-JOIN Berry_Flavour AS bf1 ON n.likes_flavor = bf1.name 
-JOIN Berry_Flavour AS bf2 ON n.dislikes_flavor = bf2.name
-JOIN Stat AS s1 ON n.increased_stat = s1.stat_name
-JOIN Stat AS s2 ON n.decreased_stat = s2.stat_name;
-
-
-INSERT INTO Team(ID_trainer)
-SELECT DISTINCT trainer
-FROM poketeams_aux;
-
-
-INSERT INTO Villain(ID_villain, steal_money, iconic_sentence, buddy, ID_org)
-SELECT t.id, t.money_stolen, t.phrase, t.partnerID, t.villain_team, c.ID_org
-FROM trainers_aux AS t
-JOIN Criminal_Org AS c ON c.name = t.villain_team
-WHERE t.villain_team IS NOT NULL;
+-- INSERT INTO Battle_Result(ID_battle, ID_pokemon, remaining_life, damage_inflicted, damage_received) 
+-- SELECT battleID, pokemon_instanceID, remaining_hp, damage_received, damage_dealt -- Peta porque no se importan todos los Pokémon
+-- FROM battle_statistics_aux;
 
 
 INSERT INTO Criminal_Org(name, building, ID_leader, ID_region, headquarters)
-SELECT v.name,v.building, r.ID_region, t.id, a.ID_area
+SELECT v.name, v.building, t.id, r.ID_region, a.ID_area
 FROM villainous_organizations_aux AS v
-JOIN trainers_aux AS t ON v.leader = t.name
-JOIN Region AS r ON v.region = r.name
-JOIN Area AS a ON v.hq = a.name;
+JOIN trainers_aux AS t ON v.leader = t.name AND (v.name || ' Leader') = t.trainer_class
+JOIN Region AS r ON LOWER(v.region) = LOWER(r.name)
+JOIN Area AS a ON LOWER(v.hq) = LOWER(a.name);
+
+
+INSERT INTO Villain(ID_villain, steal_money, iconic_sentence, buddy, ID_org)
+SELECT t.id, t.money_stolen, t.phrase, t.partnerID, c.ID_org
+FROM trainers_aux AS t
+JOIN Criminal_Org AS c ON c.name = t.villain_team
+WHERE t.villain_team IS NOT NULL;
 
 
 INSERT INTO Trainer_Object(ID_trainer, ID_object, obtention_method, datetime)
