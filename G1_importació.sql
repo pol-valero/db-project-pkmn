@@ -544,25 +544,31 @@ WHERE population IS NULL
 GROUP BY a.ID_area, p.id_pavement;
 
 
-SELECT a.name, an.name, 'North' AS cardinal_point
+INSERT INTO Route_Area(ID_area, ID_route, ID_cardinal_point)
+SELECT area_north.ID_area, route.ID_area, cp.ID_cardinal_point
 FROM aux_routes AS ar
-JOIN Area AS an ON LOWER(an.name) = LOWER(ar.north) 
-JOIN Area AS a ON LOWER(a.name) = LOWER(ar.route)
+JOIN Area AS area_north ON LOWER(area_north.name) = LOWER(ar.north) 
+JOIN Area AS route ON LOWER(route.name) = LOWER(ar.route)
+JOIN Cardinal_Point AS cp ON cp.name = 'North'
 UNION ALL
-SELECT a.name, ae.name, 'East' AS cardinal_point
+SELECT area_east.ID_area, route.ID_area, cp.ID_cardinal_point
 FROM aux_routes AS ar
-JOIN Area AS ae ON LOWER(ae.name) = LOWER(ar.east) 
-JOIN Area AS a ON LOWER(a.name) = LOWER(ar.route)
+JOIN Area AS area_east ON LOWER(area_east.name) = LOWER(ar.east) 
+JOIN Area AS route ON LOWER(route.name) = LOWER(ar.route)
+JOIN Cardinal_Point AS cp ON cp.name = 'East'
 UNION ALL
-SELECT a.name, aw.name, 'West' AS cardinal_point
+SELECT area_west.ID_area, route.ID_area, cp.ID_cardinal_point
 FROM aux_routes AS ar
-JOIN Area AS aw ON LOWER(aw.name) = LOWER(ar.east) 
-JOIN Area AS a ON LOWER(a.name) = LOWER(ar.route)
+JOIN Area AS area_west ON LOWER(area_west.name) = LOWER(ar.west) 
+JOIN Area AS route ON LOWER(route.name) = LOWER(ar.route)
+JOIN Cardinal_Point AS cp ON cp.name = 'West'
 UNION ALL
-SELECT a.name, asouth.name, 'South' AS cardinal_point
+SELECT area_south.ID_area, route.ID_area, cp.ID_cardinal_point
 FROM aux_routes AS ar
-JOIN Area AS asouth ON LOWER(asouth.name) = LOWER(ar.east) 
-JOIN Area AS a ON LOWER(a.name) = LOWER(ar.route)
+JOIN Area AS area_south ON LOWER(area_south.name) = LOWER(ar.south) 
+JOIN Area AS route ON LOWER(route.name) = LOWER(ar.route)
+JOIN Cardinal_Point AS cp ON cp.name = 'South';
+
 
 INSERT INTO Badge(nom)
 SELECT DISTINCT(badge)
