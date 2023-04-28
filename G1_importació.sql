@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS evolutions_aux (
 COPY evolutions_aux (baseID,evolutionID, is_baby,trigger, gender, min_level, time_of_day, location, item, known_move, min_happiness)
 FROM 'C:\Users\Public\CSV_BBDD\evolutions.csv'
 DELIMITER ','
-CSV HEADER; 
+CSV HEADER;
 
 DROP TABLE IF EXISTS growth_rates_aux;
 CREATE TABLE IF NOT EXISTS growth_rates_aux (
@@ -561,9 +561,9 @@ SELECT ag.name, b.ID_badge, tr.ID_trainer, ty.ID_type,
   ) AS o
   WHERE ro = FLOOR((RANDOM() * (SELECT COUNT(*) FROM Object)) + 1)) AS random_object
 FROM aux_gyms AS ag
-JOIN Badge AS b ON ag.badge = b.name
+JOIN Badge AS b ON b.name = ag.badge
 JOIN Trainer AS tr ON tr.name = ag.leader
-JOIN Types AS ty ON ty.name = ag.type;
+JOIN Types AS ty ON LOWER(ty.name) = LOWER(ag.type);
 
 
 INSERT INTO City (ID_city, ID_gym, population)
@@ -777,34 +777,36 @@ JOIN Criminal_Org AS c ON c.name = t.villain_team
 WHERE t.villain_team IS NOT NULL;
 
 
-INSERT INTO Trainer_Object(ID_trainer, ID_object, obtention_method, datetime)
-SELECT trainerID, itemID, obtention_method, date_time
-FROM trainer_items_aux;
+-- INSERT INTO Trainer_Object(ID_trainer, ID_object, obtention_method, datetime)
+-- SELECT trainerID, itemID, obtention_method, date_time
+-- FROM trainer_items_aux;
 
 
 INSERT INTO Trainer_Defeats_Gym(ID_trainer, ID_gym)
 SELECT DISTINCT t.ID_trainer, g.ID_gym
 FROM Trainer AS t 
-JOIN Gym AS g ON g.leader != t.name
+JOIN Gym AS g ON g.ID_leader != t.ID_trainer
 LIMIT 4;
 
 
-INSERT INTO Damage(ID_damage, strength)
-SELECT move_id, hp_drain
-FROM moves_aux
-WHERE hp_drain != 0;
+-- INSERT INTO Damage(ID_damage, strength)
+-- SELECT move_id, hp_drain
+-- FROM moves_aux
+-- WHERE hp_drain != 0;
 
 
-INSERT INTO Curation(ID_curation, life_points)
-SELECT move_id, hp_healing
-FROM moves_aux
-WHERE hp_healing != 0;
+-- INSERT INTO Curation(ID_curation, life_points)
+-- SELECT move_id, hp_healing
+-- FROM moves_aux
+-- WHERE hp_healing != 0;
 
 
 INSERT INTO State(ID_state, status, status_chance)
 SELECT move_id, ailment, ailment_chance
 FROM moves_aux
 WHERE ailment IS NOT NULL;
+
+SELECT * FROM pokemon_instances_aux
 
 
 INSERT INTO Pokemon_Movement(ID_pokemon, ID_movement)
@@ -828,25 +830,25 @@ FROM pokemon_instances_aux
 WHERE move4 IS NOT NULL;
 
 
-INSERT INTO Pokemon_stat (ID_pokemon, ID_stat, base_stat, effort)
+INSERT INTO Pokemon_Stat (ID_pokemon, ID_stat, base_stat, effort)
 SELECT p.index, s.id_stat, sa.base_stat, sa.effort
 FROM pokemon_aux p
 JOIN stats_aux sa ON p.pokemon = sa.pokemon
 JOIN stat s ON s.stat_name = sa.stat;
 
 
-INSERT INTO Pokemon_types (ID_pokemon, ID_type, is_primary)
+INSERT INTO Pokemon_Types (ID_pokemon, ID_type, is_primary)
 SELECT p.index, t.id_type, true
 FROM pokemon_aux p, types t
 WHERE p.type1 = t.name;
 
-INSERT INTO Pokemon_types (ID_pokemon, ID_type, is_primary)
+INSERT INTO Pokemon_Types (ID_pokemon, ID_type, is_primary)
 SELECT p.index, t.id_type, false
 FROM pokemon_aux p, types t
 WHERE p.type2 = t.name;
 
 
-INSERT INTO Evolve (ID_base, ID_evolution, time, gender, location, min_happiness, min_level, item, is_baby, trigger, know_move)
+INSERT INTO Evolve (ID_base, ID_evolution, time, gender, location, min_happiness, min_level, item, is_baby, trigger, known_move)
 SELECT s1.id_specie, s2.id_specie, time_of_day, gender, location, min_happiness , min_level, item, is_baby, trigger, known_move 
 FROM evolutions_aux e
 JOIN Specie s1 ON e.baseid = s1.name
