@@ -587,7 +587,7 @@ FROM items_aux;
 INSERT INTO Trainer(ID_trainer, name, exp_points, gold, class, gift_item)
 SELECT ta.id, ta.name, ta.experience, ta.gold, ta.trainer_class, o.ID_object
 FROM trainers_aux as ta
-JOIN Object as o on o.name = ta.gift_item;
+LEFT JOIN Object as o on o.name = ta.gift_item;
 
 
 INSERT INTO Gym_Leader(ID_gym_leader)
