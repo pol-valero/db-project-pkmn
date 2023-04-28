@@ -544,7 +544,7 @@ WHERE population IS NULL
 GROUP BY a.ID_area, p.id_pavement;
 
 
-INSERT INTO Route_Area(ID_area, ID_route, ID_cardinal_point)
+INSERT INTO Route_Area(ID_area, ID_route, ID_cardinal_point_route)
 SELECT area_north.ID_area, route.ID_area, cp.ID_cardinal_point
 FROM aux_routes AS ar
 JOIN Area AS area_north ON LOWER(area_north.name) = LOWER(ar.north) 
