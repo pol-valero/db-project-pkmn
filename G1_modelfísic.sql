@@ -582,7 +582,7 @@ CREATE TABLE Curation (
 DROP TABLE IF EXISTS State CASCADE;
 CREATE TABLE State (
     ID_state INT,
-    status INT,
+    status VARCHAR(255),
     status_chance INT,
     PRIMARY KEY (ID_state),
     FOREIGN KEY (ID_state) REFERENCES Movement (ID_movement)
@@ -613,10 +613,10 @@ DROP TABLE IF EXISTS Pokemon_Types CASCADE;
 CREATE TABLE Pokemon_Types (
     ID_pokemon INTEGER, 
     ID_type INTEGER,
+	is_primary BOOLEAN,
     PRIMARY KEY (ID_pokemon, ID_type),
     FOREIGN KEY (ID_pokemon) REFERENCES Pokemon (ID_pokemon),
     FOREIGN KEY (ID_type) REFERENCES Types (ID_type)
-    -- añadir el segundo tip aqui 
 );
 
 DROP TABLE IF EXISTS Evolve CASCADE;
@@ -625,7 +625,7 @@ CREATE TABLE Evolve (
     ID_evolution INTEGER,
     time VARCHAR (255), 
     gender VARCHAR(255),
-    location VARCHAR(255),
+    location INTEGER,
     min_happiness VARCHAR (255),
     min_level INTEGER,
     item VARCHAR(255),
@@ -639,5 +639,4 @@ CREATE TABLE Evolve (
     FOREIGN KEY (ID_pokemon) REFERENCES Pokemon (ID_pokemon),
     FOREIGN KEY (ID_object) REFERENCES Object (ID_object),
     FOREIGN KEY (ID_area) REFERENCES Area (ID_area)
-
 );
