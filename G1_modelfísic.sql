@@ -420,6 +420,21 @@ CREATE TABLE Purchase (
         REFERENCES Store (ID_store)
 );
 
+DROP TABLE IF EXISTS Nature CASCADE;
+CREATE TABLE Nature (
+    ID_nature SERIAL,
+    likes_flavour INTEGER,
+    dislikes_flavour INTEGER,
+    incremented_stat INTEGER,
+    decremented_stat INTEGER,
+    name VARCHAR(255),
+    PRIMARY KEY (ID_nature),
+    FOREIGN KEY (likes_flavour) REFERENCES Berry_Flavour (ID_flavour),
+    FOREIGN KEY (dislikes_flavour) REFERENCES Berry_Flavour (ID_flavour),
+    FOREIGN KEY (incremented_stat) REFERENCES Stat (ID_stat),
+    FOREIGN KEY (decremented_stat) REFERENCES Stat (ID_stat)
+);
+
 DROP TABLE IF EXISTS Pokemon CASCADE;
 CREATE TABLE Pokemon (
     ID_pokemon SERIAL, 
@@ -487,21 +502,6 @@ CREATE TABLE Battle_Result (
     PRIMARY KEY (ID_battle, ID_pokemon),
     FOREIGN KEY (ID_battle) REFERENCES Battle (ID_battle),
     FOREIGN KEY (ID_pokemon) REFERENCES Pokemon (ID_pokemon)
-);
-
-DROP TABLE IF EXISTS Nature CASCADE;
-CREATE TABLE Nature (
-    ID_nature SERIAL,
-    likes_flavour INTEGER,
-    dislikes_flavour INTEGER,
-    incremented_stat INTEGER,
-    decremented_stat INTEGER,
-    name VARCHAR(255),
-    PRIMARY KEY (ID_nature),
-    FOREIGN KEY (likes_flavour) REFERENCES Berry_Flavour (ID_flavour),
-    FOREIGN KEY (dislikes_flavour) REFERENCES Berry_Flavour (ID_flavour),
-    FOREIGN KEY (incremented_stat) REFERENCES Stat (ID_stat),
-    FOREIGN KEY (decremented_stat) REFERENCES Stat (ID_stat)
 );
 
 DROP TABLE IF EXISTS Team CASCADE;
