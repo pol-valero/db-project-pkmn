@@ -531,6 +531,8 @@ INSERT INTO Pavement(type)
 SELECT (r.pavement) FROM aux_routes AS r
 GROUP BY r.pavement;
 
+INSERT INTO Cardinal_Point(name)
+VALUES ('North'), ('East'), ('West'), ('South');
 
 INSERT INTO Route(ID_route, km_length, ID_pavement)
 SELECT a.ID_area, FLOOR(RANDOM() * 1000), p.id_pavement 
@@ -542,8 +544,25 @@ WHERE population IS NULL
 GROUP BY a.ID_area, p.id_pavement;
 
 
---Here we should put the Route_Area INSERT
-
+SELECT a.name, an.name, 'North' AS cardinal_point
+FROM aux_routes AS ar
+JOIN Area AS an ON LOWER(an.name) = LOWER(ar.north) 
+JOIN Area AS a ON LOWER(a.name) = LOWER(ar.route)
+UNION ALL
+SELECT a.name, ae.name, 'East' AS cardinal_point
+FROM aux_routes AS ar
+JOIN Area AS ae ON LOWER(ae.name) = LOWER(ar.east) 
+JOIN Area AS a ON LOWER(a.name) = LOWER(ar.route)
+UNION ALL
+SELECT a.name, aw.name, 'West' AS cardinal_point
+FROM aux_routes AS ar
+JOIN Area AS aw ON LOWER(aw.name) = LOWER(ar.east) 
+JOIN Area AS a ON LOWER(a.name) = LOWER(ar.route)
+UNION ALL
+SELECT a.name, asouth.name, 'South' AS cardinal_point
+FROM aux_routes AS ar
+JOIN Area AS asouth ON LOWER(asouth.name) = LOWER(ar.east) 
+JOIN Area AS a ON LOWER(a.name) = LOWER(ar.route)
 
 INSERT INTO Badge(nom)
 SELECT DISTINCT(badge)
