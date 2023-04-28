@@ -621,7 +621,6 @@ DROP TABLE IF EXISTS Evolve CASCADE;
 CREATE TABLE Evolve (
     ID_base INTEGER,
     ID_evolution INTEGER,
-    PRIMARY KEY (ID_base, ID_evolution),
     time VARCHAR (255), 
     gender VARCHAR(255),
     location VARCHAR(255),
@@ -630,13 +629,14 @@ CREATE TABLE Evolve (
     item VARCHAR(255),
     is_baby BOOLEAN,
     trigger VARCHAR(255),
-    know_move VARCHAR(255),
+    known_move VARCHAR(255),
     ID_pokemon INTEGER,
-    --ID_object INTEGER,
-    --ID_area INTEGER,
+    ID_object INTEGER,
+    ID_area INTEGER,
+	PRIMARY KEY (ID_base, ID_evolution),
     FOREIGN KEY (ID_pokemon) REFERENCES Pokemon (ID_pokemon)
-    --FOREIGN KEY (ID_object) REFERENCES Object (ID_object) 
-    --FOREIGN KEY (ID_area) REFERENCES Area (ID_area)  
+    FOREIGN KEY (ID_object) REFERENCES Object (ID_object) 
+    FOREIGN KEY (ID_area) REFERENCES Area (ID_area)  
 
 );
 
