@@ -621,18 +621,20 @@ JOIN Type AS t ON t.name = ag.type;
 
 
 INSERT INTO City (ID_city, ID_gym, population)
-SELECT (loc.area, g.name, population) FROM aux_locations AS loc
+SELECT a.ID_area, g.ID_gym, population
+FROM aux_locations AS loc
 JOIN Area AS a ON a.name = loc.area
 JOIN aux_gyms AS aux_g ON aux_g.location = a.name
 JOIN Gym AS g ON g.name = aux_g.name
 WHERE loc.population IS NOT NULL;
 
 
+
 --Here we should put the Trainer_Badge INSERT
 
 
 INSERT INTO Subarea(ID_subarea, name, ID_area)
-SELECT (loc.subareaID, loc.subarea, a.ID_area)
+SELECT loc.subareaID, loc.subarea, a.ID_area
 FROM aux_locations AS loc
 JOIN Area AS a ON a.name = loc.area
 JOIN Region AS r ON r.name = loc.region
