@@ -650,12 +650,11 @@ INSERT INTO Condition_Type(condition_type, condition_value)
 SELECT condition_type, condition_value FROM aux_encounters
 GROUP BY condition_type, condition_value;
 
-
-INSERT INTO Specie_Subarea_Condition_Method (ID_subarea, ID_method, ID_specie, chance, min_level_specie, max_level_specie)
-SELECT (subareid, m.ID_method, s.ID_specie, chance, min_level, max_level, c.ID_condition) FROM aux_encounters
-JOIN Method AS m ON m.method_type = method
-JOIN Condition_Type AS c ON c.condition_type = condition_type AND c.condition_value = condition_value
-JOIN Specie AS s ON s.name = pokemon;
+INSERT INTO Specie_Subarea_Condition_Method (ID_subarea, ID_method, ID_specie, chance, min_level_specie, max_level_specie, ID_condition)
+SELECT subareaid, m.ID_method, s.ID_specie, chance, min_level, max_level, c.ID_condition FROM aux_encounters as ae
+JOIN Encounter_Method AS m ON m.method_type = ae.method
+JOIN Condition_Type AS c ON c.condition_type = ae.condition_type AND c.condition_value = ae.condition_value
+JOIN Specie AS s ON s.name = ae.pokemon;
 
 
 --Here we should put the Trainer_Gym INSERT
