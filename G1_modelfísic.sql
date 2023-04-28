@@ -231,11 +231,11 @@ CREATE TABLE Specie_Subarea_Condition_Method (
     ID_method INTEGER,
     ID_subarea INTEGER,
     ID_specie INTEGER,
-    chance VARCHAR(255),
+    chance INTEGER,
 	min_level_specie INTEGER,
 	max_level_specie INTEGER,
     ID_condition INTEGER,
-	PRIMARY KEY (ID_method, ID_subarea),
+	PRIMARY KEY (ID_method, ID_subarea, ID_specie, chance, min_level_specie, max_level_specie, ID_condition),
     FOREIGN KEY (ID_method) REFERENCES Encounter_Method (ID_method),
     FOREIGN KEY (ID_subarea) REFERENCES Subarea (ID_subarea),
     FOREIGN KEY (ID_specie) REFERENCES Specie (ID_specie), 
@@ -270,14 +270,14 @@ CREATE TABLE Berry (
 DROP TABLE IF EXISTS Berry_Flavour CASCADE;
 CREATE TABLE Berry_Flavour (
     ID_flavour SERIAL PRIMARY KEY,
-    name VARCHAR(255),
-    potency INTEGER
+    name VARCHAR(255)
 );
 
 DROP TABLE IF EXISTS Berry_BerryFlavour CASCADE;
 CREATE TABLE Berry_BerryFlavour (
     ID_berry INTEGER NOT NULL,
     ID_flavour INTEGER NOT NULL,
+	potency INTEGER NOT NULL,
     PRIMARY KEY (ID_berry, ID_flavour),
     FOREIGN KEY (ID_berry)
         REFERENCES Object (ID_object),
@@ -536,7 +536,7 @@ CREATE TABLE Criminal_Org (
     ID_region INTEGER,
     headquarters INTEGER,
     PRIMARY KEY (ID_org),
-    FOREIGN KEY (ID_leader) REFERENCES Villain (ID_Villain),
+    FOREIGN KEY (ID_leader) REFERENCES Trainer (ID_trainer),
     FOREIGN KEY (ID_region) REFERENCES Region (ID_region),
     FOREIGN KEY (headquarters) REFERENCES Area (ID_area)
 );
@@ -641,4 +641,3 @@ CREATE TABLE Evolve (
     FOREIGN KEY (ID_area) REFERENCES Area (ID_area)
 
 );
-
