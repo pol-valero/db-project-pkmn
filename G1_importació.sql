@@ -605,7 +605,18 @@ SELECT spiecesid, abilityid, slot, is_hidden
 FROM pokemon_abilities_aux;
 
 
---Here we should put the Gym INSERT
+-- Fill the Gyms table and insert a random Object ID contained in the Object table
+INSERT INTO Gym(name, ID_badge, ID.leader, ID_type, ID_Object)
+SELECT ag.name, b.ID_badge, l.ID_gym_leader, t.ID_type, 
+  (SELECT ID_object FROM (
+    SELECT ID_object, ROW_NUMBER() OVER () as ro
+    FROM Object
+  ) AS o
+  WHERE ro = FLOOR((RANDOM() * (SELECT COUNT(*) FROM Object)) + 1)) AS random_object
+FROM aux_gyms AS ag
+JOIN Badge AS b ON ag.badge = b.name
+JOIN Trainer AS t ON t.name = ag.leader
+JOIN Type AS t ON t.name = ag.type;
 
 
 INSERT INTO City (ID_city, ID_gym, population)
