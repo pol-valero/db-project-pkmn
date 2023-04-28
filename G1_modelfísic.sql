@@ -171,12 +171,12 @@ CREATE TABLE Gym (
     name VARCHAR(255),
     ID_badge INTEGER,
     ID_object INTEGER,
-    ID_gym_leader INTEGER,
-    ID_specie INTEGER,
+    ID_leader INTEGER,
+    ID_type INTEGER,
     FOREIGN KEY (ID_badge) REFERENCES Badge (ID_badge),
     FOREIGN KEY (ID_object) REFERENCES Object (ID_object),
-    FOREIGN KEY (ID_gym_leader) REFERENCES Gym_Leader (ID_gym_leader),
-    FOREIGN KEY (ID_specie) REFERENCES Specie (ID_specie)
+    FOREIGN KEY (ID_leader) REFERENCES Gym_Leader (ID_gym_leader),
+    FOREIGN KEY (ID_type) REFERENCES Type (ID_type)
 );
 
 -- City
