@@ -435,6 +435,14 @@ CREATE TABLE Nature (
     FOREIGN KEY (decremented_stat) REFERENCES Stat (ID_stat)
 );
 
+DROP TABLE IF EXISTS Team CASCADE;
+CREATE TABLE Team (
+    ID_team SERIAL,
+    ID_trainer INTEGER,
+    PRIMARY KEY (ID_team),
+    FOREIGN KEY (ID_trainer) REFERENCES Trainer (ID_trainer)
+);
+
 DROP TABLE IF EXISTS Pokemon CASCADE;
 CREATE TABLE Pokemon (
     ID_pokemon SERIAL, 
@@ -504,13 +512,6 @@ CREATE TABLE Battle_Result (
     FOREIGN KEY (ID_pokemon) REFERENCES Pokemon (ID_pokemon)
 );
 
-DROP TABLE IF EXISTS Team CASCADE;
-CREATE TABLE Team (
-    ID_team SERIAL,
-    ID_trainer INTEGER,
-    PRIMARY KEY (ID_team),
-    FOREIGN KEY (ID_trainer) REFERENCES Trainer (ID_trainer)
-);
 
 DROP TABLE IF EXISTS Villain CASCADE;
 CREATE TABLE Villain (
