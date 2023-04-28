@@ -636,9 +636,9 @@ CREATE TABLE Evolve (
     ID_object INTEGER,
     ID_area INTEGER,
 	PRIMARY KEY (ID_base, ID_evolution),
-    FOREIGN KEY (ID_pokemon) REFERENCES Pokemon (ID_pokemon)
-    FOREIGN KEY (ID_object) REFERENCES Object (ID_object) 
-    FOREIGN KEY (ID_area) REFERENCES Area (ID_area)  
+    FOREIGN KEY (ID_pokemon) REFERENCES Pokemon (ID_pokemon),
+    FOREIGN KEY (ID_object) REFERENCES Object (ID_object),
+    FOREIGN KEY (ID_area) REFERENCES Area (ID_area)
 
 );
 
