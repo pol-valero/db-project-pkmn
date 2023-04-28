@@ -706,7 +706,7 @@ FROM items_aux
 WHERE stat_increase_time IS NOT NULL AND statistic IS NOT NULL;
 
 
-INSERT INTO Movement(ID_movement, name, precision, power_points, power, damage_class, priority_place, objective_type
+INSERT INTO Movement(ID_movement, name, precision, power_points, power, damage_class, priority_place, objective_type,
                       special_effect, probability_effect, ID_type, min_hits, max_hits, stat_change_rate, change_amount, ID_stat)
 SELECT m.move_id, m.name, m.accuracy, m.pp, m.power, m.move_damage_class, m.priority, m.target,
        m.effect, m.flinch_chance, t.ID_type, m.min_hits, m.max_hits, m.stat_change_rate, m.change_amount, s.ID_stat
