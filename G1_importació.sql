@@ -565,13 +565,20 @@ JOIN Trainer AS tr ON tr.name = ag.leader
 JOIN Types AS ty ON LOWER(ty.name) = LOWER(ag.type);
 
 
-INSERT INTO City (ID_city, ID_gym, population)
-SELECT a.ID_area, g.ID_gym, population
+INSERT INTO City (ID_city, population)
+SELECT DISTINCT a.ID_area, a.name, population
 FROM aux_locations AS loc
 JOIN Area AS a ON a.name = loc.area
-JOIN aux_gyms AS aux_g ON aux_g.location = a.name
-JOIN Gym AS g ON g.name = aux_g.name
-WHERE loc.population IS NOT NULL;
+JOIN Region AS r ON loc.region = r.name
+WHERE a.ID_region = r.ID_region AND loc.population IS NOT NULL
+
+
+-- Fill the City with the gyms
+UPDATE City AS c
+SET ID_gym = g.ID_gym
+FROM Gym AS g
+JOIN Area AS a ON a.name = g.name
+WHERE c.ID_city = a.ID_area;
 
 
 -- Fill the Trainer_Badge table with random Badges.
