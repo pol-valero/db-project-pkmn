@@ -167,8 +167,8 @@ CREATE TABLE Specie (
 
 -- Specie_ability
 
-DROP TABLE IF EXISTS Specie_ability CASCADE;
-CREATE TABLE Specie_ability (
+DROP TABLE IF EXISTS Specie_Ability CASCADE;
+CREATE TABLE Specie_Ability (
     ID_specie INTEGER,
     ID_ability INTEGER, 
     PRIMARY KEY (ID_ability, ID_specie),
@@ -231,7 +231,7 @@ CREATE TABLE Encounter_Method (
 );
 
 -- Condition Type
-DROP TABLE IF EXISTS Condition_Type CASCADE;
+DROP TABLE IF EXISTS Condition CASCADE;
 CREATE TABLE Condition_Type (
     ID_condition SERIAL PRIMARY KEY,
     condition_type VARCHAR(255),
