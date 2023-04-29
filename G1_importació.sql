@@ -437,7 +437,6 @@ INSERT INTO ability SELECT * FROM abilities_aux;
 INSERT INTO Types SELECT * FROM Type_aux;
 
 
-ALTER TABLE Relation DROP CONSTRAINT Relation_pkey;
 INSERT INTO Relation (ID_type1, ID_type2, multiplier)
 SELECT t1.id_type, t2.id_type, d.multiplier
 FROM Types t1, Types t2, damage_relations_aux AS d
