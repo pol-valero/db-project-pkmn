@@ -839,9 +839,6 @@ FROM moves_aux
 WHERE ailment IS NOT NULL;
 
 
-SELECT * FROM pokemon_instances_aux
-
-
 INSERT INTO Pokemon_Movement(ID_pokemon, ID_movement)
 SELECT id, move1
 FROM pokemon_instances_aux
