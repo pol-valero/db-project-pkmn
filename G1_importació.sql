@@ -576,8 +576,9 @@ WHERE a.ID_region = r.ID_region AND loc.population IS NOT NULL
 -- Fill the City with the gyms
 UPDATE City AS c
 SET ID_gym = g.ID_gym
-FROM Gym AS g
-JOIN Area AS a ON a.name = g.name
+FROM aux_gyms AS ag
+JOIN Area AS a ON LOWER(a.name) = LOWER(ag.location)
+JOIN Gym AS g ON g.name = ag.name
 WHERE c.ID_city = a.ID_area;
 
 
