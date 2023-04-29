@@ -318,6 +318,7 @@ CREATE TABLE IF NOT EXISTS berries_aux (
     soil_dryness INTEGER,
     firmness VARCHAR(255)
 );
+
 COPY berries_aux(id, name, growth_time, max_num_harvest, natural_gift_powder, berry_avg_size, smoothness, soil_dryness, firmness)
 FROM 'C:\Users\Public\CSV_BBDD\berries.csv'
 DELIMITER ','
@@ -476,10 +477,8 @@ VALUES ('North'), ('East'), ('West'), ('South');
 INSERT INTO Route(ID_route, km_length, ID_pavement)
 SELECT a.ID_area, FLOOR(RANDOM() * 1000), p.id_pavement 
 FROM Area AS a
-JOIN aux_locations AS loc ON loc.area = a.name
 JOIN aux_routes AS r ON LOWER(r.route)= LOWER(a.name)
 JOIN pavement AS p ON p.type = r.pavement
-WHERE population IS NULL
 GROUP BY a.ID_area, p.id_pavement;
 
 
@@ -546,7 +545,7 @@ SELECT index, pokemon, baseexperience,  height, weight, dex_order, growth_rate_i
 FROM pokemon_aux;
 
 
-INSERT INTO specie_ability (id_specie, id_ability, slot, is_hidden)
+INSERT INTO Specie_Ability(id_specie, id_ability, slot, is_hidden)
 SELECT spiecesid, abilityid, slot, is_hidden 
 FROM pokemon_abilities_aux;
 
@@ -565,7 +564,7 @@ JOIN Trainer AS tr ON tr.name = ag.leader
 JOIN Types AS ty ON LOWER(ty.name) = LOWER(ag.type);
 
 
-INSERT INTO City (ID_city, population)
+INSERT INTO City(ID_city, population)
 SELECT DISTINCT a.ID_area, a.name, population
 FROM aux_locations AS loc
 JOIN Area AS a ON a.name = loc.area
@@ -600,11 +599,11 @@ WHERE loc.subarea IS NOT NULL AND a.ID_region = r.ID_region
 ORDER BY loc.subareaID ASC;
 
 
-INSERT INTO Encounter_Method(method_type)
+INSERT INTO Encounter_Method (method_type)
 SELECT DISTINCT(method) FROM aux_encounters;
 
 
-INSERT INTO Condition_Type(condition_type, condition_value)
+INSERT INTO Condition_Type (condition_type, condition_value)
 SELECT condition_type, condition_value FROM aux_encounters
 GROUP BY condition_type, condition_value;
 
@@ -749,7 +748,6 @@ SELECT pi.id, pi.nickname, pi.level, pi.experience, pi.gender, pi.datetime, pi.o
 FROM pokemon_instances_aux AS pi 
 FROM poketeams_aux AS pt
 
-SELECT * FROM Pokemon;
 
 INSERT INTO Pokemon(ID_pokemon, nickname, level, experience, gender, datetime, obtention_method, position, remaining_health, status_inflicted,
                     ID_pokeball, ID_specie, ID_trainer, ID_nature, ID_item, ID_team, ID_subarea)
