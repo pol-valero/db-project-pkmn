@@ -337,7 +337,6 @@ DELIMITER ','
 CSV HEADER;
 
 
-
 DROP TABLE IF EXISTS moves_aux;
 CREATE TABLE IF NOT EXISTS moves_aux (
     move_id INTEGER,
@@ -448,10 +447,12 @@ AND t2.name = d.defender;
 INSERT INTO Growth_rates (id_growth_rate, name, formula) SELECT DISTINCT id, name, formula
 FROM growth_rates_aux;
 
+
 INSERT INTO Level (id_level) SELECT DISTINCT level
 FROM growth_rates_aux;
 
-INSERT INTO growth_level (id_level, id_growth_rate, experience)
+
+INSERT INTO Growth_Level (id_level, id_growth_rate, experience)
 SELECT l.id_level, g.id_growth_rate, gr.experience
 FROM growth_rates_aux gr
 JOIN Growth_Rates as g ON gr.id = g.id_growth_rate
@@ -543,6 +544,11 @@ FROM trainers_aux as ta
 LEFT JOIN Object as o on o.name = ta.gift_item;
 
 
+-- Erase the \n at the end of the names of the gym leaders.
+UPDATE Trainer
+SET name = REPLACE(REPLACE(name, E'\n', ''), E'\r', '') WHERE class = 'Gym Leader';
+
+
 INSERT INTO Gym_Leader(ID_gym_leader)
 SELECT t.id
 FROM aux_gyms AS g 
@@ -574,11 +580,11 @@ JOIN Types AS ty ON LOWER(ty.name) = LOWER(ag.type);
 
 
 INSERT INTO City(ID_city, population)
-SELECT DISTINCT a.ID_area, a.name, population
+SELECT DISTINCT a.ID_area, population
 FROM aux_locations AS loc
 JOIN Area AS a ON a.name = loc.area
 JOIN Region AS r ON loc.region = r.name
-WHERE a.ID_region = r.ID_region AND loc.population IS NOT NULL
+WHERE a.ID_region = r.ID_region AND loc.population IS NOT NULL;
 
 
 -- Fill the City with the gyms
