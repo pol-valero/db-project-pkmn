@@ -666,20 +666,18 @@ JOIN Collector on Collector.collector_price =  ia.collector_price
 WHERE quick_sell_price IS NOT NULL;
 
 
---Here we should put the Healing_Item INSERT
-/*
--- Healing TODO
 DELETE FROM Healing_Item;
-INSERT INTO Healing_Item(ID_healing_item, healing, revive, healing_revive)
-SELECT id, healing, can_revive, healing
+INSERT INTO Healing_Item(ID_healing_item, healing, revive, healing_revive, description)
+SELECT id, CAST(healing AS INTEGER), can_revive, FLOOR(RANDOM() * 100), effect
 FROM items_aux as ia
-WHERE healing IS NOT NULL;*/
+WHERE healing != '';
 
 
-INSERT INTO Pokeball(ID_pokeball, top_capture_rate, min_capture_rate)
-SELECT  id, top_capture_rate, min_capture_rate
+INSERT INTO Pokeball(ID_pokeball, top_capture_rate, min_capture_rate, condition)
+SELECT  id, top_capture_rate, min_capture_rate, effect
 FROM items_aux
 WHERE top_capture_rate IS NOT NULL AND min_capture_rate IS NOT NULL;
+
 
 
 INSERT INTO Boosting(ID_boosting, stat_increase_time, statistic)
@@ -709,18 +707,10 @@ SELECT sa.storeID, sa.store_name, sa.floors, Area.ID_area
 FROM stores_aux as sa
 JOIN Area on Area.name = sa.city;
 
-
-ALTER TABLE Store_Object DROP CONSTRAINT store_object_id_store_fkey CASCADE;
 INSERT INTO Store_Object(ID_store, ID_object, stock, discount)
 SELECT  sia.storeID, sia.itemID, sia.stock, sia.discount
 FROM store_items_aux as sia;
 
-
---Here we should put the Sale INSERT
-
-
-ALTER TABLE Purchase DROP CONSTRAINT purchase_id_trainer_fkey CASCADE;
-ALTER TABLE Purchase DROP CONSTRAINT purchase_id_store_fkey CASCADE;
 INSERT INTO Purchase(ID_store, ID_trainer, ID_object, amount, cost, discount, date_time)
 SELECT  storeID, trainerID, itemID, amount, cost, discount, date_time
 FROM purchases_aux;
