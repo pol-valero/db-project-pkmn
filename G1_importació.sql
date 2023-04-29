@@ -461,7 +461,7 @@ INSERT INTO Area(name, ID_region)
 SELECT loc.area, r.ID_region
 FROM aux_locations AS loc
 JOIN Region AS r ON r.name = loc.region
-GROUP BY loc.area, r.ID_region;
+GROUP BY r.ID_region, loc.area;
 
 
 INSERT INTO Pavement(type)
@@ -600,6 +600,7 @@ INSERT INTO Condition_Type(condition_type, condition_value)
 SELECT condition_type, condition_value FROM aux_encounters
 GROUP BY condition_type, condition_value;
 
+
 INSERT INTO Specie_Subarea_Condition_Method (ID_subarea, ID_method, ID_specie, chance, min_level_specie, max_level_specie, ID_condition)
 --SELECT DISTINCT subareaid, sub.name, a.ID_area, a.name, m.ID_method, m.method_type, s.ID_specie, s.name, chance, min_level, max_level, c.ID_condition FROM aux_encounters as ae
 SELECT DISTINCT subareaid, m.ID_method, s.ID_specie, chance, min_level, max_level, c.ID_condition FROM aux_encounters as ae
@@ -618,7 +619,7 @@ SELECT
     FLOOR(((RANDOM() * (SELECT MAX(ID_gym) FROM Gym)) - (SELECT MIN(ID_gym) FROM Gym) + 1)) + (SELECT MIN(ID_gym) FROM Gym) AS random_gym 
 FROM 
     Trainer t;
-
+	
 
 INSERT INTO Berry(ID_berry, name, growth_time, max_num_harvest, natural_gift_powder, berry_avg_size, smoothness, soil_dryness, firmness)
 SELECT id, name, growth_time, max_num_harvest, natural_gift_powder, berry_avg_size, smoothness, soil_dryness, firmness
@@ -734,6 +735,14 @@ SELECT DISTINCT trainer
 FROM poketeams_aux;
 
 
+-- INSERT FINAL
+INSERT INTO Pokemon(ID_pokemon, nickname, level, experience, gender, datetime, obtention_method, position, remaining_health, status_inflicted)
+SELECT pi.id, pi.nickname, pi.level, pi.experience, pi.gender, pi.datetime, pi.obtention_method, pt.slot, pt.hp, pt.status
+FROM pokemon_instances_aux AS pi 
+FROM poketeams_aux AS pt
+
+SELECT * FROM Pokemon;
+
 INSERT INTO Pokemon(ID_pokemon, nickname, level, experience, gender, datetime, obtention_method, position, remaining_health, status_inflicted,
                     ID_pokeball, ID_specie, ID_trainer, ID_nature, ID_item, ID_team, ID_subarea)
 SELECT pi.id, pi.nickname, pi.level, pi.experience, pi.gender, pi.datetime, pi.obtention_method, pt.slot, pt.hp, pt.status, 
@@ -741,9 +750,22 @@ SELECT pi.id, pi.nickname, pi.level, pi.experience, pi.gender, pi.datetime, pi.o
 FROM pokemon_instances_aux AS pi 
 JOIN poketeams_aux AS pt ON pi.id = pt.pokemon
 JOIN Team AS t ON t.ID_trainer = pt.trainer
-JOIN Nature AS n ON n.name = pi.nature
-JOIN Object AS o ON o.name = pi.item
-JOIN Object AS p ON p.name = pi.pokeballID;
+JOIN Nature AS n ON LOWER(n.name) = LOWER(pi.nature)
+JOIN Object AS o ON LOWER(o.name) = LOWER(pi.item)
+JOIN Object AS p ON LOWER(p.name) = LOWER(pi.pokeballID);
+
+
+-- -- Pokemons with a NULL Item
+INSERT INTO Pokemon(ID_pokemon, nickname, level, experience, gender, datetime, obtention_method, position, remaining_health, status_inflicted,
+                    ID_pokeball, ID_specie, ID_trainer, ID_nature, ID_item, ID_team, ID_subarea)
+SELECT pi.id, pi.nickname, pi.level, pi.experience, pi.gender, pi.datetime, pi.obtention_method, pt.slot, pt.hp, pt.status, 
+       p.ID_object, pi.pokemon_speciesID, pi.ownerID, n.ID_nature, NULL, t.ID_team, pi.location_subareaID
+FROM pokemon_instances_aux AS pi 
+JOIN poketeams_aux AS pt ON pi.id = pt.pokemon
+JOIN Team AS t ON t.ID_trainer = pt.trainer
+JOIN Nature AS n ON LOWER(n.name) = LOWER(pi.nature)
+JOIN Object AS p ON LOWER(p.name) = LOWER(pi.pokeballID)
+WHERE pi.item IS NULL;
 
 
 --Here we should put the Pokemon_Object INSERT
@@ -760,6 +782,7 @@ INSERT INTO Battle(ID_battle, winner, loser, start_datetime, duration, exp_rewar
 SELECT battleID, winnerID, loserID, date_time, duration, experience, gold_reward 
 FROM battles_aux;
 
+
 UPDATE Battle SET ID_gym = ( --We insert a random gym ID for each battle
     SELECT ID_gym
     FROM Gym
@@ -769,9 +792,9 @@ UPDATE Battle SET ID_gym = ( --We insert a random gym ID for each battle
 WHERE ID_gym IS NULL; 
 
 
--- INSERT INTO Battle_Result(ID_battle, ID_pokemon, remaining_life, damage_inflicted, damage_received) 
--- SELECT battleID, pokemon_instanceID, remaining_hp, damage_received, damage_dealt -- Peta porque no se importan todos los Pokémon
--- FROM battle_statistics_aux;
+INSERT INTO Battle_Result(ID_battle, ID_pokemon, remaining_life, damage_inflicted, damage_received) 
+SELECT battleID, pokemon_instanceID, remaining_hp, damage_received, damage_dealt -- Peta porque no se importan todos los Pokémon
+FROM battle_statistics_aux;
 
 
 INSERT INTO Criminal_Org(name, building, ID_leader, ID_region, headquarters)
@@ -789,9 +812,9 @@ JOIN Criminal_Org AS c ON c.name = t.villain_team
 WHERE t.villain_team IS NOT NULL;
 
 
--- INSERT INTO Trainer_Object(ID_trainer, ID_object, obtention_method, datetime)
--- SELECT trainerID, itemID, obtention_method, date_time
--- FROM trainer_items_aux;
+INSERT INTO Trainer_Object(ID_trainer, ID_object, obtention_method, datetime)
+SELECT trainerID, itemID, obtention_method, date_time
+FROM trainer_items_aux;
 
 
 INSERT INTO Trainer_Defeats_Gym(ID_trainer, ID_gym)
@@ -842,27 +865,38 @@ FROM pokemon_instances_aux
 WHERE move4 IS NOT NULL;
 
 
-INSERT INTO Pokemon_Stat (ID_pokemon, ID_stat, base_stat, effort)
-SELECT p.index, s.id_stat, sa.base_stat, sa.effort
-FROM pokemon_aux p
-JOIN stats_aux sa ON p.pokemon = sa.pokemon
+INSERT INTO Pokemon_Stat (ID_specie, ID_stat, base_stat, effort)
+SELECT sp.id_specie, s.id_stat, sa.base_stat, sa.effort
+FROM specie sp
+JOIN stats_aux sa ON sp.name = sa.pokemon
 JOIN stat s ON s.stat_name = sa.stat;
+SELECT * FROM pokemon_aux;
 
 
-INSERT INTO Pokemon_Types (ID_pokemon, ID_type, is_primary)
-SELECT p.index, t.id_type, true
+INSERT INTO Pokemon_Types (ID_specie, ID_type, is_primary)
+SELECT p.index, t.id_type, true AS is_primary
 FROM pokemon_aux p, types t
 WHERE p.type1 = t.name;
 
-INSERT INTO Pokemon_Types (ID_pokemon, ID_type, is_primary)
-SELECT p.index, t.id_type, false
+
+INSERT INTO Pokemon_Types (ID_specie, ID_type, is_primary)
+SELECT p.index, t.id_type, false AS is_primary
 FROM pokemon_aux p, types t
 WHERE p.type2 = t.name;
 
 
-INSERT INTO Evolve (ID_base, ID_evolution, time, gender, location, min_happiness, min_level, item, is_baby, trigger, known_move)
-SELECT s1.id_specie, s2.id_specie, time_of_day, gender, location, min_happiness , min_level, item, is_baby, trigger, known_move 
+INSERT INTO Evolve (ID_current_specie, ID_next_specie, time, gender, location, min_happiness, min_level, item, is_baby, trigger, known_move)
+SELECT s1.id_specie, s2.id_specie, time_of_day, gender, CAST(e.location AS integer), min_happiness , min_level, item, is_baby, trigger, known_move 
 FROM evolutions_aux e
 JOIN Specie s1 ON e.baseid = s1.name
 JOIN Specie s2 ON e.evolutionid = s2.name
-JOIN Area AS a ON a.ID_area = e.location;
+JOIN Subarea AS sub ON CAST(sub.ID_subarea AS varchar) = e.location;
+
+
+-- Fill the Evolves table with null areas.
+INSERT INTO Evolve (ID_current_specie, ID_next_specie, time, gender, location, min_happiness, min_level, item, is_baby, trigger, known_move)
+SELECT s1.id_specie, s2.id_specie, time_of_day, gender, NULL, min_happiness , min_level, item, is_baby, trigger, known_move 
+FROM evolutions_aux e
+JOIN Specie s1 ON e.baseid = s1.name
+JOIN Specie s2 ON e.evolutionid = s2.name
+WHERE COALESCE(e.location, '') = '';
