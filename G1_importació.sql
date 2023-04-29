@@ -575,7 +575,13 @@ JOIN Gym AS g ON g.name = aux_g.name
 WHERE loc.population IS NOT NULL;
 
 
---Here we should put the Trainer_Badge INSERT
+-- Fill the Trainer_Badge table with random Badges.
+INSERT INTO Trainer_Badge(ID_trainer, ID_badge)
+SELECT 
+    t.ID_Trainer, 
+    FLOOR(((RANDOM() * (SELECT MAX(ID_badge) FROM Badge)) - (SELECT MIN(ID_badge) FROM Badge) + 1)) + (SELECT MIN(ID_badge) FROM Badge) AS random_Badge 
+FROM 
+    Trainer t;
 
 
 INSERT INTO Subarea(ID_subarea, name, ID_area)
@@ -606,11 +612,11 @@ JOIN Area AS a ON a.ID_area = sub.ID_Area
 ORDER BY subareaID, id_method, id_specie;
 
 
--- Fill the Trainer_Badge table with random Badges.
-INSERT INTO Trainer_Badge(ID_trainer, ID_badge)
+-- Fill the Trainer_Gym table with random Gyms.
+INSERT INTO Trainer_Gym(ID_trainer, ID_gym)
 SELECT 
     t.ID_Trainer, 
-    FLOOR(((RANDOM() * (SELECT MAX(ID_badge) FROM Badge)) - (SELECT MIN(ID_badge) FROM Badge) + 1)) + (SELECT MIN(ID_badge) FROM Badge) AS random_Badge 
+    FLOOR(((RANDOM() * (SELECT MAX(ID_gym) FROM Gym)) - (SELECT MIN(ID_gym) FROM Gym) + 1)) + (SELECT MIN(ID_gym) FROM Gym) AS random_gym 
 FROM 
     Trainer t;
 
