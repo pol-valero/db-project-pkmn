@@ -599,10 +599,10 @@ CREATE TABLE Pokemon_Movement (
 
  DROP TABLE IF EXISTS Pokemon_Stat CASCADE;
  CREATE TABLE Pokemon_Stat(
-    ID_pokemon INTEGER,
+    ID_specie INTEGER,
     ID_stat INTEGER, 
-    PRIMARY KEY (ID_pokemon, ID_stat),
-    FOREIGN KEY (ID_pokemon) REFERENCES Pokemon (ID_pokemon),
+    PRIMARY KEY (ID_specie, ID_stat),
+    FOREIGN KEY (ID_specie) REFERENCES Specie (ID_specie),
     FOREIGN KEY (ID_stat) REFERENCES Stat (ID_stat),
     base_stat INTEGER,
     effort INTEGER 
@@ -611,18 +611,19 @@ CREATE TABLE Pokemon_Movement (
 
 DROP TABLE IF EXISTS Pokemon_Types CASCADE;
 CREATE TABLE Pokemon_Types (
-    ID_pokemon INTEGER, 
+    ID_specie INTEGER, 
     ID_type INTEGER,
 	is_primary BOOLEAN,
-    PRIMARY KEY (ID_pokemon, ID_type),
-    FOREIGN KEY (ID_pokemon) REFERENCES Pokemon (ID_pokemon),
+    PRIMARY KEY (ID_specie, ID_type),
+    FOREIGN KEY (ID_specie) REFERENCES Specie (ID_specie),
     FOREIGN KEY (ID_type) REFERENCES Types (ID_type)
 );
 
 DROP TABLE IF EXISTS Evolve CASCADE;
 CREATE TABLE Evolve (
-    ID_base INTEGER,
-    ID_evolution INTEGER,
+	ID_evolution SERIAL,
+    ID_current_specie INTEGER,
+    ID_next_specie INTEGER,
     time VARCHAR (255), 
     gender VARCHAR(255),
     location INTEGER,
@@ -632,11 +633,11 @@ CREATE TABLE Evolve (
     is_baby BOOLEAN,
     trigger VARCHAR(255),
     known_move VARCHAR(255),
-    ID_pokemon INTEGER,
     ID_object INTEGER,
     ID_area INTEGER,
-	PRIMARY KEY (ID_base, ID_evolution),
-    FOREIGN KEY (ID_pokemon) REFERENCES Pokemon (ID_pokemon),
+	PRIMARY KEY (ID_evolution, ID_current_specie, ID_next_specie),
+	FOREIGN KEY (ID_current_specie) REFERENCES Specie (ID_specie),
+	FOREIGN KEY (ID_next_specie) REFERENCES Specie (ID_specie),
     FOREIGN KEY (ID_object) REFERENCES Object (ID_object),
     FOREIGN KEY (ID_area) REFERENCES Area (ID_area)
 );
