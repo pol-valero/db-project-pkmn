@@ -712,9 +712,9 @@ GROUP BY n.id, bf1.ID_flavour, bf2.ID_flavour, s1.ID_stat, s2.ID_stat, n.name;
 
 
 -- Insert natures which have all null fields - da error xq los integers no són null como tal.
--- INSERT INTO Nature(name, ID_nature, decremented_stat, incremented_stat, likes_flavour, dislikes_flavour)
--- SELECT name, id, -1, -1, -1, -1 FROM natures_aux
--- WHERE COALESCE(decreased_stat, '') = '' OR COALESCE(increased_stat, '') = '' OR COALESCE(likes_flavor, '') = '' OR COALESCE(hates_flavor, '') = '';
+INSERT INTO Nature(name, ID_nature, decremented_stat, incremented_stat, likes_flavour, dislikes_flavour)
+SELECT name, id, NULL, NULL, NULL, NULL FROM natures_aux
+WHERE COALESCE(decreased_stat, '') = '' OR COALESCE(increased_stat, '') = '' OR COALESCE(likes_flavor, '') = '' OR COALESCE(hates_flavor, '') = '';
 
 
 INSERT INTO Team(ID_trainer)
