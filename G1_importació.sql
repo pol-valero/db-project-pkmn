@@ -445,8 +445,17 @@ WHERE t1.name = d.attacker
 AND t2.name = d.defender;
 
 
-ALTER TABLE growth_rates DROP CONSTRAINT growth_rates_pkey CASCADE;
-INSERT INTO growth_rates SELECT * FROM growth_rates_aux;
+INSERT INTO Growth_rates (id_growth_rate, name, formula) SELECT DISTINCT id, name, formula
+FROM growth_rates_aux;
+
+INSERT INTO Level (id_level) SELECT DISTINCT level
+FROM growth_rates_aux;
+
+INSERT INTO growth_level (id_level, id_growth_rate, experience)
+SELECT l.id_level, g.id_growth_rate, gr.experience
+FROM growth_rates_aux gr
+JOIN Growth_Rates as g ON gr.id = g.id_growth_rate
+JOIN Level AS l ON gr.level = l.id_level
 
 
 INSERT INTO Stat (stat_name) SELECT DISTINCT stat
