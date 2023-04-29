@@ -605,7 +605,14 @@ JOIN Subarea AS sub ON sub.ID_subarea = subareaid
 JOIN Area AS a ON a.ID_area = sub.ID_Area
 ORDER BY subareaID, id_method, id_specie;
 
---Here we should put the Trainer_Gym INSERT
+
+-- Fill the Trainer_Badge table with random Badges.
+INSERT INTO Trainer_Badge(ID_trainer, ID_badge)
+SELECT 
+    t.ID_Trainer, 
+    FLOOR(((RANDOM() * (SELECT MAX(ID_badge) FROM Badge)) - (SELECT MIN(ID_badge) FROM Badge) + 1)) + (SELECT MIN(ID_badge) FROM Badge) AS random_Badge 
+FROM 
+    Trainer t;
 
 
 INSERT INTO Berry(ID_berry, name, growth_time, max_num_harvest, natural_gift_powder, berry_avg_size, smoothness, soil_dryness, firmness)
