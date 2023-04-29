@@ -28,15 +28,29 @@ FOREIGN KEY (ID_type2) REFERENCES Types (ID_type)
 );
 
 -- Growth_rates
+
 DROP TABLE IF EXISTS Growth_rates CASCADE;
 CREATE TABLE Growth_rates (
     ID_growth_rate SERIAL PRIMARY KEY,
     name VARCHAR (255),
-    formula TEXT, 
-    level INT, 
-    experience BIGINT 
+    formula TEXT
 );
 
+DROP TABLE IF EXISTS Level CASCADE;
+CREATE TABLE Level (
+    id_level INTEGER, 
+    PRIMARY KEY (id_level)
+);
+
+DROP TABLE IF EXISTS growth_level CASCADE; 
+CREATE TABLE growth_level (
+    id_level INTEGER, 
+    id_growth_rate INTEGER, 
+    PRIMARY KEY (id_level, id_growth_rate), 
+    FOREIGN KEY (id_level) REFERENCES Level (id_level),
+    FOREIGN KEY (id_growth_rate) REFERENCES Growth_rates (id_growth_rate),
+    experience BIGINT
+);
 -- Stat
 
 DROP TABLE IF EXISTS Stat CASCADE; 
