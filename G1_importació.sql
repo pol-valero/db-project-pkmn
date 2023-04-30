@@ -688,8 +688,8 @@ INSERT INTO Movement(ID_movement, name, precision, power_points, power, damage_c
 SELECT m.move_id, m.name, m.accuracy, m.pp, m.power, m.move_damage_class, m.priority, m.target,
        m.effect, m.flinch_chance, t.ID_type, m.min_hits, m.max_hits, m.stat_change_rate, m.change_amount, s.ID_stat
 FROM moves_aux AS m
-JOIN Types AS t ON t.name = m.type
-JOIN Stat AS s ON s.stat_name = m.stat;
+LEFT JOIN Types AS t ON t.name = m.type
+LEFT JOIN Stat AS s ON s.stat_name = m.stat;
 
 
 INSERT INTO Technical_Machine(ID_movement)
@@ -816,16 +816,16 @@ JOIN Gym AS g ON g.ID_leader != t.ID_trainer
 LIMIT 4;
 
 
--- INSERT INTO Damage(ID_damage, strength)
--- SELECT move_id, hp_drain
--- FROM moves_aux
--- WHERE hp_drain != 0;
+INSERT INTO Damage(ID_damage, strength)
+SELECT move_id, hp_drain
+FROM moves_aux
+WHERE hp_drain != 0;
 
 
--- INSERT INTO Curation(ID_curation, life_points)
--- SELECT move_id, hp_healing
--- FROM moves_aux
--- WHERE hp_healing != 0;
+INSERT INTO Curation(ID_curation, life_points)
+SELECT move_id, hp_healing
+FROM moves_aux
+WHERE hp_healing != 0;
 
 
 INSERT INTO State(ID_state, status, status_chance)
