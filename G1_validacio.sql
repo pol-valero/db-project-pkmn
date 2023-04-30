@@ -1,3 +1,24 @@
+
+
+---- 1. POKEMONS 
+-- tipos 
+
+SELECT COUNT (DISTINCT t.id_type) FROM types t;
+SELECT COUNT (DISTINCT t.id) FROM type_aux t;
+
+-- multiplicador de daño
+SELECT DISTINCT r.multiplier AS multiplier, r.id_type1, r.id_type2
+FROM relation AS r 
+JOIN movement AS m ON r.id_type1 = m.id_type 
+JOIN specie AS s ON r.id_type2 =  s.id_specie
+WHERE m.name = 'swords dance'
+LIMIT 3; 
+
+
+
+
+
+
 ---- 4. EXPLORACIÓ
 
 -- Region: check if there are the same regions in auxiliar csv than in the imported one.
