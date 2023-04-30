@@ -162,3 +162,14 @@ JOIN Encounter_Method AS em ON em.ID_method = enc.id_method
 JOIN Condition AS c ON c.id_condition = enc.id_condition
 WHERE em.method_type = 'walk' AND c.condition_type = 'time' AND enc.min_level_specie = 5 AND enc.chance_percentage > 20
 GROUP BY s.name;
+
+-- Routes: Select only routes with an area north that start with o or O. 
+SELECT a.name AS areaName_routes_imported, route.name AS routeName_routes_imported FROM Route_Area AS ra
+JOIN Area AS a ON a.ID_area = ra.ID_area
+JOIN Area AS route ON route.ID_area = ra.ID_route
+JOIN Cardinal_Point AS cp ON cp.ID_cardinal_point = ra.id_cardinal_point_route
+WHERE cp.name = 'North' AND LOWER(a.name) LIKE 'o%'
+GROUP BY route.name, a.name;
+
+SELECT north AS northArea_routes_csv, route AS routeName_routes_csv FROM aux_routes
+WHERE LOWER(north) LIKE 'o%';
