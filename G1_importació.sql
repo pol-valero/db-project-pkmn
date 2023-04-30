@@ -713,8 +713,6 @@ SELECT mov.ID_movement
 FROM items_aux as ia
 JOIN Movement as mov on ia.move = mov.name;
 
-
-ALTER TABLE Store DROP CONSTRAINT store_id_city_fkey CASCADE;
 INSERT INTO Store(ID_store, name, floors, ID_city)
 SELECT sa.storeID, sa.store_name, sa.floors, Area.ID_area
 FROM stores_aux as sa
