@@ -65,6 +65,63 @@ WHERE
   p.id_pokemon IN (SELECT id_pokemon FROM pokemon LIMIT 5);
 
 
+
+
+-------------------- VALIDACIÓ DE DADES: ENTRENADORS --------------------
+
+
+-- VILLAIN
+SELECT t.id, t.villain_team, c.ID_org
+FROM trainers_aux AS t
+JOIN Criminal_Org AS c ON c.name = t.villain_team
+WHERE t.villain_team IS NOT NULL;
+
+SELECT v.id_villain, v.id_org
+FROM villain AS v;
+
+
+-- TRAINER
+SELECT t.id, t.name
+FROM aux_gyms AS g 
+JOIN trainers_aux AS t ON g.leader = t.name 
+WHERE t.trainer_class LIKE '%Gym Leader%';
+
+SELECT *
+FROM gym_leader;
+
+
+-- POKEMON_MOVEMENT
+SELECT pi.id, pi.nickname, m1.name AS move1, m2.name AS move2, m3.name AS move3, m4.name AS move4
+FROM pokemon_instances_aux AS pi
+JOIN moves_aux AS m1 ON m1.move_id = pi.move1
+JOIN moves_aux AS m2 ON m2.move_id = pi.move2
+JOIN moves_aux AS m3 ON m3.move_id = pi.move3
+JOIN moves_aux AS m4 ON m4.move_id = pi.move4;
+
+SELECT pm.id_pokemon, pm.id_movement, m.name AS move_name
+FROM pokemon_movement AS pm
+JOIN movement AS m ON m.id_movement = pm.id_movement
+ORDER BY pm.id_pokemon ASC, pm.id_movement ASC;
+
+
+-- CURATION
+SELECT move_id, hp_healing FROM moves_aux WHERE hp_healing != 0; 
+
+SELECT * FROM Curation;
+
+-- DAMAGE 
+SELECT move_id, hp_drain FROM moves_aux WHERE hp_drain != 0;
+
+SELECT * FROM Damage;
+
+-- STATE
+SELECT move_id, ailment FROM moves_aux WHERE ailment IS NOT NULL;
+
+SELECT id_state, status FROM State;
+
+
+
+
 -------------------- VALIDACIÓ DE DADES: COMPRES --------------------
 
 -- LOOT
