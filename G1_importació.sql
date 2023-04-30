@@ -882,7 +882,7 @@ SELECT sp.id_specie, s.id_stat, sa.base_stat, sa.effort
 FROM specie sp
 JOIN stats_aux sa ON sp.name = sa.pokemon
 JOIN stat s ON s.stat_name = sa.stat;
-SELECT * FROM pokemon_aux;
+
 
 
 INSERT INTO Pokemon_Types (ID_specie, ID_type, is_primary)
