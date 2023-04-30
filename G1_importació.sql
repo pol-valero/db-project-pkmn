@@ -545,7 +545,7 @@ FROM pokemon_aux;
 
 
 INSERT INTO Specie_Ability(id_specie, id_ability, slot, is_hidden)
-SELECT spiecesid, abilityid, slot, is_hidden 
+SELECT DISTINCT spiecesid, abilityid, slot, is_hidden 
 FROM pokemon_abilities_aux;
 
 
