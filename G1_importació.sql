@@ -755,17 +755,17 @@ SELECT DISTINCT trainer
 FROM poketeams_aux;
 
 
--- INSERT FINAL
+-- INSERT FINAL - Aquest es el que s'ha d'utilitzar
 INSERT INTO Pokemon(ID_pokemon, nickname, level, experience, gender, datetime, obtention_method, position, remaining_health, status_inflicted,
                     ID_pokeball, ID_specie, ID_trainer, ID_nature, ID_item, ID_team, ID_subarea)
 SELECT pi.id, pi.nickname, pi.level, pi.experience, pi.gender, pi.datetime, pi.obtention_method, pt.slot, pt.hp, pt.status, 
        p.ID_object, pi.pokemon_speciesID, pi.ownerID, n.ID_nature, o.ID_object, t.ID_team, pi.location_subareaID
 FROM pokemon_instances_aux AS pi 
-JOIN poketeams_aux AS pt ON pi.id = pt.pokemon
-JOIN Team AS t ON t.ID_trainer = pt.trainer
-JOIN Nature AS n ON LOWER(n.name) = LOWER(pi.nature)
-JOIN Object AS o ON LOWER(o.name) = LOWER(pi.item)
-JOIN Object AS p ON LOWER(p.name) = LOWER(pi.pokeballID);
+LEFT JOIN poketeams_aux AS pt ON pi.id = pt.pokemon
+LEFT JOIN Team AS t ON t.ID_trainer = pt.trainer
+LEFT JOIN Nature AS n ON LOWER(n.name) = LOWER(pi.nature)
+LEFT JOIN Object AS o ON LOWER(o.name) = LOWER(pi.item)
+LEFT JOIN Object AS p ON LOWER(p.name) = LOWER(pi.pokeballID);
 
 
 -- -- Pokemons with a NULL Item
@@ -853,16 +853,11 @@ FROM moves_aux
 WHERE ailment IS NOT NULL;
 
 
-INSERT INTO Pokemon_Movement(ID_pokemon, ID_movement)
-SELECT id, move1
-FROM pokemon_instances_aux
-WHERE move1 IS NOT NULL;
-
 
 INSERT INTO Pokemon_Movement(ID_pokemon, ID_movement)
-SELECT id, move2
+SELECT id, move4
 FROM pokemon_instances_aux
-WHERE move2 IS NOT NULL;
+WHERE move4 IS NOT NULL;
 
 
 INSERT INTO Pokemon_Movement(ID_pokemon, ID_movement)
@@ -872,9 +867,16 @@ WHERE move3 IS NOT NULL;
 
 
 INSERT INTO Pokemon_Movement(ID_pokemon, ID_movement)
-SELECT id, move4
+SELECT id, move2
 FROM pokemon_instances_aux
-WHERE move4 IS NOT NULL;
+WHERE move2 IS NOT NULL AND move2 != move3 AND move2 != move4; --In the CSV file there are some pokemons that have the same move in different slots. The PK/FK constraint doesn't allow this.
+
+
+INSERT INTO Pokemon_Movement(ID_pokemon, ID_movement)
+SELECT id, move1
+FROM pokemon_instances_aux
+WHERE move1 IS NOT NULL AND move1 != move2 AND move1 != move3 AND move1 != move4;  --In the CSV file there are some pokemons that have the same move in different slots. The PK/FK constraint doesn't allow this.
+
 
 
 INSERT INTO Pokemon_Stat (ID_specie, ID_stat, base_stat, effort)
