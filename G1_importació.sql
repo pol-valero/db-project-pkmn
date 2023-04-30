@@ -811,7 +811,7 @@ FROM battle_statistics_aux;
 INSERT INTO Criminal_Org(name, building, ID_leader, ID_region, headquarters)
 SELECT v.name, v.building, t.id, r.ID_region, a.ID_area
 FROM villainous_organizations_aux AS v
-JOIN trainers_aux AS t ON v.leader = t.name AND (v.name || ' Leader') = t.trainer_class
+LEFT JOIN trainers_aux AS t ON v.leader = t.name AND t.trainer_class LIKE '%Leader%'
 JOIN Region AS r ON LOWER(v.region) = LOWER(r.name)
 JOIN Area AS a ON LOWER(v.hq) = LOWER(a.name);
 
