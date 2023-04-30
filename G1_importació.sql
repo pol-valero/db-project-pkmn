@@ -707,8 +707,8 @@ LEFT JOIN Types AS t ON t.name = m.type
 LEFT JOIN Stat AS s ON s.stat_name = m.stat;
 
 
-INSERT INTO Technical_Machine(ID_movement)
-SELECT mov.ID_movement
+INSERT INTO Technical_Machine(ID_machine, ID_movement)
+SELECT ia.id, mov.ID_movement
 FROM items_aux as ia
 JOIN Movement as mov on ia.move = mov.name;
 
