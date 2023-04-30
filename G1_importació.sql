@@ -526,12 +526,8 @@ SELECT DISTINCT(badge)
 FROM aux_gyms;
 
 
-INSERT INTO Object (id_object, name, cost, effect)
-SELECT 
-	items_aux.id,
-    items_aux.name, 
-    items_aux.cost, 
-    items_aux.effect
+INSERT INTO Object (id_object, name, cost, effect, available)
+SELECT items_aux.id, items_aux.name, items_aux.cost, items_aux.effect, TRUE
 FROM items_aux;
 
 
