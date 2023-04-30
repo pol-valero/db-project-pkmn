@@ -1,6 +1,4 @@
-
-
----- 1. POKEMONS 
+-------------------- VALIDACIÓ DE DADES: POKEMONS --------------------
 -- tipos 
 
 SELECT COUNT (DISTINCT t.id_type) FROM types t;
@@ -15,11 +13,55 @@ WHERE m.name = 'swords dance'
 LIMIT 3; 
 
 
+-------------------- VALIDACIÓ DE DADES: COMPRES --------------------
+
+-- LOOT
+SELECT id, name, quick_sell_price, collector_price FROM items_aux
+WHERE collector_price IS NOT NULL
+ORDER BY id;
+
+SELECT * FROM Loot 
+JOIN Collector as c on c.id_collector = Loot.id_collector
+ORDER BY ID_loot;
 
 
+-- BOOSTING
+SELECT  id, stat_increase_time, statistic FROM items_aux
+WHERE stat_increase_time IS NOT NULL AND statistic IS NOT NULL;
+
+SELECT * FROM Boosting;
+
+-- HEALING ITEM
+SELECT id, healing, can_revive FROM items_aux
+WHERE healing != ''
+ORDER BY id;
+
+SELECT id_healing_item, healing, revive, healing_revive FROM Healing_Item ORDER BY id_healing_item;
 
 
----- 4. EXPLORACIÓ
+-- TECHNICAL MACHINE
+SELECT mov.ID_movement
+FROM items_aux as ia
+JOIN Movement as mov on ia.move = mov.name
+LIMIT 10;
+
+SELECT * FROM technical_machine LIMIT 10;
+
+-- POKEBALL
+SELECT  id, top_capture_rate, min_capture_rate
+FROM items_aux
+WHERE top_capture_rate IS NOT NULL AND min_capture_rate IS NOT NULL;
+
+SELECT * FROM Pokeball;
+
+-- BERRY I BERRY FLAVOUR
+
+-- COLLECTOR
+
+-- STORE
+
+
+-------------------- VALIDACIÓ DE DADES: EXPLORACIÓ --------------------
 
 -- Region: check if there are the same regions in auxiliar csv than in the imported one.
 SELECT name, 'Taula regió - importada' AS note
