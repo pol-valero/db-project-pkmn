@@ -230,8 +230,8 @@ CREATE TABLE Encounter_Method (
 );
 
 -- Condition Type
-DROP TABLE IF EXISTS Condition_Type CASCADE;
-CREATE TABLE Condition_Type (
+DROP TABLE IF EXISTS Condition CASCADE;
+CREATE TABLE Condition (
     ID_condition SERIAL PRIMARY KEY,
     condition_type VARCHAR(255),
     condition_value VARCHAR(255)
@@ -252,7 +252,7 @@ CREATE TABLE Specie_Subarea_Condition_Method (
     FOREIGN KEY (ID_method) REFERENCES Encounter_Method (ID_method),
     FOREIGN KEY (ID_subarea) REFERENCES Subarea (ID_subarea),
     FOREIGN KEY (ID_specie) REFERENCES Specie (ID_specie), 
-    FOREIGN KEY (ID_condition) REFERENCES Condition_Type (ID_condition)
+    FOREIGN KEY (ID_condition) REFERENCES Condition (ID_condition)
 );
 
 -- Trainer + Gym
