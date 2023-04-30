@@ -124,29 +124,22 @@ FROM aux_locations
 GROUP BY region
 ORDER BY note, name;
 
--- Area: check if there are the same regions in auxiliar csv than in the imported one.
-SELECT region AS region_locations_csv, area AS area_locations_csv FROM aux_locations
-GROUP BY region, area
-ORDER BY region, area;
-
-SELECT r.name AS region_imported, a.name AS area_imported FROM Area AS a
+-- Areas, Subareas and Gyms: Select the areas that have a gym with a badge starting with "F" that at least have one subarea.
+SELECT r.name AS region_imported, a.name, sub.name, g.name, l.name AS leader_imported, b.name AS badge_imported 
+FROM Area AS a
 JOIN Region AS r ON r.ID_region = a.ID_region
+JOIN City AS c ON c.ID_city = a.ID_area
+JOIN Gym AS g ON g.ID_gym = c.ID_gym
+JOIN Trainer AS l ON l.ID_trainer = g.ID_leader
+JOIN Badge AS b ON b.ID_badge = g.ID_badge
+LEFT JOIN Subarea AS sub ON sub.ID_area = a.ID_area
+WHERE b.name LIKE 'F%'
 ORDER BY r.name, a.name;
 
--- Repeated areas: check areas with the same name that are in different regions.
-SELECT a1.region AS region_locations_csv, a1.area AS area_locations_csv
-FROM aux_locations a1
-JOIN aux_locations a2 ON a1.area = a2.area AND a1.region <> a2.region
-GROUP BY a1.region, a1.area
-ORDER BY a1.area, a1.region;
 
-SELECT r.name AS region_imported, a1.name AS area_imported
-FROM Area AS a1
-JOIN Region AS r ON r.ID_region = a1.ID_region
-JOIN Area AS a2 ON a2.name = a1.name AND a2.ID_region <> a1.ID_region
-JOIN Region AS r2 ON r2.ID_region = a2.ID_region
-GROUP BY r.name, a1.name
-ORDER BY a1.name, r.name;
+SELECT aloc.region, aloc.area, aloc.subarea, ag.name, ag.leader, ag.badge FROM aux_locations AS aloc
+JOIN aux_gyms AS ag ON LOWER(ag.location) = aloc.area
+WHERE ag.badge LIKE 'F%' AND subarea IS NOT NULL;
 
 -- Encounters: Select the encounters with walk method and a time condition, with a minimum level of 5 and a chance higher than 20.
 SELECT pokemon AS encounters_locations_csv
