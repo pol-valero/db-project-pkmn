@@ -257,6 +257,22 @@ FROM '/Users/Shared/BBDD-DATASETS/purchases.csv'
 DELIMITER ','
 CSV HEADER;
 
+-- SALES
+DROP TABLE IF EXISTS sales_aux;
+CREATE TABLE IF NOT EXISTS sales_aux (
+    storeID INTEGER,
+    trainerID INTEGER,
+    itemID INTEGER,
+    amount INTEGER,
+    cost INTEGER,
+    discount INTEGER,
+    date_time DATE
+);
+
+COPY sales_aux FROM '/Users/Shared/BBDD-DATASETS/sales.csv' 
+DELIMITER ','
+CSV HEADER;
+
 -- STORES
 DROP TABLE IF EXISTS stores_aux;
 CREATE TABLE IF NOT EXISTS stores_aux (
@@ -712,6 +728,9 @@ INSERT INTO Purchase(ID_store, ID_trainer, ID_object, amount, cost, discount, da
 SELECT  storeID, trainerID, itemID, amount, cost, discount, date_time
 FROM purchases_aux;
 
+INSERT INTO Sale(ID_store, ID_trainer, ID_object, amount, cost, discount, date_time)
+SELECT  storeID, trainerID, itemID, amount, cost, discount, date_time
+FROM sales_aux;
 
 INSERT INTO Nature(ID_nature, likes_flavour, dislikes_flavour, incremented_stat, decremented_stat, name)
 SELECT n.id, bf1.ID_flavour, bf2.ID_flavour, s1.ID_stat, s2.ID_stat, n.name
