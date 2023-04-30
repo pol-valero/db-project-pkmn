@@ -535,7 +535,7 @@ CREATE TABLE Battle_Result (
 DROP TABLE IF EXISTS Villain CASCADE;
 CREATE TABLE Villain (
     ID_villain INT,
-    steal_money INT,
+    steal_money BIGINT,
     iconic_sentence VARCHAR(255),
     buddy INT,
     ID_org INT,
