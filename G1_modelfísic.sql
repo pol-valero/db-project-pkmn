@@ -409,6 +409,9 @@ CREATE TABLE Sale (
     ID_trainer INTEGER,
     ID_object INTEGER,
     ID_store INTEGER,
+	discount INTEGER,
+    date_time DATE, 
+    amount INTEGER,
     FOREIGN KEY (ID_trainer)
         REFERENCES Trainer (ID_trainer),
     FOREIGN KEY (ID_object)
