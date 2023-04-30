@@ -12,6 +12,47 @@ JOIN specie AS s ON r.id_type2 =  s.id_specie
 WHERE m.name = 'swords dance'
 LIMIT 3; 
 
+-- validación de habilidades con especie 
+
+SELECT DISTINCT a.name, a.effect
+FROM Ability AS a
+JOIN specie_ability as sa ON a.id_ability = sa.id_ability
+JOIN specie AS s ON sa.id_specie = s.id_specie
+WHERE sa.is_hidden = 'false' AND s.id_specie < 10
+
+-- validacion de evoluciones (eejcutar por separado los 3)
+
+SELECT s.name
+FROM specie As s 
+JOIN evolve AS e ON s.id_specie = id_current_specie
+WHERE is_baby = 'true';
+
+SELECT s.baseid AS names_baby
+FROM evolutions_aux AS s
+WHERE s.is_baby = 'true'
+
+SELECT s.name AS no_coinciden 
+FROM specie As s 
+JOIN evolve AS e ON s.id_specie = id_current_specie
+WHERE is_baby = 'true'
+EXCEPT
+SELECT s.baseid AS names_baby
+FROM evolutions_aux AS s
+WHERE s.is_baby = 'true';
+
+-- validación de las stats(ejecutar los dos SELECT por separado)
+
+SELECT stat.stat_name, specie_stat.base_stat
+FROM specie_stat
+JOIN stat ON specie_stat.id_stat = stat.id_stat
+WHERE specie_stat.id_specie = 1 
+
+SELECT stat.stat_name, specie_stat.base_stat
+FROM specie_stat
+JOIN stat ON specie_stat.id_stat = stat.id_stat
+JOIN specie ON specie_stat.id_specie = specie.id_specie
+WHERE specie.name = 'charmander'
+
 
 -------------------- VALIDACIÓ DE DADES: COMPRES --------------------
 
