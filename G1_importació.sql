@@ -629,7 +629,7 @@ SELECT condition_type, condition_value FROM aux_encounters
 GROUP BY condition_type, condition_value;
 
 
-INSERT INTO Specie_Subarea_Condition_Method (ID_subarea, ID_method, ID_specie, chance, min_level_specie, max_level_specie, ID_condition)
+INSERT INTO Specie_Subarea_Condition_Method (ID_subarea, ID_method, ID_specie, chance_percentage, min_level_specie, max_level_specie, ID_condition)
 --SELECT DISTINCT subareaid, sub.name, a.ID_area, a.name, m.ID_method, m.method_type, s.ID_specie, s.name, chance, min_level, max_level, c.ID_condition FROM aux_encounters as ae
 SELECT DISTINCT subareaid, m.ID_method, s.ID_specie, chance, min_level, max_level, c.ID_condition FROM aux_encounters as ae
 JOIN Encounter_Method AS m ON m.method_type = ae.method
