@@ -766,14 +766,12 @@ JOIN Object AS p ON LOWER(p.name) = LOWER(pi.pokeballID)
 WHERE pi.item IS NULL;
 
 
---Here we should put the Pokemon_Object INSERT
--- Pokemon + Object TODO
-/* Em falta la taula Pokemon per poder fer aquesta taula
+-- Pokemon + Object
 DELETE FROM Pokemon_Object;
 INSERT INTO Pokemon_Object(ID_pokemon, ID_object)
-SELECT ID_pokemon, ID_object
+SELECT Pokemon.ID_pokemon, object.ID_object
 FROM Object 
-JOIN Pokemon on Pokemon.;*/
+JOIN Pokemon on Pokemon.ID_item = object.ID_object;
 
 
 INSERT INTO Battle(ID_battle, winner, loser, start_datetime, duration, exp_reward, gold_reward)
