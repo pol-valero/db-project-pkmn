@@ -877,7 +877,7 @@ WHERE move1 IS NOT NULL AND move1 != move2 AND move1 != move3 AND move1 != move4
 
 
 
-INSERT INTO Pokemon_Stat (ID_specie, ID_stat, base_stat, effort)
+INSERT INTO Spiece_Stat (ID_specie, ID_stat, base_stat, effort)
 SELECT sp.id_specie, s.id_stat, sa.base_stat, sa.effort
 FROM specie sp
 JOIN stats_aux sa ON sp.name = sa.pokemon
