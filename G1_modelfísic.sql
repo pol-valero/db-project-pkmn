@@ -613,7 +613,7 @@ CREATE TABLE Pokemon_Movement (
     FOREIGN KEY (ID_movement) REFERENCES Movement (ID_movement)
 );
 
- DROP TABLE IF EXISTS Pokemon_Stat CASCADE;
+ DROP TABLE IF EXISTS Specie_Stat CASCADE;
  CREATE TABLE Pokemon_Stat(
     ID_specie INTEGER,
     ID_stat INTEGER, 
