@@ -19,12 +19,12 @@ CREATE TABLE Types (
 -- Relation
 DROP TABLE IF EXISTS Relation CASCADE;
 CREATE TABLE Relation (
-ID_type1 INTEGER,
-ID_type2 INTEGER,
-multiplier VARCHAR(255),
-PRIMARY KEY (ID_type1, ID_type2),
-FOREIGN KEY (ID_type1) REFERENCES Types (ID_type),
-FOREIGN KEY (ID_type2) REFERENCES Types (ID_type)
+	ID_type1 INTEGER,
+	ID_type2 INTEGER,
+	multiplier VARCHAR(255),
+	PRIMARY KEY (ID_type1, ID_type2),
+	FOREIGN KEY (ID_type1) REFERENCES Types (ID_type),
+	FOREIGN KEY (ID_type2) REFERENCES Types (ID_type)
 );
 
 -- Growth_rates
@@ -614,7 +614,7 @@ CREATE TABLE Pokemon_Movement (
 );
 
  DROP TABLE IF EXISTS Specie_Stat CASCADE;
- CREATE TABLE Pokemon_Stat(
+ CREATE TABLE Specie_Stat(
     ID_specie INTEGER,
     ID_stat INTEGER, 
     PRIMARY KEY (ID_specie, ID_stat),
