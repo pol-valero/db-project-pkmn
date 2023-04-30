@@ -766,7 +766,7 @@ LEFT JOIN Object AS p ON LOWER(p.name) = LOWER(pi.pokeballID);
 
 
 -- -- Pokemons with a NULL Item
-INSERT INTO Pokemon(ID_pokemon, nickname, level, experience, gender, datetime, obtention_method, position, remaining_health, status_inflicted,
+/*INSERT INTO Pokemon(ID_pokemon, nickname, level, experience, gender, datetime, obtention_method, position, remaining_health, status_inflicted,
                     ID_pokeball, ID_specie, ID_trainer, ID_nature, ID_item, ID_team, ID_subarea)
 SELECT pi.id, pi.nickname, pi.level, pi.experience, pi.gender, pi.datetime, pi.obtention_method, pt.slot, pt.hp, pt.status, 
        p.ID_object, pi.pokemon_speciesID, pi.ownerID, n.ID_nature, NULL, t.ID_team, pi.location_subareaID
@@ -775,7 +775,7 @@ JOIN poketeams_aux AS pt ON pi.id = pt.pokemon
 JOIN Team AS t ON t.ID_trainer = pt.trainer
 JOIN Nature AS n ON LOWER(n.name) = LOWER(pi.nature)
 JOIN Object AS p ON LOWER(p.name) = LOWER(pi.pokeballID)
-WHERE pi.item IS NULL;
+WHERE pi.item IS NULL;*/
 
 
 -- Pokemon + Object
