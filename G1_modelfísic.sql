@@ -563,7 +563,7 @@ CREATE TABLE Trainer_Object (
     ID_object INTEGER,
     obtention_method VARCHAR(255),
     datetime TIMESTAMP,  
-    PRIMARY KEY (ID_trainer, ID_object),
+    PRIMARY KEY (ID_trainer, ID_object, datetime),
     FOREIGN KEY (ID_trainer) REFERENCES Trainer (ID_trainer),
     FOREIGN KEY (ID_object) REFERENCES Object (ID_object)
 );
