@@ -149,5 +149,5 @@ JOIN Specie AS s ON s.ID_specie = enc.id_specie
 JOIN Subarea AS sub ON sub.ID_subarea = enc.id_subarea
 JOIN Encounter_Method AS em ON em.ID_method = enc.id_method
 JOIN Condition AS c ON c.id_condition = enc.id_condition
-WHERE em.method_type = 'walk' AND c.condition_type = 'time' AND min_level_specie = 5 AND chance > 20
+WHERE em.method_type = 'walk' AND c.condition_type = 'time' AND enc.min_level_specie = 5 AND enc.chance_percentage > 20
 GROUP BY s.name;
