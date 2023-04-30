@@ -136,3 +136,18 @@ JOIN Area AS a2 ON a2.name = a1.name AND a2.ID_region <> a1.ID_region
 JOIN Region AS r2 ON r2.ID_region = a2.ID_region
 GROUP BY r.name, a1.name
 ORDER BY a1.name, r.name;
+
+-- Encounters: Select the encounters with walk method and a time condition, with a minimum level of 5 and a chance higher than 20.
+SELECT pokemon AS encounters_locations_csv
+FROM aux_encounters
+WHERE method = 'walk' AND condition_type = 'time' AND min_level = 5 AND chance > 20
+GROUP BY pokemon;
+
+
+SELECT s.name AS encounters_imported FROM Specie_Subarea_Condition_Method AS enc
+JOIN Specie AS s ON s.ID_specie = enc.id_specie
+JOIN Subarea AS sub ON sub.ID_subarea = enc.id_subarea
+JOIN Encounter_Method AS em ON em.ID_method = enc.id_method
+JOIN Condition AS c ON c.id_condition = enc.id_condition
+WHERE em.method_type = 'walk' AND c.condition_type = 'time' AND min_level_specie = 5 AND chance > 20
+GROUP BY s.name;
