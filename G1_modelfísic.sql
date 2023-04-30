@@ -126,8 +126,7 @@ CREATE TABLE Object (
     name VARCHAR(255),
     cost INTEGER,
     effect TEXT,
-    available BOOLEAN,
-    on_sale BOOLEAN
+    available BOOLEAN
 );
 
 -- Trainer
