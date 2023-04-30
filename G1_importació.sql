@@ -667,14 +667,15 @@ ORDER BY b.ID_berry, bf.id_flavour;
 
 
 INSERT INTO Collector(collector_price)
-SELECT collector_price
-FROM items_aux
-WHERE collector_price IS NOT NULL;
-
-
-INSERT INTO Loot(quick_sell_price, ID_collector)
-SELECT quick_sell_price, Collector.ID_collector
+SELECT ia.collector_price
 FROM items_aux as ia
+WHERE collector_price IS NOT NULL
+group by ia.collector_price;
+
+INSERT INTO Loot(ID_loot, quick_sell_price, ID_collector)
+SELECT o.ID_object, quick_sell_price, Collector.ID_collector
+FROM items_aux as ia
+JOIN Object as o on o.name = ia.name
 JOIN Collector on Collector.collector_price =  ia.collector_price
 WHERE quick_sell_price IS NOT NULL;
 
