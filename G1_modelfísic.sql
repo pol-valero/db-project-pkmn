@@ -231,7 +231,7 @@ CREATE TABLE Encounter_Method (
 );
 
 -- Condition Type
-DROP TABLE IF EXISTS Condition CASCADE;
+DROP TABLE IF EXISTS Condition_Type CASCADE;
 CREATE TABLE Condition_Type (
     ID_condition SERIAL PRIMARY KEY,
     condition_type VARCHAR(255),
