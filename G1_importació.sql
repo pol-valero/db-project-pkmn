@@ -681,7 +681,7 @@ WHERE quick_sell_price IS NOT NULL;
 
 DELETE FROM Healing_Item;
 INSERT INTO Healing_Item(ID_healing_item, healing, revive, healing_revive, description)
-SELECT id, CAST(healing AS INTEGER), can_revive, FLOOR(RANDOM() * 100), effect
+SELECT id, CAST(healing AS INTEGER), can_revive, CASE WHEN can_revive = 'true' THEN FLOOR(RANDOM() * 100) ELSE 0 END, effect
 FROM items_aux as ia
 WHERE healing != '';
 
