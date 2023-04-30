@@ -55,11 +55,12 @@ WHERE specie.name = 'charmander'
 
 -- validación de la experiencia y los ratios 
 
-SELECT p.id_pokemon, p.level, p.experience as pokemon_experience, g.formula as growth_formula, gl.experience as required_experience
+  SELECT p.id_pokemon, p.level,  p.experience as pokemon_experience, g.formula as growth_formula, gl_next.experience as required_experience
 FROM pokemon as p
   JOIN specie s ON p.id_specie = s.id_specie
   JOIN growth_rates g ON s.growth_rate_id = g.id_growth_rate
   JOIN growth_level gl ON s.growth_rate_id = gl.id_growth_rate AND p.level = gl.id_level
+  LEFT JOIN growth_level gl_next ON s.growth_rate_id = gl_next.id_growth_rate AND p.level + 1 = gl_next.id_level
 WHERE 
   p.id_pokemon IN (SELECT id_pokemon FROM pokemon LIMIT 5);
 
