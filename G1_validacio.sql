@@ -181,10 +181,12 @@ LIMIT 5;
 
 -- STORE
 SELECT * FROM Store as s
-JOIN Store_Object as so on so.id_store = s.id_store;
+JOIN Store_Object as so on so.id_store = s.id_store
+ORDER BY so.id_object;
 
 select * from stores_aux as sa
-JOIN store_items_aux as sia on sia.storeid = sa.storeid;
+JOIN store_items_aux as sia on sia.storeid = sa.storeid
+ORDER BY sia.itemid;
 
 
 -- SALE + PURCHASE
