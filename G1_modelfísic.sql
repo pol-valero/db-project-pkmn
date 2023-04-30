@@ -241,20 +241,21 @@ CREATE TABLE Condition (
 -- Condition Type + Specie + Subarea + Method
 DROP TABLE IF EXISTS Specie_Subarea_Condition_Method CASCADE;
 CREATE TABLE Specie_Subarea_Condition_Method (
+	ID_encounter SERIAL,
     ID_method INTEGER,
     ID_subarea INTEGER,
     ID_specie INTEGER,
-    chance INTEGER,
+    chance_percentage INTEGER,
 	min_level_specie INTEGER,
 	max_level_specie INTEGER,
     ID_condition INTEGER,
-	PRIMARY KEY (ID_method, ID_subarea, ID_specie, chance, min_level_specie, max_level_specie, ID_condition),
+	PRIMARY KEY (ID_encounter),
     FOREIGN KEY (ID_method) REFERENCES Encounter_Method (ID_method),
     FOREIGN KEY (ID_subarea) REFERENCES Subarea (ID_subarea),
     FOREIGN KEY (ID_specie) REFERENCES Specie (ID_specie), 
     FOREIGN KEY (ID_condition) REFERENCES Condition (ID_condition)
 );
-
+		 
 -- Trainer + Gym
 DROP TABLE IF EXISTS Trainer_Gym CASCADE;
 CREATE TABLE Trainer_Gym (
