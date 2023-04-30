@@ -124,7 +124,7 @@ SELECT id_state, status FROM State;
 
 -------------------- VALIDACIÓ DE DADES: COMPRES --------------------
 
--- LOOT
+-- LOOT + COLLECTOR
 SELECT id, name, quick_sell_price, collector_price FROM items_aux
 WHERE collector_price IS NOT NULL
 ORDER BY id;
@@ -140,6 +140,7 @@ WHERE stat_increase_time IS NOT NULL AND statistic IS NOT NULL;
 
 SELECT * FROM Boosting;
 
+
 -- HEALING ITEM
 SELECT id, healing, can_revive FROM items_aux
 WHERE healing != ''
@@ -149,25 +150,45 @@ SELECT id_healing_item, healing, revive, healing_revive FROM Healing_Item ORDER 
 
 
 -- TECHNICAL MACHINE
-SELECT mov.ID_movement
+SELECT mov.ID_movement, ia.move
 FROM items_aux as ia
 JOIN Movement as mov on ia.move = mov.name
-LIMIT 10;
+ORDER BY mov.ID_movement;
 
-SELECT * FROM technical_machine LIMIT 10;
+SELECT tm.id_machine, tm.id_movement, mov.name FROM technical_machine as tm
+JOIN Movement as mov on tm.id_movement = mov.id_movement
+ORDER BY tm.id_movement;
+
 
 -- POKEBALL
-SELECT  id, top_capture_rate, min_capture_rate
+SELECT id, top_capture_rate, min_capture_rate, effect
 FROM items_aux
 WHERE top_capture_rate IS NOT NULL AND min_capture_rate IS NOT NULL;
 
 SELECT * FROM Pokeball;
 
--- BERRY I BERRY FLAVOUR
 
--- COLLECTOR
+-- BERRY I BERRY FLAVOUR
+SELECT name FROM Berry
+ORDER BY id_berry
+LIMIT 5;
+
+SELECT b.id_berry, b.name, potency FROM Berry_BerryFlavour as bbf
+JOIN Berry as b on b.id_berry = bbf.id_berry
+JOIN Berry_Flavour as bf on bf.id_flavour = bbf.id_flavour
+LIMIT 5;
+
 
 -- STORE
+SELECT * FROM Store;
+SELECT * FROM Store_Object;
+
+
+-- SALE + PURCHASE
+SELECT * FROM Sale;
+SELECT * FROM sales_aux;
+SELECT * FROM Purchase;
+SELECT * FROM purchases_aux;
 
 
 -------------------- VALIDACIÓ DE DADES: EXPLORACIÓ --------------------
