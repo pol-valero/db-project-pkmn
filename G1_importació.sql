@@ -607,7 +607,7 @@ WHERE c.ID_city = a.ID_area;
 INSERT INTO Trainer_Badge(ID_trainer, ID_badge)
 SELECT 
     t.ID_Trainer, 
-    FLOOR(((RANDOM() * (SELECT MAX(ID_badge) FROM Badge)) - (SELECT MIN(ID_badge) FROM Badge) + 1)) + (SELECT MIN(ID_badge) FROM Badge) AS random_Badge 
+    FLOOR(((RANDOM() * (SELECT MAX(ID_badge) - MIN(ID_badge) FROM Badge) + 1)) + (SELECT MIN(ID_badge) FROM Badge)) AS random_Badge 
 FROM Trainer t;
 
 
@@ -643,9 +643,8 @@ ORDER BY subareaID, id_method, id_specie;
 INSERT INTO Trainer_Gym(ID_trainer, ID_gym)
 SELECT 
     t.ID_Trainer, 
-    FLOOR(((RANDOM() * (SELECT MAX(ID_gym) FROM Gym)) - (SELECT MIN(ID_gym) FROM Gym) + 1)) + (SELECT MIN(ID_gym) FROM Gym) AS random_gym 
-FROM 
-    Trainer t;
+    FLOOR(((RANDOM() * (SELECT MAX(ID_gym) - MIN(ID_gym) FROM Gym) + 1)) + (SELECT MIN(ID_gym) FROM Gym)) AS random_Badge 
+FROM Trainer t;
 
 
 INSERT INTO Berry(ID_berry, name, growth_time, max_num_harvest, natural_gift_powder, berry_avg_size, smoothness, soil_dryness, firmness)
