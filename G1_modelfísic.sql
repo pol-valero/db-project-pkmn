@@ -250,7 +250,7 @@ CREATE TABLE Specie_Subarea_Condition_Method (
 	max_level_specie INTEGER,
     ID_condition INTEGER,
 	PRIMARY KEY (ID_encounter),
-    FOREIGN KEY (ID_method) REFERENCES Encounter_Method (ID_method),
+    FOREIGN KEY (ID_method) REFERENCES Encounter_Method (ID_method) ON DELETE CASCADE,
     FOREIGN KEY (ID_subarea) REFERENCES Subarea (ID_subarea),
     FOREIGN KEY (ID_specie) REFERENCES Specie (ID_specie), 
     FOREIGN KEY (ID_condition) REFERENCES Condition (ID_condition)
