@@ -1,0 +1,113 @@
+﻿Route,North,East,West,South,Pavement
+Route 1,Viridian City,,,Pallet Town,Grass
+Route 2,Pewter City,Digletts Cave,,Viridian City,Dirt
+Route 3,,Mt Moon,Pewter City,,Water
+Route 4,,Cerulean City,Mt Moon,,Rocks
+Route 5,Cerulean City,,,Saffron City,Grass
+Route 6,Saffron City,,,Vermilion City,Mud
+Route 7,,Saffron City,Celadon City,,Grass
+Route 8,,Lavender Town,Saffron City,,Concrete
+Route 9,,Route 10,Cerulean City,,Gravel
+Route 10,Route 9,,,Lavender Town,Rocks
+Route 11,Digletts Cave,Route 12,Vermilion City,,Mud
+Route 12,Lavender Town,,Route 11,Route 13,Water
+Route 13,,Route 12,Route 14,,Mud
+Route 14,Route 13,,,Route 15,Grass
+Route 15,,Route 14,Fuchsia City,,Dirt
+Route 16,,Celadon City,Route 17,,Grass
+Route 17,Route 16,,,Route 18,Concrete
+Route 18,,Fuchsia City,Route 17,,Concrete
+Route 19,Fuchsia City,,,Route 20,Water
+Route 20,,Route 19,Cinnabar Island,,Water
+Route 21,Pallet Town,,,Cinnabar Island,Water
+Route 22,,Viridian City,Hoenn Pokemon League,,Gravel
+Route 23,Hoenn Pokemon League,,,Indigo Plateau,Rocks
+Route 24,Route 25,,,Cerulean City,Dirt
+Route 25,,Cape Brink,Route 24,,Rocks
+Route 26,Hoenn Pokemon League,,,Route 27,Grass
+Route 27,,Route 26,New Bark Town,,Mud
+Route 28,,Hoenn Pokemon League,Mt Silver,,Grass
+Route 29,Route 46,New Bark Town,Cherrygrove City,,Concrete
+Route 30,Route 31,,,Cherrygrove City,Gravel
+Route 31,Dark Cave,Route 30,Violet City,,Rocks
+Route 32,Violet City,Ruins of Alph,,Union Cave,Mud
+Route 33,,Union Cave,Azalea Town,,Water
+Route 34,Goldenrod City,,,Ilex Forest,Grass
+Route 35,National Park,,,Goldenrod City,Mud
+Route 36,Route 37,Violet City,National Park,Ruins of Alph,Rocks
+Route 37,Ecruteak City,,,Route 36,Gravel
+Route 38,,Ecruteak City,Route 39,,Gravel
+Route 39,Route 38,,,Olivine City,Grass
+Route 40,Olivine City,,,Route 41,Water
+Route 41,,Route 40,Cianwood City,,Water
+Route 42,Mt Mortar,Mahogany Town,Ecruteak City,,Dirt
+Route 43,Lake of Rage,,,Mahogany Town,Water
+Route 44,,Ice Path,Mahogany Town,,Snow
+Route 45,Blackthorn City,,,Route 46,Grass
+Route 46,Route 45,,,Route 29,Mud
+Route 47,Route 48,Cliff Edge Gate,,,Grass
+Route 48,Johto Safari Zone,,,Route 47,Gravel
+Route 101,Oldale Town,,,Littleroot Town,Rocks
+Route 102,,Oldale Town,Petalburg City,,Dirt
+Route 103,,Route 110,,Oldale Town,Rocks
+Route 104,Rustboro City,Petalburg City,,Route 105,Grass
+Route 105,Route 104,,,Route 106,Water
+Route 106,Route 105,,,Dewford Town,Water
+Route 107,,Route 108,Dewford Town,,Water
+Route 108,,Route 109,Route 107,,Water
+Route 109,Slateport City,,Route 108,,Water
+Route 110,Mauville City,Route 103,,Slateport City,Grass
+Route 111,Route 113,,Route 112,Mauville City,Sand
+Route 112,,Route 111,Lavaridge Town,,Sand
+Route 113,,Route 111,Fallarbor Town,,Mud
+Route 114,,Fallarbor Town,,Meteor Falls,Rocks
+Route 115,Meteor Falls,,,Rustboro City,Gravel
+Route 116,,Rusturf Tunnel,Rustboro City,,Grass
+Route 117,,Mauville City,Verdanturf Town,,Snow
+Route 118,Route 119,Route 123,Mauville City,,Gravel
+Route 119,Fortree City,,,Route 118,Rocks
+Route 120,Fortree City,,,Route 121,Snow
+Route 121,Route 120,Lilycove City,,Route 122,Snow
+Route 122,Route 121,,,Route 123,Rocks
+Route 123,Route 122,,Route 118,,Mud
+Route 124,,Mossdeep City,Lilycove City,Route 126,Water
+Route 125,Shoal Cave,,,Mossdeep City,Water
+Route 126,Route 124,Route 127,,,Water
+Route 127,Mossdeep City,,Route 126,Route 128,Water
+Route 128,Route 127,Ever Grande City,,Route 129,Water
+Route 129,Route 128,,Route 130,,Water
+Route 130,,Route 129,Route 131,,Water
+Route 131,,Route 130,Pacifidlog Town,,Water
+Route 132,,Pacifidlog Town,Route 133,,Water
+Route 133,,Route 132,Route 134,,Water
+Route 134,,Route 133,Slateport City,,Water
+Route 201,,Sandgem Town,Verity Lakefront,Twinleaf Town,Grass
+Route 202,Jubilife City,,,Sandgem Town,Dirt
+Route 203,,Oreburgh Gate,Jubilife City,,Concrete
+Route 204,Floaroma Town,,,Jubilife City,Grass
+Route 205,Eterna Forest,Eterna City,Floaroma Town,,Mud
+Route 206,Eterna City,,,Route 207,Sand
+Route 207,Route 206,Mt Coronet,,Oreburgh City,Sand
+Route 208,,Hearthome City,Mt Coronet,,Rocks
+Route 209,Solaceon Town,,Hearthome City,,Grass
+Route 210,,Route 215,Celestic Town,Solaceon Town,Dirt
+Route 211,Mt Coronet,Celestic Town,Eterna City,Mt Coronet,Concrete
+Route 212,Hearthome City,Pastoria City,,,Grass
+Route 213,Valor Lakefront,,Pastoria City,,Water
+Route 214,Veilstone City,Spring Path,Maniac Tunnel,Valor Lakefront,Gravel
+Route 215,,Veilstone City,Route 210,,Dirt
+Route 216,Route 217,Mt Coronet,,,Snow
+Route 217,Acuity Lakefront,,,Route 216,Snow
+Route 218,,Jubilife City,Canalave City,,Water
+Route 219,Sandgem Town,,,Route 220,Water
+Route 220,Route 219,Route 221,,,Water
+Route 221,Pal Park,,Route 220,,Mud
+Route 222,,Sunyshore City,Valor Lakefront,,Dirt
+Route 223,Sinnoh Pokemon League,,,Sunyshore City,Water
+Route 224,Seabreak Path,,Sinnoh Victory Road,,Rocks
+Route 225,,Survival Area,,Fight Area,Gravel
+Route 226,Route 227,Route 228,Survival Area,,Water
+Route 227,Stark Mountain,,,Route 226,Rocks
+Route 228,,,Route 226,Route 229,Rocks
+Route 229,Route 228,,Route 230,Resort Area,Mud
+Route 230,,Route 229,Fight Area,,Water

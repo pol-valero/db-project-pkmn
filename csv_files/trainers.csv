@@ -1,0 +1,538 @@
+id,trainer_class,name,experience,gold,gift_item,villain_team,partnerID,phrase,money_stolen
+0,"Expert",Gema,536957,3820,,,,,
+1,"Passionate Rider",Genie,915295,8092,,,,,
+2,"Tomboy",Myrna,1199570,4515,,,,,
+3,"Chief",Tod,235761,9434,,,,,
+4,"Bug-Catching Man",Quintin,1972123,6271,,,,,
+5,"Hiking Girl",Elfreda,858670,8903,,,,,
+6,"Electrifying Guy",Earnestine,579005,9542,,,,,
+7,"Passionate Man",Tawnya,133771,2893,,,,,
+8,"Ninja Boy",Casey,1532900,378,,,,,
+9,"Beauty",Ying,1413668,4759,,,,,
+10,"Passionate Man",Neomi,1748008,9261,,,,,
+11,"Crush Girl",Meridith,1917856,10902,,,,,
+12,"Collector",Cinderella,1115778,10007,,,,,
+13,"Juggler",Buster,63119,4448,,,,,
+14,"Officer",Rob,807736,3824,,,,,
+15,"Jr. Trainer",Lorri,12815,6636,,,,,
+16,"Engineer",Pedro,865252,5171,,,,,
+17,"Swimmer",Martin,999774,10431,,,,,
+18,"Sailor",Mark,1433299,494,,,,,
+19,"Poison Tongue Boy",Rueben,1595178,5576,,,,,
+20,"Engineer",Sid,759001,5971,,,,,
+21,"Little Queen",Rossie,1379988,8132,,,,,
+22,"Leader-in-Training",Valene,1516001,10743,,,,,
+23,"Cute Maniac",Illa,591572,5043,,,,,
+24,"Fun Old Lady",Wally,398354,7548,,,,,
+25,"Hiker",Tawanna,594453,7201,,,,,
+26,"Roller Boy",Oma,1295182,2710,,,,,
+27,"Channeler",Victor,1068705,7547,,,,,
+28,"Tuber",Andy,293924,8265,,,,,
+29,"Little Queen",Therese,743303,9765,,,,,
+30,"Spy",Karol,121717,-109,,,,,
+31,"Veteran",Sheba,419176,3313,,,,,
+32,"Rich Boy",Birgit,260003,3105,,,,,
+33,"Bodybuilder",Fletcher,713490,4396,,,,,
+34,"New Star",Jonas,1888246,1283,,,,,
+35,"Bug-Catching Man",Liberty,257348,8732,,,,,
+36,"Casual Guy",Genesis,1875336,885,,,,,
+37,"Swimmer",Eddy,276416,4496,,,,,
+38,"Clown",Antonio,341600,41,,,,,
+39,"Stubborn Boy",Alan,950558,7968,,,,,
+40,"Ruin Maniac",Jonathan,1509916,6599,,,,,
+41,"Lady",Gabrielle,1569293,6351,,,,,
+42,"Poison Tongue Boy",Tosha,728311,7653,,,,,
+43,"Cue Ball",Kenny,1250740,7409,,,,,
+44,"Poké Kid",Danilo,1789962,11976,,,,,
+45,"Worker",Emmett,1525031,2471,,,,,
+46,"Firebreather",Aura,113470,9428,,,,,
+47,"Rider",Chad,1771205,1186,,,,,
+48,"Supertrainer",Orlando,937232,7199,,,,,
+49,"Commander",Justin,821502,10933,,,,,
+50,"Worker",Carlos,94958,5801,,,,,
+51,"Spy",Jeffery,1860866,10095,,,,,
+52,"Navigator",Norman,1291038,5487,,,,,
+53,"Passionate Rider",Lola,444805,10946,,,,,
+54,"Scientist",Albertina,385197,11085,,,,,
+55,"Bird Keeper",Kacey,1673470,9451,,,,,
+56,"Hunter",Maye,1781764,9506,,,,,
+57,"Picnicker",Myrtis,450895,4742,,,,,
+58,"Sci-Fi Maniac",Tyree,483767,1813,,,,,
+59,"Myth Trainer",Josiah,537855,-275,,,,,
+60,"Cyclist",Rayna,305512,6028,,,,,
+61,"Interviewer",Leroy,1771714,878,,,,,
+62,"Casual Guy",Rob,98488,3856,,,,,
+63,"Fisherman",Geri,1638826,563,,,,,
+64,"Youngster",Tracy,1581774,10427,,,,,
+65,"Waitress",Brian,494951,-557,,,,,
+66,"Aroma Lady",Shelley,366960,9095,,,,,
+67,"Biker",Rupert,1672810,882,,,,,
+68,"Ordinary Lady",Celena,996013,6885,,,,,
+69,"Gambler",Reuben,1990391,5244,,,,,
+70,"Stubborn Boy",Freeman,1592493,7752,,,,,
+71,"Hiker",Irma,1619001,8054,,,,,
+72,"Painter",Demarcus,582352,7483,,,,,
+73,"Ruin Maniac",Ivory,1181151,3615,,,,,
+74,"Glasses Man",Romeo,1821347,-563,,,,,
+75,"Electrifying Guy",Jeanna,653748,2196,,,,,
+76,"Steel Spirit",Meridith,542146,8145,,,,,
+77,"Sashay Fan Club",Quincy,679756,8493,,,,,
+78,"Sci-Fi Maniac",Jared,648055,10905,,,,,
+79,"Winstrate",Bryon,465626,10756,,,,,
+80,"Traveling Guy",Delmy,1421600,1398,,,,,
+81,"Poison Tongue Boy",Austin,1656431,4747,,,,,
+82,"Pikachu Fan",Melania,506943,10423,,,,,
+83,"Guitarist",Elijah,917710,10931,,,,,
+84,"Electrifying Guy",Santiago,1180619,8357,,,,,
+85,"Beta Trainer classes",Juan,1353914,7479,,,,,
+86,"Jogger",Jaquelyn,384947,813,,,,,
+87,"Myth Trainer",Kermit,1560576,3827,,,,,
+88,"Girl In Love",Rupert,1079683,328,,,,,
+89,"Commander",Luciano,70689,3370,,,,,
+90,"Glasses Man",Johnathon,835071,5134,,,,,
+91,"Shady Guy",Rosendo,213976,1565,,,,,
+92,"Firebreather",Taylor,637884,8612,,,,,
+93,"Bodybuilder",Jovan,1168394,3155,,,,,
+94,"Rocker",Valentine,285566,5046,,,,,
+95,"Skier",Rolando,1967499,4567,,,,,
+96,"Little Queen",Evelyn,470588,7666,,,,,
+97,"Passionate Man",Lynn,1980940,8415,,,,,
+98,"Painter",Deon,121152,7519,,,,,
+99,"Expert",Jeromy,946242,1707,,,,,
+100,"Tuber",Britney,1404602,9707,,,,,
+101,"Reporter",Jonelle,1864355,2449,,,,,
+102,"High-Tech Maniac",Bonita,1783828,8636,,,,,
+103,"Shady Guy",Carmen,1523962,5042,,,,,
+104,"Battle Girl",Malcom,1679856,7460,,,,,
+105,"Leader-in-Training",Dot,1175850,3290,,,,,
+106,"Rogue",Robert,1802014,6387,,,,,
+107,"High-Tech Maniac",Maye,104030,-626,,,,,
+108,"Hiking Girl",Reid,1998634,-574,,,,,
+109,"Teacher",Wilton,1010783,9584,,,,,
+110,"Challenger",Hong,1281874,778,,,,,
+111,"New Star",Edwin,1150191,435,,,,,
+112,"Ninja Boy",Milton,206405,1478,,,,,
+113,"Fisherman",Chi,1962578,2091,,,,,
+114,"Swimmer",Brian,803654,4932,,,,,
+115,"Chief",Jesse,728284,760,,,,,
+116,"Cameraman",Barton,966496,6983,,,,,
+117,"Sashay Fan Club",Andrea,407349,2672,,,,,
+118,"Kimono Girl",Dean,1299603,3801,,,,,
+119,"Biker",Elisha,1781977,11871,,,,,
+120,"Cool Beauty",Caryl,1824221,5522,,,,,
+121,"Shocking Girl",Taylor,1880445,351,,,,,
+122,"Skier",Faustino,206661,11099,,,,,
+123,"Chaser",Wesley,359996,8082,,,,,
+124,"Gambler",Thaddeus,811936,2679,,,,,
+125,"Navigator",Kia,695199,1103,,,,,
+126,"Pikachu Fan",Lucrecia,358774,10064,,,,,
+127,"Worker",Zada,1026523,5050,,,,,
+128,"Cue Ball",Mohammed,1237790,419,,,,,
+129,"Wanderer",Fletcher,1532227,8550,,,,,
+130,"Gambler",Gussie,1163398,2213,,,,,
+131,"Schoolboy",Darrel,1836494,8465,,,,,
+132,"Worker",Jackeline,1321631,4100,,,,,
+133,"Shady Guy",Hedy,1439220,8756,,,,,
+134,"Parasol Lady",Dominic,1597685,1978,,,,,
+135,"Lone Wolf",Lanie,1796963,9982,,,,,
+136,"Beauty",Rolando,640477,4488,,,,,
+137,"Newscaster",Ricardo,1902238,5166,,,,,
+138,"Swimmer",Lisha,1570583,2546,,,,,
+139,"Newscaster",Lynna,1225236,2519,,,,,
+140,"Ruin Maniac",Lisbeth,607410,9767,,,,,
+141,"Tomboy",Margeret,1213710,10047,,,,,
+142,"Skier",Emeline,357054,2192,,,,,
+143,"Engineer",Greg,1654274,3615,,,,,
+144,"Tamer",Collette,586013,8022,,,,,
+145,"Pokémon Breeder",Hallie,1611941,-79,,,,,
+146,"Casual Guy",Monroe,462099,11388,,,,,
+147,"Reporter",Lucinda,212510,9496,,,,,
+148,"Hardheaded Girl",Deedra,1456957,5516,,,,,
+149,"Channeler",Rita,1146693,2171,,,,,
+150,"Challenger",Glenn,770590,3286,,,,,
+151,"Psychic",Norberto,1850490,655,,,,,
+152,"Commander",Aida,1843460,4179,,,,,
+153,"Bandana Guy",Margene,1583265,3722,,,,,
+154,"Burglar",Margarito,1997640,5409,,,,,
+155,"Pokémon Breeder",Boyd,1754123,7689,,,,,
+156,"Waitress",Roderick,1350452,6850,,,,,
+157,"Bug-Catching Man",Vince,795681,7438,,,,,
+158,"Rogue",Marquis,1738096,9936,,,,,
+159,"Triathlete",Jon,710217,2395,,,,,
+160,"Hardheaded Girl",Abraham,1328421,7083,,,,,
+161,"Teacher",Truman,1190299,8520,,,,,
+162,"Cyclist",Karen,602082,3106,,,,,
+163,"Tuber",Pat,1890957,10848,,,,,
+164,"Lady",Abel,1632589,7821,,,,,
+165,"Traveling Guy",Berry,1215867,7159,,,,,
+166,"Sci-Fi Maniac",Mark,162673,8764,,,,,
+167,"Clown",Pennie,705282,4455,,,,,
+168,"Waiter",Anastacia,992581,2202,,,,,
+169,"Sage",Mercedez,819467,6000,,,,,
+170,"Ordinary Guy",Tressa,1639102,3811,,,,,
+171,"Ordinary Guy",Mirna,527333,7870,,,,,
+172,"Battle Girl",Phung,1622635,1486,,,,,
+173,"Fisherman",Terrence,448619,9207,,,,,
+174,"Biker",Garth,846381,8842,,,,,
+175,"Supertrainer",Yun,562933,5653,,,,,
+176,"Waiter",Junior,165354,4735,,,,,
+177,"Myth Trainer",Cheree,1050826,525,,,,,
+178,"Poison Tongue Boy",Werner,382375,8111,,,,,
+179,"Tomboy",Jayson,1974194,10674,,,,,
+180,"Hunter",Nanette,1995698,7808,,,,,
+181,"Spy",Rosalia,1801466,6232,,,,,
+182,"Firebreather",Latanya,1437634,6481,,,,,
+183,"Myth Trainer",Donn,755329,7832,,,,,
+184,"Waiter",Hassan,689766,5319,,,,,
+185,"Winstrate",Ronny,109567,3301,,,,,
+186,"Skier",Jewel,1017802,4048,,,,,
+187,"Fun Old Man",Robbyn,1053238,5507,,,,,
+188,"Fun Old Man",Rosamond,120761,10073,,,,,
+189,"Cameraman",Jeremiah,757504,8181,,,,,
+190,"Guy",Angelika,1487452,2417,,,,,
+191,"High-Tech Maniac",Dee,738120,2612,,,,,
+192,"Ordinary Lady",Rosalyn,1353616,2861,,,,,
+193,"Swimmer",Ok,1031380,7621,,,,,
+194,"Beginning Trainer",Lashonda,740981,6095,,,,,
+195,"Camper",Francesca,873104,6145,,,,,
+196,"Sim Trainer",Toby,232898,745,,,,,
+197,"Socialite",Lamont,1742518,3964,,,,,
+198,"Rich Boy",Neal,886022,10265,,,,,
+199,"Traveling Guy",Isreal,900089,8807,,,,,
+200,"Crush Kin",Wiley,1194170,857,,,,,
+201,"Navigator",Zack,526914,7354,,,,,
+202,"Ordinary Lady",Myron,1989651,6475,,,,,
+203,"Worker",Clark,1918161,6392,,,,,
+204,"Poison Tongue Boy",Guadalupe,218163,7549,,,,,
+205,"Swimmer",Esmeralda,1173349,10527,,,,,
+206,"Channeler",Abbie,58526,2035,,,,,
+207,"Swimmer",Bridgette,1061878,7037,,,,,
+208,"Medium",Richelle,56010,7617,,,,,
+209,"Rocker",Sofia,1125663,6194,,,,,
+210,"Cameraman",Spencer,1917296,1953,,,,,
+211,Traveling Lady,Kandice,340378,364,,,,,
+212,"Stubborn Boy",Christoper,1731312,10916,,,,,
+213,"Chief",Reatha,1783844,11283,,,,,
+214,"Cowgirl",Pedro,984433,11159,,,,,
+215,"Challenger",Lamont,488527,8386,,,,,
+216,"Winstrate",Lynnette,320917,6300,,,,,
+217,"Biker",Laurel,387862,7052,,,,,
+218,"Jogger",Maria,220394,10689,,,,,
+219,"Bird Keeper",William,478139,445,,,,,
+220,"Reporter",Howard,1357357,3550,,,,,
+221,"Bug Maniac",Cody,1952940,8884,,,,,
+222,"Bird Keeper",Shad,1630922,6819,,,,,
+223,"Supertrainer",Celine,1390005,1589,,,,,
+224,"Gentleman",Gianna,1311214,5278,,,,,
+225,"Fun Old Man",Cecile,568527,6040,,,,,
+226,"Sci-Fi Maniac",Jannie,1650701,7924,,,,,
+227,"Juggler",Faustino,875397,6976,,,,,
+228,"Hex Maniac",Marisol,1938272,2574,,,,,
+229,"Guy",Vernie,840327,11460,,,,,
+230,"Cowgirl",Ashlee,936598,8921,,,,,
+231,"Ordinary Guy",Eliseo,1061959,8436,,,,,
+232,"Fisherman",Lyle,1691211,3732,,,,,
+233,"Aroma Lady",Antonina,245825,8088,,,,,
+234,"Rancher",Antony,408918,9775,,,,,
+235,"Lady in Suit",Shonna,30488,8430,,,,,
+236,"Commander",Connie,1265756,3103,,,,,
+237,"Youngster",Denice,975931,5157,,,,,
+238,"Camper",Trinidad,729730,10916,,,,,
+239,"Casual Dude",Nestor,348903,192,,,,,
+240,"Chaser",Nannie,608639,9687,,,,,
+241,"Commander",Felisa,290566,5002,,,,,
+242,"Poké Kid",Domonique,124704,8650,,,,,
+243,"Winstrate",Harold,1159701,5382,,,,,
+244,"Bug-Catching Man",Ollie,457686,10925,,,,,
+245,"Super Nerd",Dario,1858755,4979,,,,,
+246,"Guy",Clair,1854410,10057,,,,,
+247,"Casual Guy",Olinda,1604837,3979,,,,,
+248,"Expert",Michelle,352000,4172,,,,,
+249,"Biker",Russel,1149158,10048,,,,,
+250,"Deep King",Janessa,588505,7399,,,,,
+251,"Scientist",Rex,1224172,9705,,,,,
+252,"Lady in Suit",Clement,1121922,824,,,,,
+253,"Hiker",Rozanne,277702,5749,,,,,
+254,"Firebreather",Paula,751642,6210,,,,,
+255,"Picnicker",Gordon,1632641,8903,,,,,
+256,"Kindler",Johnna,1999169,2483,,,,,
+257,"Tamer",Angelita,471114,7803,,,,,
+258,"Supertrainer",Dusty,1892796,9429,,,,,
+259,"Jr. Trainer",Abraham,1675006,3000,,,,,
+260,"Guy",Samual,31509,5092,,,,,
+261,"Icy Guy",Queenie,1245276,-386,,,,,
+262,"Muddy Boy",Wiley,1019760,10674,,,,,
+263,"Battle Girl",Cedric,922588,5225,,,,,
+264,"Winstrate",Mickey,1049592,-743,,,,,
+265,"Chaser",Corrie,180122,1586,,,,,
+266,"Schoolboy",Ramon,617335,742,,,,,
+267,"Ruin Maniac",Jerry,1825386,6674,,,,,
+268,"Cooltrainer",Lara,475828,3287,,,,,
+269,"Cue Ball",Eufemia,867807,4393,,,,,
+270,"Sci-Fi Maniac",Mac,1239095,3811,,,,,
+271,"Glasses Man",Colleen,381495,8919,,,,,
+272,"Waitress",Philip,1517240,3832,,,,,
+273,"Tamer",Sang,365918,8144,,,,,
+274,"Blackbelt",Angelika,470678,1781,,,,,
+275,"Crush Girl",Solange,1297219,1520,,,,,
+276,"Artist",Genaro,1363427,8713,,,,,
+277,"Muddy Boy",Sherill,1347591,378,,,,,
+278,"Stubborn Boy",Danilo,363740,2962,,,,,
+279,"Engineer",Jefferey,467265,2198,,,,,
+280,"Bird Keeper",Merrill,415655,4738,,,,,
+281,"Glasses Man",Ana,1073215,4801,,,,,
+282,"Psychic",Charles,194245,363,,,,,
+283,"Sashay Fan Club",Mac,621944,2344,,,,,
+284,"Leader-in-Training",Neil,343175,8802,,,,,
+285,"Myth Trainer",Emerson,1642316,2575,,,,,
+286,"Casual Dude",Cyrus,1902556,8212,,,,,
+287,"Supertrainer",Noriko,1817580,10276,,,,,
+288,"Bandana Guy",Adeline,726088,7165,,,,,
+289,"Psychic",Jerrell,1118758,10664,,,,,
+290,"Bug-Catching Man",Christopher,1899377,4478,,,,,
+291,"Clown",Elda,1978537,3049,,,,,
+292,"Lady in Suit",Lonnie,1508323,9561,,,,,
+293,"Scientist",Jeramy,184647,6624,,,,,
+294,"Glasses Man",Noble,1763012,9655,,,,,
+295,"Lone Wolf",Constance,833080,5500,,,,,
+296,"Little Queen",Lashanda,1259873,185,,,,,
+297,"Chief",Janina,1468107,6733,,,,,
+298,"Fisherman",Marcel,616422,3440,,,,,
+299,Traveling Lady,Laine,1101112,3912,,,,,
+300,"Beginning Trainer",Adan,1949245,10695,,,,,
+301,"Schoolboy",Israel,511729,4689,,,,,
+302,"Triathlete",Bert,841966,9626,,,,,
+303,"Firebreather",Leonardo,1504678,1033,,,,,
+304,"Passionate Rider",Sue,399749,11246,,,,,
+305,"Gambler",Timmy,1793159,9776,,,,,
+306,"Sightseer",Dierdre,378258,3492,,,,,
+307,"PokéManiac",Eliseo,1330948,7073,,,,,
+308,"Burglar",Miquel,168681,10030,,,,,
+309,"Beauty",Wesley,1967425,3551,,,,,
+310,"Skier",Werner,160697,1614,,,,,
+311,"Pikachu Fan",Paul,689749,8117,,,,,
+312,"Jr. Trainer",Lieselotte,1346746,3486,,,,,
+313,"Schoolboy",Virgilio,242066,697,,,,,
+314,"Waiter",Ena,1136959,392,,,,,
+315,"Fun Old Lady",Melva,1704367,9165,,,,,
+316,"Crush Kin",Dick,1980476,8365,,,,,
+317,"Schoolboy",Landon,1339136,667,,,,,
+318,"New Star",Bradford,809841,7794,,,,,
+319,"Cowgirl",Karoline,949735,7930,,,,,
+320,"Kimono Girl",Malena,995524,1631,,,,,
+321,"Biker",Herbert,378036,1397,,,,,
+322,"Sci-Fi Maniac",Dian,1849052,969,,,,,
+323,"Swimmer",Cesar,1605928,7553,,,,,
+324,"Hiker",Valentin,1596777,11926,,,,,
+325,"Athlete",Lilla,1508983,5596,,,,,
+326,"Fun Old Man",Antonia,1239986,-188,,,,,
+327,"Leader-in-Training",Mohammed,1947484,9505,,,,,
+328,"Glasses Man",Krysta,200118,1258,,,,,
+329,"Fun Old Lady",Meaghan,1177798,9987,,,,,
+330,"Dragon Tamer",Niki,1676100,5451,,,,,
+331,"Rider",Audra,1775600,10375,,,,,
+332,"Wanderer",Hoyt,1470022,10532,,,,,
+333,"Ordinary Guy",Refugio,1676799,4880,,,,,
+334,"Fisherman",Apryl,1166232,1237,,,,,
+335,"Passionate Rider",Seth,1843156,8087,,,,,
+336,"Aroma Lady",Harlan,1720487,6515,,,,,
+337,"Navigator",Eladia,1122497,10514,,,,,
+338,"Roller Boy",Bella,271540,7025,,,,,
+339,"Icy Guy",Hayden,456616,8522,,,,,
+340,"Future Girl",Jesse,1767319,1858,,,,,
+341,"Waiter",Delmy,1017487,5485,,,,,
+342,"Lady in Suit",Sabina,1923200,5349,,,,,
+343,"PokéManiac",Dominique,1365328,10210,,,,,
+344,"Casual Dude",Macy,1062537,2037,,,,,
+345,"Bird Keeper",Spencer,1164445,2557,,,,,
+346,"Gambler",Simone,953288,4343,,,,,
+347,"Little Queen",Danica,1076369,4066,,,,,
+348,"Rancher",Valda,71985,2717,,,,,
+349,"Myth Trainer",Joshua,1212833,5000,,,,,
+350,"Psychic",Dale,1159127,1618,,,,,
+351,"Kimono Girl",Alda,1686049,10834,,,,,
+352,"Sailor",Jerome,1040227,9864,,,,,
+353,"Sailor",Cyril,79171,2782,,,,,
+354,"Ordinary Guy",Pat,208365,2892,,,,,
+355,"Cameraman",Mozell,1329706,198,,,,,
+356,"Electrifying Guy",Jacquelyn,657767,8456,,,,,
+357,"Icy Guy",Ryan,778492,3884,,,,,
+358,"Navigator",Dorene,99802,1817,,,,,
+359,"Cute Maniac",Warren,1574662,3305,,,,,
+360,"Beauty",Delmar,609768,5674,,,,,
+361,"Traveling Guy",Wilhelmina,803162,2815,,,,,
+362,"Tamer",Nigel,699264,3132,,,,,
+363,"Supertrainer",Bill,392580,627,,,,,
+364,"Ordinary Guy",Jamar,188815,2065,,,,,
+365,"Roller Boy",Beverley,70906,9789,,,,,
+366,"Cyclist",Marco,1806580,258,,,,,
+367,"Crush Girl",Mike,1463681,1210,,,,,
+368,"Poison Tongue Boy",Warner,1403516,9858,,,,,
+369,"Pokémon Breeder",Willy,782220,358,,,,,
+370,"Glasses Man",Marti,1902572,4834,,,,,
+371,"Glasses Man",Karlyn,838864,5781,,,,,
+372,"Tuber",Tish,620045,5882,,,,,
+373,"Veteran",Carolina,1225619,10412,,,,,
+374,"Hex Maniac",Everett,587282,8525,,,,,
+375,"Bird Keeper",Trinidad,1058882,9370,,,,,
+376,"Pokémon Breeder",Normand,1132837,1353,,,,,
+377,"Hiking Girl",Isaias,1137490,5219,,,,,
+378,"Hex Maniac",Wilmer,139903,-428,,,,,
+379,"Gambler",Mose,708350,3426,,,,,
+380,"Rancher",Benjamin,1437254,5887,,,,,
+381,"Hardheaded Girl",Toby,730991,7924,,,,,
+382,"Triathlete",Domenic,1667104,8007,,,,,
+383,"Boarder",Burton,502250,7331,,,,,
+384,"Collector",Fermin,1827318,1355,,,,,
+385,"Worker",Abdul,944578,1185,,,,,
+386,"Socialite",Kenton,1246852,2081,,,,,
+387,"Collector",Dulce,220703,1283,,,,,
+388,"Shocking Girl",Monet,631693,5897,,,,,
+389,"Guitarist",Darlena,1064135,2853,,,,,
+390,"Hiker",Debbi,1466396,4898,,,,,
+391,"Steel Spirit",Cecily,1010952,8815,,,,,
+392,"Bandana Guy",Clora,1420645,8327,,,,,
+393,"Hex Maniac",Vincenzo,1843975,1975,,,,,
+394,"Rancher",Andreas,1161865,4564,,,,,
+395,"Stubborn Boy",Concha,312243,4125,,,,,
+396,"Scientist",Ivey,1534745,266,,,,,
+397,"Sightseer",Derrick,698531,8105,,,,,
+398,"Deep King",Jorge,1858033,340,,,,,
+399,"Scientist",Iesha,13614,1209,,,,,
+500,Gym Leader,"Brock",133527,4304,tm31,,,,
+501,Gym Leader,"Misty",998037,10232,tm17,,,,
+502,Gym Leader,"Lt. Surge",1740508,7522,tm47,,,,
+503,Gym Leader,"Erika",1888802,3448,tm23,,,,
+504,Gym Leader,"Koga",1365804,5981,tm49,,,,
+505,Gym Leader,"Sabrina",1327375,2841,tm11,,,,
+506,Gym Leader,"Blaine",1884615,2450,tm43,,,,
+507,Gym Leader and Rocket Leader,"Giovanni",1692018,5185,hm05,Rocket,,"Hit the gym bro, escape the Matrix",6.9697E+13
+508,Gym Leader,"Falkner",984460,3823,hm02,,,,
+509,Gym Leader,"Bugsy",1412378,9580,tm38,,,,
+510,Gym Leader,"Whitney",785912,6711,hm05,,,,
+511,Gym Leader,"Morty",1175748,11297,tm55,,,,
+512,Gym Leader,"Chuck",422541,8833,hm01,,,,
+513,Gym Leader,"Jasmine",779501,10997,tm17,,,,
+514,Gym Leader,"Pryce",571343,10103,tm48,,,,
+515,Gym Leader,"Clair",238082,7697,tm25,,,,
+516,Gym Leader,"Roxanne",1865031,6860,tm74,,,,
+517,Gym Leader,"Brawly",1881683,4006,tm05,,,,
+518,Gym Leader,"Wattson",1648938,8044,tm22,,,,
+519,Gym Leader,"Flannery",342662,1696,tm24,,,,
+520,Gym Leader,"Norman",876724,9509,tm09,,,,
+521,Gym Leader,"Winona",1431495,8687,tm09,,,,
+522,Gym Leader,"Tate and Liza",296718,1845,tm09,,,,
+523,Gym Leader,"Wallace",207965,1298,tm37,,,,
+524,Gym Leader,"Roark",1942223,10321,tm19,,,,
+525,Gym Leader,"Gardenia",320728,936,tm02,,,,
+526,Gym Leader,"Maylene",1660478,7502,hm05,,,,
+527,Gym Leader,"Crasher Wake",226854,6982,tm52,,,,
+528,Gym Leader,"Fantina",1517845,6932,tm11,,,,
+529,Gym Leader,"Byron",870534,5888,tm70,,,,
+530,Gym Leader,"Candice",515233,1067,tm36,,,,
+531,Gym Leader,"Volkner",1905684,8791,tm05,,,,
+532,Aqua Leader,Archie,1975814,12180,,Aqua,,"My equipment. That reminds me, Marty. You better not hook up to the amplifier. There's a slight possibility of overload.",1172
+533,Magma Leader,Maxie,124544,3077,,Magma,,"Ah, Jesus Christ! Jesus Christ, Doc, you disintegrated Einstein!",282
+534,Galactic Leader,Cyrus,105218,1541,,Galactic,,"Don't worry. As long as you hit that wire with the connecting hook at precisely 88 miles per hour, the instant the lightning strikes the tower... everything will be fine.",90
+535,Plasma Leader,Ghetsis,923116,10875,,Plasma,,"Don't be so gullible, McFly. Got the place fixed up nice, though, McFly.",159
+536,Cipher Leader,Evice,142688,1008,,Cipher,,"Oh, my God. They found me. I don't know how, but they found me. Run for it, Marty!",421
+406,"Rocket Executive",Lucien,330109,9634,,Rocket,400,"You want a toe? I can get you a toe, believe me. There are ways, Dude. You don't wanna know about it, believe me.",242
+400,"Rocket Executive",Salvatore,45974,5384,,Rocket,406,Mind if I do a J?,553
+407,"Magma Geologist",Brenton,823483,2084,,Magma,401,"Mr. Treehorn treats objects like women, man.",178
+401,"Magma Admin",Bennett,1454585,5649,,Magma,407,"Yeah, well, that's just, like, your opinion, man.",1530
+403,Galactic Scientist,Erin,1732282,5197,,Galactic,402,"Mr. Treehorn treats objects like women, man.",1535
+402,"Galactic Grunt",Desire,279162,9195,,Galactic,403,"Is this your homework, Larry?",252
+405,"Aqua Admin",Lela,1360220,5644,,Aqua,404,"Oh, the usual. I bowl. Drive around. The occasional acid flashback.",1502
+404,"Aqua Biologist",Pennie,792060,9412,,Aqua,405,V.I. Lenin. Vladimir! Ilyich! Ulyanov!,30
+409,"Cipher Peon",Tamie,994751,8169,,Cipher,408,You are entering a world of pain.,521
+408,"Cipher Hacker",Jonah,1528348,7571,,Cipher,409,So what are you saying? When you get divorced you turn in your library card? You get a new license? You stop being Jewish?,1326
+430,"Rocket Admin",Fidel,1990273,-630,,Rocket,410,Calmer than you are.,1318
+410,"Rocket Engineer",Oren,1759988,11278,,Rocket,430,"You want a toe? I can get you a toe, believe me. There are ways, Dude. You don't wanna know about it, believe me.",950
+413,"Magma Geologist",Kelle,1008314,8886,,Magma,411,"You know, Dude, I myself dabbled in pacifism once. Not in 'Nam of course.",12
+411,"Magma Admin",Eleonore,22310,9935,,Magma,413,Mind if I do a J?,213
+414,"Cipher Admin",Clint,285915,6023,,Cipher,412,"Careful man, there's a beverage here!",552
+412,"Cipher Commander",Jerrod,1653563,3327,,Cipher,414,I don't roll on Shabbos!,1227
+422,"Galactic Grunt",Gaylord,110648,9590,,Galactic,415,"Obviously, you're not a golfer",93
+415,"Galactic Grunt",Samuel,614290,9223,,Galactic,422,That rug really tied the room together.,55
+417,"Magma Admin",Genevie,869139,6398,,Magma,416,"Is this your homework, Larry?",616
+416,"Magma Geologist",Kemberly,1873422,9761,,Magma,417,"This aggression will not stand, man.",1079
+420,"Cipher Admin",Clara,1528876,10631,,Cipher,418,"Forget it, Donny, you're out of your element!",939
+418,"Cipher Admin",Elaina,307474,8261,,Cipher,420,"Is this your homework, Larry?",90
+425,"Aqua Biologist",Stefan,882126,2901,,Aqua,419,"Look, let me explain something to you. I'm not Mr. Lebowski. You're Mr. Lebowski. I'm the Dude.",606
+419,"Aqua Grunt",Willian,1693735,7737,,Aqua,425,I don't like your jerk-off name. I don't like your jerk-off face. And I don't like you...jerk-off.,1576
+431,"Magma Grunt",Rosario,920521,9026,,Magma,421,So then you have no frame of reference here Donny. You're like a child who wonders into the middle of a movie.,579
+421,"Magma Grunt",Preston,1429494,1868,,Magma,431,"Eight-year-olds, Dude.",1350
+424,"Cipher Admin",Peg,1071711,7989,,Cipher,423,"Oh, the usual. I bowl. Drive around. The occasional acid flashback.",456
+423,"Cipher Admin",Faith,854801,962,,Cipher,424,"Three thousand years of beautiful tradition, from Moses to Sandy Koufax.",433
+429,"Aqua Admin",Ralph,1496760,10049,,Aqua,426,"Obviously, you're not a golfer",1472
+426,"Aqua Biologist",Aldo,365665,308,,Aqua,429,"Eight-year-olds, Dude.",83
+434,"Cipher Peon",Elvis,287119,1512,,Cipher,427,"I mean, say what you want about the tenets of National Socialism, Dude, at least it's an ethos.",139
+427,"Cipher Admin",Jaye,1866476,10897,,Cipher,434,"Forget it, Donny, you're out of your element!",1398
+441,Galactic Scientist,Ryan,241606,5754,,Galactic,428,He's a good man...and thorough.,170
+428,Galactic Scientist,Jade,1528946,6201,,Galactic,441,"Is this your homework, Larry?",1669
+439,"Magma Grunt",Maegan,817660,7568,,Magma,432,"Eight-year-olds, Dude.",369
+432,"Magma Admin",Ezra,329603,387,,Magma,439,"Stay away from my special lady friend, man.",518
+435,"Rocket Executive",Twanda,710792,1651,,Rocket,433,"This aggression will not stand, man.",316
+433,"Rocket Engineer",Britt,141542,9324,,Rocket,435,"I mean, say what you want about the tenets of National Socialism, Dude, at least it's an ethos.",424
+442,"Rocket Grunt",Marty,197799,6785,,Rocket,436,Calmer than you are.,203
+436,"Rocket Admin",Brenton,15282,7712,,Rocket,442,This is not 'Nam. This is bowling. There are rules.,496
+440,"Aqua Biologist",Gregorio,1457232,6877,,Aqua,437,"Oh, the usual. I bowl. Drive around. The occasional acid flashback.",1567
+437,"Aqua Biologist",Keila,964874,7153,,Aqua,440,"Three thousand years of beautiful tradition, from Moses to Sandy Koufax.",284
+445,"Cipher Hacker",Benjamin,1337154,6885,,Cipher,438,"Three thousand years of beautiful tradition, from Moses to Sandy Koufax.",421
+438,"Cipher Peon",Hilaria,1612034,605,,Cipher,445,The Dude abides.,1103
+447,"Aqua Biologist",Kristopher,192329,6186,,Aqua,443,"Obviously, you're not a golfer",33
+443,"Aqua Admin",Lesha,931594,9477,,Aqua,447,"Stay away from my special lady friend, man.",584
+448,"Magma Geologist",Avril,958953,7329,,Magma,444,"Forget it, Donny, you're out of your element!",412
+444,"Magma Geologist",Alan,129521,9389,,Magma,448,"This is a very complicated case Maude. You know, a lotta ins, a lotta outs, lotta what-have-yous.",11
+458,Galactic Scientist,Marisol,1510135,1318,,Galactic,446,Mind if I do a J?,1458
+446,Galactic Scientist,Garrett,1137528,2440,,Galactic,458,"I mean, say what you want about the tenets of National Socialism, Dude, at least it's an ethos.",590
+451,"Aqua Admin",Jennette,119602,-427,,Aqua,449,"Three thousand years of beautiful tradition, from Moses to Sandy Koufax.",440
+449,"Aqua Biologist",Douglass,1477861,10876,,Aqua,451,This is not 'Nam. This is bowling. There are rules.,1308
+455,"Cipher Hacker",Tod,369360,4322,,Cipher,450,I am the walrus,262
+450,"Cipher Hacker",Ming,886325,10124,,Cipher,455,"Three thousand years of beautiful tradition, from Moses to Sandy Koufax.",494
+456,"Aqua Biologist",Laura,742836,987,,Aqua,452,"Yeah, well, that's just, like, your opinion, man.",476
+452,"Aqua Grunt",Shonna,1744530,5099,,Aqua,456,"Three thousand years of beautiful tradition, from Moses to Sandy Koufax.",902
+454,"Rocket Grunt",Felipe,222479,4056,,Rocket,453,"I mean, say what you want about the tenets of National Socialism, Dude, at least it's an ethos.",584
+453,"Rocket Grunt",Otis,829098,1439,,Rocket,454,"I mean, say what you want about the tenets of National Socialism, Dude, at least it's an ethos.",576
+460,"Rocket Executive",Billie,832683,5959,,Rocket,457,"Is this your homework, Larry?",525
+457,"Rocket Engineer",Edmund,1118701,2652,,Rocket,460,That rug really tied the room together.,844
+467,"Cipher Admin",Vernon,238745,8721,,Cipher,459,"I mean, say what you want about the tenets of National Socialism, Dude, at least it's an ethos.",87
+459,"Cipher Peon",Roscoe,318657,4156,,Cipher,467,I am the walrus,171
+465,"Aqua Biologist",Jerome,214213,1525,,Aqua,461,"I mean, say what you want about the tenets of National Socialism, Dude, at least it's an ethos.",451
+461,"Aqua Biologist",Magdalen,1243163,4813,,Aqua,465,So what are you saying? When you get divorced you turn in your library card? You get a new license? You stop being Jewish?,894
+463,"Magma Grunt",Kenyetta,212564,3490,,Magma,462,You are entering a world of pain.,48
+462,"Magma Admin",Shara,48403,1965,,Magma,463,"Is this your homework, Larry?",241
+466,"Rocket Grunt",Seymour,894473,7421,,Rocket,464,"Oh, the usual. I bowl. Drive around. The occasional acid flashback.",98
+464,"Rocket Admin",Sonny,1192261,7723,,Rocket,466,So what are you saying? When you get divorced you turn in your library card? You get a new license? You stop being Jewish?,429
+471,"Cipher Hacker",Alex,199923,1017,,Cipher,468,"Oh, the usual. I bowl. Drive around. The occasional acid flashback.",340
+468,"Cipher Peon",Henriette,907840,4008,,Cipher,471,The Dude abides.,421
+470,"Aqua Grunt",Mia,1371442,10214,,Aqua,469,I don't roll on Shabbos!,1581
+469,"Aqua Admin",Hermine,1504829,5775,,Aqua,470,"Oh, the usual. I bowl. Drive around. The occasional acid flashback.",1417
+478,"Rocket Engineer",Shanta,571719,9913,,Rocket,472,You are entering a world of pain.,263
+472,"Rocket Admin",Rosette,1837040,4954,,Rocket,478,"This is a very complicated case Maude. You know, a lotta ins, a lotta outs, lotta what-have-yous.",858
+481,"Magma Grunt",Zetta,946217,4294,,Magma,473,I don't roll on Shabbos!,552
+473,"Magma Geologist",Maurita,691446,4948,,Magma,481,"You want a toe? I can get you a toe, believe me. There are ways, Dude. You don't wanna know about it, believe me.",170
+482,"Aqua Admin",Fumiko,213951,7635,,Aqua,474,"You want a toe? I can get you a toe, believe me. There are ways, Dude. You don't wanna know about it, believe me.",38
+474,"Aqua Grunt",Clay,1050488,-10,,Aqua,482,"Three thousand years of beautiful tradition, from Moses to Sandy Koufax.",569
+477,"Cipher Admin",Wilbert,910839,4530,,Cipher,475,"I mean, say what you want about the tenets of National Socialism, Dude, at least it's an ethos.",708
+475,"Cipher Admin",Jorge,237896,7480,,Cipher,477,"Hell, I can get you a toe by 3 o'clock this afternoon...with nail polish.",161
+487,"Galactic Grunt",Gaston,172599,1717,,Galactic,476,I don't roll on Shabbos!,579
+476,"Galactic Grunt",Norberto,894038,5127,,Galactic,487,"Look, let me explain something to you. I'm not Mr. Lebowski. You're Mr. Lebowski. I'm the Dude.",31
+480,"Cipher Peon",Casey,328729,3816,,Cipher,479,"This is a very complicated case Maude. You know, a lotta ins, a lotta outs, lotta what-have-yous.",48
+479,"Cipher Commander",Ara,717647,8213,,Cipher,480,"Eight-year-olds, Dude.",339
+484,"Cipher Peon",Carlton,1451825,-342,,Cipher,483,He's a good man...and thorough.,1497
+483,"Cipher Hacker",Lincoln,489888,4496,,Cipher,484,I don't roll on Shabbos!,351
+488,"Aqua Admin",Trent,20438,8470,,Aqua,485,"This is a very complicated case Maude. You know, a lotta ins, a lotta outs, lotta what-have-yous.",530
+485,"Aqua Grunt",Moises,209412,572,,Aqua,488,"Forget it, Donny, you're out of your element!",398
+493,"Rocket Engineer",Joan,44443,2809,,Rocket,486,V.I. Lenin. Vladimir! Ilyich! Ulyanov!,722
+486,"Rocket Engineer",Zola,92912,9193,,Rocket,493,"Obviously, you're not a golfer",129
+499,"Cipher Commander",Louis,156589,2112,,Aqua,489,Calmer than you are.,249
+489,"Aqua Grunt",Meggan,74821,3641,,Aqua,499,V.I. Lenin. Vladimir! Ilyich! Ulyanov!,350
+496,Galactic Scientist,Ailene,1445867,4887,,Galactic,490,"Hell, I can get you a toe by 3 o'clock this afternoon...with nail polish.",1258
+490,Galactic Scientist,Terry,1529740,8794,,Galactic,496,"I'm the dude, so that's what you call me. That or, uh His Dudeness, or uh Duder, or El Duderino, if you're not into the whole brevity thing.",1280
+498,"Cipher Commander",Kerri,1512842,8916,,Magma,491,"I'm the dude, so that's what you call me. That or, uh His Dudeness, or uh Duder, or El Duderino, if you're not into the whole brevity thing.",1399
+491,"Magma Admin",Jacinto,1378818,10629,,Magma,498,You are entering a world of pain.,1298
+494,"Cipher Hacker",Jack,229096,3755,,Cipher,492,V.I. Lenin. Vladimir! Ilyich! Ulyanov!,528
+492,"Cipher Hacker",Tyler,172725,9061,,Cipher,494,Calmer than you are.,605
+497,"Cipher Hacker",Signe,113141,3990,,Cipher,495,I don't roll on Shabbos!,71
+495,"Cipher Admin",Ivan,978974,10686,,Cipher,497,I don't like your jerk-off name. I don't like your jerk-off face. And I don't like you...jerk-off.,11
