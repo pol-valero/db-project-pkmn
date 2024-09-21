@@ -17,6 +17,4 @@ RELATIONAL MODEL
 
 [Gemma Yebra] (https://github.com/gemma33y)
 
-[Alex Liu] (https://github.com/Alello23)
-
 [Marcos Ruiz] (https://github.com/marcos0208)
